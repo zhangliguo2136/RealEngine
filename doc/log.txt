@@ -1,0 +1,16 @@
+realEngine 开发日志
+
+	1.搭建开发环境
+	使用visualstudio 2017开发 
+		
+	仿照coco2dx 搭建主循环
+	编写内存逻辑模型
+	使用opengl 编写渲染模块
+	编写跨平台
+	（可选）lua脚本接入 
+	（可选）原生lua 接入
+	（可选）python 脚本接入
+
+
+lua 语言解析
+	
