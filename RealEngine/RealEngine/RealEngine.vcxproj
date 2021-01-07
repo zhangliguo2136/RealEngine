@@ -126,13 +126,14 @@
     <ClCompile Include="BaseApplication.cpp" />
     <ClCompile Include="GraphicsManager.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Win32Application.cpp" />
+    <ClCompile Include="WindowsApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h" />
     <ClInclude Include="GraphicsManager.h" />
     <ClInclude Include="IApplication.h" />
     <ClInclude Include="IRuntimeModule.h" />
+    <ClInclude Include="WindowsApplication.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

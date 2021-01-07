@@ -1,10 +1,10 @@
 
 #include "BaseApplication.h"
 
+bool RealEngine::BaseApplication::m_bQuit = false;
+
 int RealEngine::BaseApplication::Initialize()
 {
-	m_bQuit = true;
-
 	return 0;
 }
 void RealEngine::BaseApplication::Finalize()

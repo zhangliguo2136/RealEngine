@@ -36,11 +36,11 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件\Framework\Common</Filter>
     </ClCompile>
-    <ClCompile Include="Win32Application.cpp">
-      <Filter>源文件\platform\win32</Filter>
-    </ClCompile>
     <ClCompile Include="GraphicsManager.cpp">
       <Filter>源文件\Framework\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowsApplication.cpp">
+      <Filter>源文件\platform\win32</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -55,6 +55,9 @@
     </ClInclude>
     <ClInclude Include="GraphicsManager.h">
       <Filter>源文件\Framework\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsApplication.h">
+      <Filter>源文件\platform\win32</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
