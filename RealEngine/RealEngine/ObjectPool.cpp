@@ -1,9 +1,10 @@
 #include "ObjectPool.h"
 
 template<class Object>
-RealEngine::ObjectPool<Object>::ObjectPool(size_t size)
+RealEngine::ObjectPool<Object>::ObjectPool(size_t size, std::string className)
 {
 	_nSize = size;
+	_sClassName = className;
 
 	for (size_t n = 0; n < _nSize; n++)
 	{
