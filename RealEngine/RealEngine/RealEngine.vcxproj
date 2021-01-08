@@ -127,7 +127,6 @@
     <ClCompile Include="GraphicsManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ObjectPool.cpp" />
-    <ClCompile Include="PoolManager.cpp" />
     <ClCompile Include="WindowsApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -136,7 +135,6 @@
     <ClInclude Include="IApplication.h" />
     <ClInclude Include="IRuntimeModule.h" />
     <ClInclude Include="ObjectPool.h" />
-    <ClInclude Include="PoolManager.h" />
     <ClInclude Include="WindowsApplication.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
