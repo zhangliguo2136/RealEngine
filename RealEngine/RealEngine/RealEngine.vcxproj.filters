@@ -45,6 +45,9 @@
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Allocator.cpp">
+      <Filter>源文件\Framework\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -63,6 +66,9 @@
       <Filter>源文件\platform\win32</Filter>
     </ClInclude>
     <ClInclude Include="ObjectPool.h">
+      <Filter>源文件\Framework\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Allocator.h">
       <Filter>源文件\Framework\Common</Filter>
     </ClInclude>
   </ItemGroup>
