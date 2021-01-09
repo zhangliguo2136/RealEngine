@@ -127,6 +127,7 @@
     <ClCompile Include="BaseApplication.cpp" />
     <ClCompile Include="GraphicsManager.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="ObjectPool.cpp" />
     <ClCompile Include="WindowsApplication.cpp" />
   </ItemGroup>
@@ -136,6 +137,7 @@
     <ClInclude Include="GraphicsManager.h" />
     <ClInclude Include="IApplication.h" />
     <ClInclude Include="IRuntimeModule.h" />
+    <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="WindowsApplication.h" />
   </ItemGroup>

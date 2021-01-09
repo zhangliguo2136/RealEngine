@@ -26,8 +26,11 @@ namespace RealEngine
 	{
 	public:
 		Allocator(size_t data_size, size_t page_size, size_t alignment);
+		Allocator() {};
 		~Allocator();
 
+		void Reset(size_t data_size, size_t page_size, size_t alignment);
+		void Clear();
 
 		void* Allocate();
 		void Free(void* p);
@@ -56,7 +59,7 @@ namespace RealEngine
 		// ¿ÕÏÐµÄ¿éÊý
 		uint32_t m_nFreeBlocks;
 
-		Allocator(const Allocator& clone) = delete;
-		Allocator& operator = (const Allocator &rhs) = delete;
+		Allocator(const Allocator& clone);
+		Allocator& operator = (const Allocator& rhs);
 	};
 }

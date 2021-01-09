@@ -48,6 +48,9 @@
     <ClCompile Include="Allocator.cpp">
       <Filter>源文件\Framework\Common</Filter>
     </ClCompile>
+    <ClCompile Include="MemoryManager.cpp">
+      <Filter>源文件\Framework\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -69,6 +72,9 @@
       <Filter>源文件\Framework\Common</Filter>
     </ClInclude>
     <ClInclude Include="Allocator.h">
+      <Filter>源文件\Framework\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryManager.h">
       <Filter>源文件\Framework\Common</Filter>
     </ClInclude>
   </ItemGroup>

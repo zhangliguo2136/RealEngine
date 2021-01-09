@@ -1,7 +1,19 @@
 #include "Allocator.h"
 
 RealEngine::Allocator::Allocator(size_t data_size, size_t page_size, size_t alignment)
+	:m_pFreeList(nullptr),m_pPageList(nullptr)
 {
+	Reset(data_size, page_size, alignment);
+}
+RealEngine::Allocator::~Allocator()
+{
+	Clear();
+}
+
+void RealEngine::Allocator::Reset(size_t data_size, size_t page_size, size_t alignment)
+{
+	Clear();
+
 	m_szDataSize = data_size;
 	m_szPageSize = page_size;
 
@@ -9,7 +21,7 @@ RealEngine::Allocator::Allocator(size_t data_size, size_t page_size, size_t alig
 	size_t minimal_size = (sizeof(BlockHeader) > m_szDataSize) ? sizeof(BlockHeader) : m_szDataSize;
 
 	//获得满足对齐要求的数据块最小尺寸
-	m_szBlockSize =(minimal_size + alignment - 1)& ~(alignment - 1);
+	m_szBlockSize = (minimal_size + alignment - 1)& ~(alignment - 1);
 
 	// 块对齐所浪费的大小
 	m_szAlignmentSize = m_szBlockSize - minimal_size;
@@ -17,10 +29,10 @@ RealEngine::Allocator::Allocator(size_t data_size, size_t page_size, size_t alig
 	m_nBlockPerPage = (m_szPageSize - sizeof(PageHeader)) / m_szBlockSize;
 }
 
-RealEngine::Allocator::~Allocator()
+void RealEngine::Allocator::Clear()
 {
 	PageHeader* pPage = m_pPageList;
-	while (pPage) 
+	while (pPage)
 	{
 		PageHeader* _p = pPage;
 		pPage = pPage->pNext;
@@ -56,7 +68,7 @@ void* RealEngine::Allocator::Allocate()
 
 		// 将页按块大小分开
 		BlockHeader* pBlock = pNewPage->Blocks();
-		for (uint32_t i = 0; i < m_nBlockPerPage; i++) 
+		for (uint32_t i = 0; i < m_nBlockPerPage - 1; i++) 
 		{
 			pBlock->pNext = NextBlock(pBlock);
 			pBlock = NextBlock(pBlock);
