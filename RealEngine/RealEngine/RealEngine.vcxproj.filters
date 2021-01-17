@@ -28,6 +28,15 @@
     <Filter Include="源文件\platform\win32">
       <UniqueIdentifier>{ac3a7ff9-2c21-4e6c-85dc-60d41690213c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\gc">
+      <UniqueIdentifier>{7df33ba7-e705-4c0e-9502-7e62e6ecc7b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\gc\ReferenceCount">
+      <UniqueIdentifier>{6779709c-c0f5-41cb-876d-be8d04814300}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\gc\MarkAndClear">
+      <UniqueIdentifier>{eca2fe95-cd2b-4dce-8d85-66acc3701c94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
@@ -50,6 +59,12 @@
     </ClCompile>
     <ClCompile Include="MemoryManager.cpp">
       <Filter>源文件\Framework\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="Ref.cpp">
+      <Filter>源文件\Framework\gc\ReferenceCount</Filter>
+    </ClCompile>
+    <ClCompile Include="AutoreleasePool.cpp">
+      <Filter>源文件\Framework\gc\ReferenceCount</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,6 +91,12 @@
     </ClInclude>
     <ClInclude Include="MemoryManager.h">
       <Filter>源文件\Framework\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Ref.h">
+      <Filter>源文件\Framework\gc\ReferenceCount</Filter>
+    </ClInclude>
+    <ClInclude Include="AutoreleasePool.h">
+      <Filter>源文件\Framework\gc\ReferenceCount</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
