@@ -69,7 +69,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>$(SolutionDir)include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -79,6 +81,8 @@
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -126,10 +130,12 @@
     <ClCompile Include="Allocator.cpp" />
     <ClCompile Include="AutoreleasePool.cpp" />
     <ClCompile Include="BaseApplication.cpp" />
+    <ClCompile Include="glad.c" />
     <ClCompile Include="GraphicsManager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="ObjectPool.cpp" />
+    <ClCompile Include="OpenglManager.cpp" />
     <ClCompile Include="Ref.cpp" />
     <ClCompile Include="WindowsApplication.cpp" />
   </ItemGroup>
@@ -142,6 +148,7 @@
     <ClInclude Include="IRuntimeModule.h" />
     <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="ObjectPool.h" />
+    <ClInclude Include="OpenglManager.h" />
     <ClInclude Include="Ref.h" />
     <ClInclude Include="WindowsApplication.h" />
   </ItemGroup>

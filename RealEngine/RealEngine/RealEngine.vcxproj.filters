@@ -37,12 +37,18 @@
     <Filter Include="源文件\Framework\gc\MarkAndClear">
       <UniqueIdentifier>{eca2fe95-cd2b-4dce-8d85-66acc3701c94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\glad">
+      <UniqueIdentifier>{becd1b41-af2e-4fd8-ac6a-d1e5b44aab22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\test">
+      <UniqueIdentifier>{0593322d-b410-4e4e-a0e5-a6d977d61271}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\graphics">
+      <UniqueIdentifier>{5d794eb4-0ed2-4a19-a2c8-1c51c7778a69}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
-      <Filter>源文件\Framework\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="GraphicsManager.cpp">
       <Filter>源文件\Framework\Common</Filter>
     </ClCompile>
     <ClCompile Include="WindowsApplication.cpp">
@@ -66,6 +72,15 @@
     <ClCompile Include="AutoreleasePool.cpp">
       <Filter>源文件\Framework\gc\ReferenceCount</Filter>
     </ClCompile>
+    <ClCompile Include="glad.c">
+      <Filter>源文件\glad</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicsManager.cpp">
+      <Filter>源文件\Framework\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenglManager.cpp">
+      <Filter>源文件\Framework\graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -76,9 +91,6 @@
     </ClInclude>
     <ClInclude Include="IApplication.h">
       <Filter>源文件\Framework\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="GraphicsManager.h">
-      <Filter>源文件\Framework\Common</Filter>
     </ClInclude>
     <ClInclude Include="WindowsApplication.h">
       <Filter>源文件\platform\win32</Filter>
@@ -97,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="AutoreleasePool.h">
       <Filter>源文件\Framework\gc\ReferenceCount</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsManager.h">
+      <Filter>源文件\Framework\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenglManager.h">
+      <Filter>源文件\Framework\graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
