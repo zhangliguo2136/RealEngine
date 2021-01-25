@@ -4,7 +4,7 @@ using namespace RealEngine;
 
 namespace RealEngine 
 {
-	BaseApplication g_App;
+	WindowsApplication g_App;
 	IApplication* g_pApp = &g_App;
 }
 
