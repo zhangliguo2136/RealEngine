@@ -78,8 +78,8 @@
     <ClCompile Include="GraphicsManager.cpp">
       <Filter>源文件\Framework\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="OpenglManager.cpp">
-      <Filter>源文件\Framework\graphics</Filter>
+    <ClCompile Include="OpenglApplication.cpp">
+      <Filter>源文件\platform</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -113,8 +113,8 @@
     <ClInclude Include="GraphicsManager.h">
       <Filter>源文件\Framework\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="OpenglManager.h">
-      <Filter>源文件\Framework\graphics</Filter>
+    <ClInclude Include="OpenglApplication.h">
+      <Filter>源文件\platform</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

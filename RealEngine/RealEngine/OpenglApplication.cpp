@@ -1,7 +1,38 @@
-#include "OpenglManager.h"
+#include "OpenglApplication.h"
 #include <iostream>
 
-int RealEngine::OpenglManager::createWindow(int width, int height, const char* winName)
+using namespace RealEngine;
+
+namespace RealEngine
+{
+	OpenglApplication g_App;
+	IApplication* g_pApp = &g_App;
+}
+
+int RealEngine::OpenglApplication::Initialize() 
+{
+	int result = BaseApplication::Initialize();
+
+	if (result != 0)
+	{
+		printf("WindowApplication:Initialize faild, will be exit.");
+		exit(result);
+	}
+
+	createWindow(800, 600, "RealEngine::OpenglApplication");
+
+	return result;
+}
+void RealEngine::OpenglApplication::Finalize() 
+{
+	BaseApplication::Finalize();
+}
+void RealEngine::OpenglApplication::Tick() 
+{
+	BaseApplication::Tick();
+}
+
+int RealEngine::OpenglApplication::createWindow(int width, int height, const char* winName)
 {
 	width = width;
 	height = height;
@@ -28,12 +59,12 @@ int RealEngine::OpenglManager::createWindow(int width, int height, const char* w
 	glfwSetScrollCallback(pWindows, onScrollCallback);
 	glfwSetWindowCloseCallback(pWindows, onCloseCallback);
 }
-void RealEngine::OpenglManager::onFrameBufferSizeCallback(GLFWwindow* window, int width, int height)
+void RealEngine::OpenglApplication::onFrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 {
 	glViewport(0, 0, width, height);
 }
 
-void RealEngine::OpenglManager::onKeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
+void RealEngine::OpenglApplication::onKeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	printf("onKeyboardInput: key is %d, action is %d", key, action);
 	switch (action)
@@ -54,7 +85,7 @@ void RealEngine::OpenglManager::onKeyboardCallback(GLFWwindow* window, int key, 
 	}
 }
 
-void RealEngine::OpenglManager::onMouseCallback(GLFWwindow* window, int button, int action, int mods) 
+void RealEngine::OpenglApplication::onMouseCallback(GLFWwindow* window, int button, int action, int mods) 
 {
 	switch (button) 
 	{
@@ -68,18 +99,18 @@ void RealEngine::OpenglManager::onMouseCallback(GLFWwindow* window, int button, 
 }
 
 // 指针位置回调
-void RealEngine::OpenglManager::onCursorCallback(GLFWwindow* window, double x, double y) 
+void RealEngine::OpenglApplication::onCursorCallback(GLFWwindow* window, double x, double y) 
 {
 	return;
 }
 //滚轮回调
-void RealEngine::OpenglManager::onScrollCallback(GLFWwindow* window, double x, double y) 
+void RealEngine::OpenglApplication::onScrollCallback(GLFWwindow* window, double x, double y) 
 {
 	return;
 }
 
 // 窗口关闭的回调
-void RealEngine::OpenglManager::onCloseCallback(GLFWwindow* window) 
+void RealEngine::OpenglApplication::onCloseCallback(GLFWwindow* window) 
 {
 	glfwSetWindowShouldClose(window, GL_TRUE);
 }

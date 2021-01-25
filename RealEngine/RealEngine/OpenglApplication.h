@@ -1,21 +1,21 @@
 #pragma once
-#include "IRuntimeModule.h"
+#include "BaseApplication.h"
 
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
 
 namespace RealEngine 
 {
-	class OpenglManager :public IRuntimeModule
+	class OpenglApplication :public BaseApplication
 	{
 	public:
-		virtual int Initialize() {};
-		virtual void Finalize() {};
-		virtual void Tick() {};
+		virtual int Initialize();
+		virtual void Finalize();
+		virtual void Tick();
 
-		static OpenglManager& getInstance()
+		static OpenglApplication& getInstance()
 		{
-			static OpenglManager s_sInstance;
+			static OpenglApplication s_sInstance;
 			return s_sInstance;
 		}
 

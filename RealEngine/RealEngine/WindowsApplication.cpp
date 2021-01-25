@@ -2,11 +2,11 @@
 #include <tchar.h>
 using namespace RealEngine;
 
-namespace RealEngine 
-{
-	WindowsApplication g_App;
-	IApplication* g_pApp = &g_App;
-}
+//namespace RealEngine 
+//{
+//	WindowsApplication g_App;
+//	IApplication* g_pApp = &g_App;
+//}
 
 int RealEngine::WindowsApplication::Initialize()
 {
