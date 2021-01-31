@@ -81,6 +81,9 @@
     <ClCompile Include="OpenglApplication.cpp">
       <Filter>源文件\platform</Filter>
     </ClCompile>
+    <ClCompile Include="ThreadPool.cpp">
+      <Filter>源文件\Framework\Common</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="OpenglApplication.h">
       <Filter>源文件\platform</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadPool.h">
+      <Filter>源文件\Framework\Common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
