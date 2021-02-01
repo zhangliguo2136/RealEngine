@@ -1,5 +1,6 @@
 #include "OpenglApplication.h"
 #include <iostream>
+#include "Logger.h"
 
 using namespace RealEngine;
 
@@ -30,6 +31,9 @@ void RealEngine::OpenglApplication::Finalize()
 void RealEngine::OpenglApplication::Tick() 
 {
 	BaseApplication::Tick();
+
+	glfwSwapBuffers(pWindows);
+	glfwPollEvents();
 }
 
 int RealEngine::OpenglApplication::createWindow(int width, int height, const char* winName)
@@ -61,12 +65,13 @@ int RealEngine::OpenglApplication::createWindow(int width, int height, const cha
 }
 void RealEngine::OpenglApplication::onFrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 {
-	glViewport(0, 0, width, height);
+	//glViewport(0, 0, width, height);
 }
 
 void RealEngine::OpenglApplication::onKeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-	printf("onKeyboardInput: key is %d, action is %d", key, action);
+	REAL_LOG("onKeyboardInput: key is %d, action is %d\n", key, action);
+
 	switch (action)
 	{
 	case GLFW_PRESS:
@@ -87,6 +92,19 @@ void RealEngine::OpenglApplication::onKeyboardCallback(GLFWwindow* window, int k
 
 void RealEngine::OpenglApplication::onMouseCallback(GLFWwindow* window, int button, int action, int mods) 
 {
+
+	REAL_LOG("onMouseCallback: the button is %d, action is %d\n", button, action);
+
+	switch (action)
+	{
+	case GLFW_PRESS:
+		break;
+	case GLFW_RELEASE:
+		break;
+	case GLFW_REPEAT:
+		break;
+	}
+
 	switch (button) 
 	{
 	case GLFW_MOUSE_BUTTON_LEFT:

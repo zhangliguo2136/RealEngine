@@ -46,6 +46,9 @@
     <Filter Include="源文件\Framework\graphics">
       <UniqueIdentifier>{5d794eb4-0ed2-4a19-a2c8-1c51c7778a69}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\utils">
+      <UniqueIdentifier>{1b5caf20-b444-4aa1-a07a-0388731f8975}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
@@ -84,6 +87,9 @@
     <ClCompile Include="ThreadPool.cpp">
       <Filter>源文件\Framework\Common</Filter>
     </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>源文件\Framework\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -121,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="ThreadPool.h">
       <Filter>源文件\Framework\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>源文件\Framework\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
