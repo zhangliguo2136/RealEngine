@@ -17,12 +17,11 @@ void RealEngine::ThreadPool::start()
 	int coreCount = std::thread::hardware_concurrency();
 	_threads.reserve(coreCount);
 
+	b_started = true;
 	for (int i = 0; i < coreCount; i++) 
 	{
 		_threads.push_back(new std::thread(std::bind(&ThreadPool::onThreadAllocator, this)));
 	}
-
-	b_started = true;
 }
 
 void RealEngine::ThreadPool::stop()
