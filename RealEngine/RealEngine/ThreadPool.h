@@ -4,6 +4,10 @@
 #include <vector>
 #include <queue>
 
+// 线程锁
+#include <mutex>
+#include <condition_variable>
+
 namespace RealEngine
 {
 	class ThreadPool 
@@ -26,5 +30,10 @@ namespace RealEngine
 		std::queue<std::function<void()>> _tasks;
 
 		bool b_started;
+
+		// 互斥锁
+		std::mutex mtx;
+		// 条件变量
+		std::condition_variable cv;
 	};
 }
