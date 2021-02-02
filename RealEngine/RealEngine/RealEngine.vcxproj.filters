@@ -131,5 +131,8 @@
     <ClInclude Include="Logger.h">
       <Filter>源文件\Framework\utils</Filter>
     </ClInclude>
+    <ClInclude Include="RealEngine.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -152,6 +152,7 @@
     <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="OpenglApplication.h" />
+    <ClInclude Include="RealEngine.h" />
     <ClInclude Include="Ref.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="WindowsApplication.h" />

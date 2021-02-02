@@ -130,5 +130,7 @@ void RealEngine::OpenglApplication::onScrollCallback(GLFWwindow* window, double 
 // 窗口关闭的回调
 void RealEngine::OpenglApplication::onCloseCallback(GLFWwindow* window) 
 {
+	REAL_LOG("OpenglApplication::onCloseCallback()----------------------\n");
+
 	glfwSetWindowShouldClose(window, GL_TRUE);
 }

@@ -1,6 +1,6 @@
 #include "ThreadPool.h"
 
-RealEngine::ThreadPool::ThreadPool():b_started(false)
+RealEngine::ThreadPool::ThreadPool() :b_started(false), m_mtx()
 {
 }
 
@@ -26,9 +26,12 @@ void RealEngine::ThreadPool::start()
 
 void RealEngine::ThreadPool::stop()
 {
-	b_started = false;
+	{
+		std::unique_lock<std::mutex> lock(m_mtx);
+		b_started = false; 
+	}
 
-	for (std::vector<std::thread*>::iterator iter = _threads.begin(); iter != _threads.end(); iter++)
+	for (std::vector<std::thread*>::iterator iter = _threads.begin(); iter != _threads.end(); ++iter)
 	{
 		(*iter)->join();
 		delete *iter;
@@ -45,6 +48,8 @@ void RealEngine::ThreadPool::addThreadTask(std::function<void()> func)
 
 std::function<void()> RealEngine::ThreadPool::nextTask()
 {
+	std::unique_lock<std::mutex> lock(m_mtx);
+
 	std::function<void()> _func = nullptr;
 	if (!_tasks.empty() && b_started)
 	{

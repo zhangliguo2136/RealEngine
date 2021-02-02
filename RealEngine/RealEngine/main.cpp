@@ -1,8 +1,6 @@
-#include <stdio.h>
-#include "IApplication.h"
+#include "RealEngine.h"
 
 using namespace RealEngine;
-
 namespace RealEngine 
 {
 	extern IApplication* g_pApp;

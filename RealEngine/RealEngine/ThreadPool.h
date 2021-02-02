@@ -7,6 +7,7 @@
 // 线程锁
 #include <mutex>
 #include <condition_variable>
+#include <utility>
 
 namespace RealEngine
 {
@@ -32,8 +33,8 @@ namespace RealEngine
 		bool b_started;
 
 		// 互斥锁
-		std::mutex mtx;
+		std::mutex m_mtx;
 		// 条件变量
-		std::condition_variable cv;
+		std::condition_variable m_cv;
 	};
 }
