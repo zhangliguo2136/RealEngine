@@ -132,5 +132,5 @@ void RealEngine::OpenglApplication::onCloseCallback(GLFWwindow* window)
 {
 	REAL_LOG("OpenglApplication::onCloseCallback()----------------------\n");
 
-	glfwSetWindowShouldClose(window, GL_TRUE);
+	BaseApplication::m_bQuit = true;
 }
