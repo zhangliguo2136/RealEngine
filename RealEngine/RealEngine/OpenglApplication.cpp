@@ -62,6 +62,8 @@ int RealEngine::OpenglApplication::createWindow(int width, int height, const cha
 	glfwSetMouseButtonCallback(pWindows, onMouseCallback);
 	glfwSetScrollCallback(pWindows, onScrollCallback);
 	glfwSetWindowCloseCallback(pWindows, onCloseCallback);
+
+	return 0;
 }
 void RealEngine::OpenglApplication::onFrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 {
@@ -70,7 +72,7 @@ void RealEngine::OpenglApplication::onFrameBufferSizeCallback(GLFWwindow* window
 
 void RealEngine::OpenglApplication::onKeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-	REAL_LOG("onKeyboardInput: key is %d, action is %d\n", key, action);
+	log("onKeyboardInput: key is %d, action is %d\n", key, action);
 
 	switch (action)
 	{
@@ -93,7 +95,7 @@ void RealEngine::OpenglApplication::onKeyboardCallback(GLFWwindow* window, int k
 void RealEngine::OpenglApplication::onMouseCallback(GLFWwindow* window, int button, int action, int mods) 
 {
 
-	REAL_LOG("onMouseCallback: the button is %d, action is %d\n", button, action);
+	log("onMouseCallback: the button is %d, action is %d\n", button, action);
 
 	switch (action)
 	{
@@ -130,7 +132,7 @@ void RealEngine::OpenglApplication::onScrollCallback(GLFWwindow* window, double 
 // 窗口关闭的回调
 void RealEngine::OpenglApplication::onCloseCallback(GLFWwindow* window) 
 {
-	REAL_LOG("OpenglApplication::onCloseCallback()----------------------\n");
+	log("OpenglApplication::onCloseCallback()----------------------\n");
 
 	BaseApplication::m_bQuit = true;
 }

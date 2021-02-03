@@ -2,9 +2,10 @@
 #include "IRuntimeModule.h"
 
 namespace RealEngine {
-	class GraphicsManager :public IRuntimeModule 
+	class OpenglDriver :public IRuntimeModule 
 	{
 	public:
-		virtual ~GraphicsManager() {}
+		OpenglDriver();
+		~OpenglDriver();
 	};
 }

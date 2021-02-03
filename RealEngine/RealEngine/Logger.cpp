@@ -1,7 +1,7 @@
 #include "Logger.h"
 #include <stdarg.h>
 
-const void RealEngine::REAL_LOG(const char* fmt, ...)
+const void RealEngine::log(const char* fmt, ...)
 {
 	if (ENGINE_DEBUG)
 	{

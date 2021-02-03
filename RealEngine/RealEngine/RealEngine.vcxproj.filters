@@ -78,9 +78,6 @@
     <ClCompile Include="glad.c">
       <Filter>源文件\glad</Filter>
     </ClCompile>
-    <ClCompile Include="GraphicsManager.cpp">
-      <Filter>源文件\Framework\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="OpenglApplication.cpp">
       <Filter>源文件\platform</Filter>
     </ClCompile>
@@ -89,6 +86,9 @@
     </ClCompile>
     <ClCompile Include="Logger.cpp">
       <Filter>源文件\Framework\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenglDriver.cpp">
+      <Filter>源文件\Framework\graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -119,9 +119,6 @@
     <ClInclude Include="AutoreleasePool.h">
       <Filter>源文件\Framework\gc\ReferenceCount</Filter>
     </ClInclude>
-    <ClInclude Include="GraphicsManager.h">
-      <Filter>源文件\Framework\graphics</Filter>
-    </ClInclude>
     <ClInclude Include="OpenglApplication.h">
       <Filter>源文件\platform</Filter>
     </ClInclude>
@@ -133,6 +130,9 @@
     </ClInclude>
     <ClInclude Include="RealEngine.h">
       <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenglDriver.h">
+      <Filter>源文件\Framework\graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
