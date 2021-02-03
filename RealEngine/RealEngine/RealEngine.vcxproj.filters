@@ -40,9 +40,6 @@
     <Filter Include="源文件\glad">
       <UniqueIdentifier>{becd1b41-af2e-4fd8-ac6a-d1e5b44aab22}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\test">
-      <UniqueIdentifier>{0593322d-b410-4e4e-a0e5-a6d977d61271}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\Framework\graphics">
       <UniqueIdentifier>{5d794eb4-0ed2-4a19-a2c8-1c51c7778a69}</UniqueIdentifier>
     </Filter>

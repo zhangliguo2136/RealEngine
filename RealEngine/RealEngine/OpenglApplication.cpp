@@ -1,4 +1,6 @@
 #include "OpenglApplication.h"
+#include "OpenglDriver.h"
+
 #include <iostream>
 #include "Logger.h"
 
