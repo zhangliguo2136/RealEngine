@@ -57,9 +57,6 @@
     <ClCompile Include="ObjectPool.cpp">
       <Filter>源文件\Framework\Common</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="Allocator.cpp">
       <Filter>源文件\Framework\Common</Filter>
     </ClCompile>
@@ -86,6 +83,9 @@
     </ClCompile>
     <ClCompile Include="OpenglDriver.cpp">
       <Filter>源文件\Framework\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件\Framework</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

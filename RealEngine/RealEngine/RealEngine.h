@@ -8,9 +8,7 @@
 ThreadPool ≤‚ ‘
 */
 #include "ThreadPool.h"
-
 using namespace RealEngine;
-
 void threadPoolTest1() { printf("threadPoolTest: out num is %d\n", 1); }
 void threadPoolTest2() { printf("threadPoolTest: out num is %d\n", 2); }
 void threadPoolTest3() { printf("threadPoolTest: out num is %d\n", 3); }
