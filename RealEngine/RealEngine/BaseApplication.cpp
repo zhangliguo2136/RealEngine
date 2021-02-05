@@ -1,5 +1,6 @@
 
 #include "BaseApplication.h"
+#include "SceneManager.h"
 
 bool RealEngine::BaseApplication::m_bQuit = false;
 
@@ -13,7 +14,7 @@ void RealEngine::BaseApplication::Finalize()
 }
 void RealEngine::BaseApplication::Tick()
 {
-
+	
 }
 bool RealEngine::BaseApplication::IsQuit()
 {

@@ -130,6 +130,7 @@
     <ClCompile Include="Allocator.cpp" />
     <ClCompile Include="AutoreleasePool.cpp" />
     <ClCompile Include="BaseApplication.cpp" />
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="OpenglDriver.cpp" />
     <ClCompile Include="Logger.cpp" />
@@ -138,6 +139,7 @@
     <ClCompile Include="ObjectPool.cpp" />
     <ClCompile Include="OpenglApplication.cpp" />
     <ClCompile Include="Ref.cpp" />
+    <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="WindowsApplication.cpp" />
   </ItemGroup>
@@ -145,6 +147,8 @@
     <ClInclude Include="Allocator.h" />
     <ClInclude Include="AutoreleasePool.h" />
     <ClInclude Include="BaseApplication.h" />
+    <ClInclude Include="Camera.h" />
+    <ClInclude Include="ISceneObject.h" />
     <ClInclude Include="OpenglDriver.h" />
     <ClInclude Include="IApplication.h" />
     <ClInclude Include="IRuntimeModule.h" />
@@ -154,6 +158,7 @@
     <ClInclude Include="OpenglApplication.h" />
     <ClInclude Include="RealEngine.h" />
     <ClInclude Include="Ref.h" />
+    <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="WindowsApplication.h" />
   </ItemGroup>

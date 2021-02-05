@@ -46,6 +46,9 @@
     <Filter Include="源文件\Framework\gc\MarkAndClear">
       <UniqueIdentifier>{eca2fe95-cd2b-4dce-8d85-66acc3701c94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\scene">
+      <UniqueIdentifier>{52814657-bc4d-4045-811c-dc2a559b74c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
@@ -86,6 +89,12 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件\Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>源文件\Framework\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -130,6 +139,15 @@
     </ClInclude>
     <ClInclude Include="OpenglDriver.h">
       <Filter>源文件\Framework\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ISceneObject.h">
+      <Filter>源文件\Framework\Interface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
