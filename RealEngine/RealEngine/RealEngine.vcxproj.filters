@@ -28,15 +28,6 @@
     <Filter Include="源文件\platform\win32">
       <UniqueIdentifier>{ac3a7ff9-2c21-4e6c-85dc-60d41690213c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\Framework\gc">
-      <UniqueIdentifier>{7df33ba7-e705-4c0e-9502-7e62e6ecc7b4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Framework\gc\ReferenceCount">
-      <UniqueIdentifier>{6779709c-c0f5-41cb-876d-be8d04814300}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Framework\gc\MarkAndClear">
-      <UniqueIdentifier>{eca2fe95-cd2b-4dce-8d85-66acc3701c94}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\glad">
       <UniqueIdentifier>{becd1b41-af2e-4fd8-ac6a-d1e5b44aab22}</UniqueIdentifier>
     </Filter>
@@ -45,6 +36,15 @@
     </Filter>
     <Filter Include="源文件\Framework\utils">
       <UniqueIdentifier>{1b5caf20-b444-4aa1-a07a-0388731f8975}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\gc">
+      <UniqueIdentifier>{7df33ba7-e705-4c0e-9502-7e62e6ecc7b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\gc\ReferenceCount">
+      <UniqueIdentifier>{6779709c-c0f5-41cb-876d-be8d04814300}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\gc\MarkAndClear">
+      <UniqueIdentifier>{eca2fe95-cd2b-4dce-8d85-66acc3701c94}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>

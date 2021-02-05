@@ -11,6 +11,12 @@ namespace RealEngine {
 		virtual int Initialize() { return 0; };
 		virtual void Finalize() {};
 		virtual void Tick() {};
+
+		static OpenglDriver& getInstance()
+		{
+			static OpenglDriver driver;
+			return driver;
+		}
 	public:
 		OpenglDriver();
 		~OpenglDriver();

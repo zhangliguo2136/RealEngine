@@ -58,6 +58,12 @@ int RealEngine::OpenglApplication::createWindow(int width, int height, const cha
 	}
 	glfwMakeContextCurrent(pWindows);
 
+	if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+	{
+		std::cout << "Failed to initialize GLAD" << std::endl;
+		return -1;
+	}
+
 	glfwSetFramebufferSizeCallback(pWindows, onFrameBufferSizeCallback);
 	glfwSetKeyCallback(pWindows, onKeyboardCallback);
 	glfwSetCursorPosCallback(pWindows, onCursorCallback);
