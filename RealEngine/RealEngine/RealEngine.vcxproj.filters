@@ -152,14 +152,5 @@
     <ClInclude Include="ISceneObject.h">
       <Filter>源文件\Framework\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="IComponent.h">
-      <Filter>源文件\Framework\ecs</Filter>
-    </ClInclude>
-    <ClInclude Include="ISystem.h">
-      <Filter>源文件\Framework\ecs</Filter>
-    </ClInclude>
-    <ClInclude Include="IEntity.h">
-      <Filter>源文件\Framework\ecs</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

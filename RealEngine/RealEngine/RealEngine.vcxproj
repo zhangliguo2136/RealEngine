@@ -148,10 +148,7 @@
     <ClInclude Include="AutoreleasePool.h" />
     <ClInclude Include="BaseApplication.h" />
     <ClInclude Include="Camera.h" />
-    <ClInclude Include="IComponent.h" />
-    <ClInclude Include="IEntity.h" />
     <ClInclude Include="ISceneObject.h" />
-    <ClInclude Include="ISystem.h" />
     <ClInclude Include="OpenglDriver.h" />
     <ClInclude Include="IApplication.h" />
     <ClInclude Include="IRuntimeModule.h" />
