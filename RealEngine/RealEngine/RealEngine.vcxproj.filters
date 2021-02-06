@@ -49,6 +49,9 @@
     <Filter Include="源文件\Framework\scene">
       <UniqueIdentifier>{52814657-bc4d-4045-811c-dc2a559b74c0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\ecs">
+      <UniqueIdentifier>{2d9adc0a-35a3-44b5-acab-9493bee5a7d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
@@ -148,6 +151,15 @@
     </ClInclude>
     <ClInclude Include="ISceneObject.h">
       <Filter>源文件\Framework\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="IComponent.h">
+      <Filter>源文件\Framework\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="ISystem.h">
+      <Filter>源文件\Framework\ecs</Filter>
+    </ClInclude>
+    <ClInclude Include="IEntity.h">
+      <Filter>源文件\Framework\ecs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
