@@ -99,6 +99,9 @@
     <ClCompile Include="Camera.cpp">
       <Filter>源文件\Framework\scene</Filter>
     </ClCompile>
+    <ClCompile Include="FileUtil.cpp">
+      <Filter>源文件\Framework\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -151,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="ISceneObject.h">
       <Filter>源文件\Framework\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="FileUtil.h">
+      <Filter>源文件\Framework\utils</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

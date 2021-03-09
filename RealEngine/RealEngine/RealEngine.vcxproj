@@ -131,6 +131,7 @@
     <ClCompile Include="AutoreleasePool.cpp" />
     <ClCompile Include="BaseApplication.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="FileUtil.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="OpenglDriver.cpp" />
     <ClCompile Include="Logger.cpp" />
@@ -148,6 +149,7 @@
     <ClInclude Include="AutoreleasePool.h" />
     <ClInclude Include="BaseApplication.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="FileUtil.h" />
     <ClInclude Include="ISceneObject.h" />
     <ClInclude Include="OpenglDriver.h" />
     <ClInclude Include="IApplication.h" />
