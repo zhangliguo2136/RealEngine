@@ -52,6 +52,9 @@
     <Filter Include="源文件\Framework\ecs">
       <UniqueIdentifier>{2d9adc0a-35a3-44b5-acab-9493bee5a7d0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\graphics\Shaders">
+      <UniqueIdentifier>{112f5170-200d-473f-8ea3-917c0b1e8576}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
@@ -101,6 +104,12 @@
     </ClCompile>
     <ClCompile Include="FileUtil.cpp">
       <Filter>源文件\Framework\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderLoader.cpp">
+      <Filter>源文件\Framework\graphics\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>源文件\Framework\graphics\Shaders</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +166,18 @@
     </ClInclude>
     <ClInclude Include="FileUtil.h">
       <Filter>源文件\Framework\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderLoader.h">
+      <Filter>源文件\Framework\graphics\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>源文件\Framework\graphics\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="NonCopyable.h">
+      <Filter>源文件\Framework\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="NonMovable.h">
+      <Filter>源文件\Framework\Interface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

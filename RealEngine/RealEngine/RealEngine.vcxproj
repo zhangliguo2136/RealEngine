@@ -141,6 +141,8 @@
     <ClCompile Include="OpenglApplication.cpp" />
     <ClCompile Include="Ref.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="WindowsApplication.cpp" />
   </ItemGroup>
@@ -151,6 +153,8 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="FileUtil.h" />
     <ClInclude Include="ISceneObject.h" />
+    <ClInclude Include="NonCopyable.h" />
+    <ClInclude Include="NonMovable.h" />
     <ClInclude Include="OpenglDriver.h" />
     <ClInclude Include="IApplication.h" />
     <ClInclude Include="IRuntimeModule.h" />
@@ -161,6 +165,8 @@
     <ClInclude Include="RealEngine.h" />
     <ClInclude Include="Ref.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="WindowsApplication.h" />
   </ItemGroup>
