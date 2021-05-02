@@ -111,6 +111,9 @@
     <ClCompile Include="Shader.cpp">
       <Filter>源文件\Framework\graphics\Shaders</Filter>
     </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -178,6 +181,18 @@
     </ClInclude>
     <ClInclude Include="NonMovable.h">
       <Filter>源文件\Framework\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>源文件\Framework\Common</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
