@@ -133,6 +133,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="FileUtil.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="Image.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="OpenglDriver.cpp" />
     <ClCompile Include="Logger.cpp" />
