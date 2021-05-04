@@ -34,6 +34,9 @@ void RealEngine::OpenglApplication::Tick()
 {
 	BaseApplication::Tick();
 
+	OpenglDriver& driver = OpenglDriver::getInstance();
+	driver.loadShaderTest();
+
 	glfwSwapBuffers(pWindows);
 	glfwPollEvents();
 }

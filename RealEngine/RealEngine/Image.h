@@ -4,11 +4,14 @@
 class Image 
 {
 public:
-	void loadFromFile(std::string filename);
+	Image();
+	~Image();
 
+	void loadFromFile(std::string filename);
 private:
 	int height;
 	int width;
+	int nrChannel;
 
-	char* m_pData;
+	unsigned char* m_pData;
 };

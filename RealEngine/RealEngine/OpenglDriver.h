@@ -23,5 +23,7 @@ namespace RealEngine {
 
 		// »æÖÆÈý½ÇÐÎ
 		void drawTriangle();
+
+		void loadShaderTest();
 	};
 }

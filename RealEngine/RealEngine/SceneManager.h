@@ -21,8 +21,9 @@ namespace RealEngine
 		SceneManager& operator = (const SceneManager&) = delete;
 
 	public:
-		void render();
+		void Tick();
 
+		void render();
 		void addSceneObject(ISceneObject* object);
 
 	private:

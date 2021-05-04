@@ -14,7 +14,8 @@ void RealEngine::BaseApplication::Finalize()
 }
 void RealEngine::BaseApplication::Tick()
 {
-	
+	SceneManager& pManager = SceneManager::getInstance();
+	pManager.Tick();
 }
 bool RealEngine::BaseApplication::IsQuit()
 {

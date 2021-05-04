@@ -42,7 +42,10 @@ GLuint loadShaders(const std::string &vertexShader,
 	const std::string &fragmentShader)
 {
 	std::string vertexSource = getFileContents(vertexShader);
+	printf("%s", vertexSource.c_str());
+
 	std::string fragmentSource = getFileContents(fragmentShader);
+	printf("%s", fragmentSource.c_str());
 
 	GLuint vertexShaderID = compileShader(vertexSource.c_str(), GL_VERTEX_SHADER);
 	GLuint fragmentShaderID = compileShader(fragmentSource.c_str(), GL_FRAGMENT_SHADER);
