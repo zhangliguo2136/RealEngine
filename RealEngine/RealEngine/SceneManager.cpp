@@ -25,6 +25,7 @@ void RealEngine::SceneManager::addSceneObject(ISceneObject* object)
 
 void RealEngine::SceneManager::Tick() 
 {
-	Image image;
-	image.loadFromFile("../Resource/image/test1.png");
+	//Image* image = new Image("../Resource/image/test1.png");
+
+	Image image("../Resource/image/test1.png");
 }
