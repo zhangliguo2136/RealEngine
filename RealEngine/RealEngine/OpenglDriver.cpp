@@ -38,7 +38,7 @@ void RealEngine::OpenglDriver::drawTriangle()
 
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	Shader shader("../shader/common.vert", "../shader/common.frag");
+	Shader shader("../Resource/shader/common.vert", "../Resource/shader/common.frag");
 
 	glBindVertexArray(vao);
 	glDrawArrays(GL_TRIANGLES, 0, 3);
