@@ -52,4 +52,7 @@ protected:
 	bool m_bVisible = true;
 	bool m_bShadow = false;
 	bool m_bMotionBlur = false;
+
+	void addIndexArray(IndexArray &&array);
+	void addVertexArray(VertexArray &&array);
 };
