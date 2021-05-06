@@ -135,6 +135,12 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="ODDLMap.cpp" />
+    <ClCompile Include="ODDLString.cpp" />
+    <ClCompile Include="ODDLTree.cpp" />
+    <ClCompile Include="OpexParser.cpp" />
+    <ClCompile Include="OpenDDL.cpp" />
+    <ClCompile Include="OpenGEX.cpp" />
     <ClCompile Include="OpenglDriver.cpp" />
     <ClCompile Include="Logger.cpp" />
     <ClCompile Include="main.cpp" />
@@ -152,6 +158,8 @@
     <ClInclude Include="Allocator.h" />
     <ClInclude Include="AutoreleasePool.h" />
     <ClInclude Include="BaseApplication.h" />
+    <ClInclude Include="BaseSceneNode.h" />
+    <ClInclude Include="BaseSceneObject.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="FileUtil.h" />
     <ClInclude Include="Image.h" />
@@ -161,6 +169,14 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="NonCopyable.h" />
     <ClInclude Include="NonMovable.h" />
+    <ClInclude Include="ODDLArray.h" />
+    <ClInclude Include="ODDLMap.h" />
+    <ClInclude Include="ODDLString.h" />
+    <ClInclude Include="ODDLTree.h" />
+    <ClInclude Include="ODDLTypes.h" />
+    <ClInclude Include="OgexParser.h" />
+    <ClInclude Include="OpenDDL.h" />
+    <ClInclude Include="OpenGEX.h" />
     <ClInclude Include="OpenglDriver.h" />
     <ClInclude Include="IApplication.h" />
     <ClInclude Include="IRuntimeModule.h" />
@@ -171,6 +187,7 @@
     <ClInclude Include="RealEngine.h" />
     <ClInclude Include="Ref.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SceneParser.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="ThreadPool.h" />

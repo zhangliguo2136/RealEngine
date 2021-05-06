@@ -28,9 +28,6 @@
     <Filter Include="源文件\platform\win32">
       <UniqueIdentifier>{ac3a7ff9-2c21-4e6c-85dc-60d41690213c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\glad">
-      <UniqueIdentifier>{becd1b41-af2e-4fd8-ac6a-d1e5b44aab22}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\Framework\graphics">
       <UniqueIdentifier>{5d794eb4-0ed2-4a19-a2c8-1c51c7778a69}</UniqueIdentifier>
     </Filter>
@@ -54,6 +51,18 @@
     </Filter>
     <Filter Include="源文件\Framework\graphics\Shaders">
       <UniqueIdentifier>{112f5170-200d-473f-8ea3-917c0b1e8576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Enternal">
+      <UniqueIdentifier>{434ec3b3-d277-475a-ba72-b6de419cb549}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Enternal\OpenGEX">
+      <UniqueIdentifier>{fd83db12-fc22-47b4-9d1b-d5552696835e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Enternal\glad">
+      <UniqueIdentifier>{becd1b41-af2e-4fd8-ac6a-d1e5b44aab22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Enternal\OpenDDL">
+      <UniqueIdentifier>{51ac3dbf-925e-47a7-94b3-98c20dc3a6a0}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -79,7 +88,7 @@
       <Filter>源文件\Framework\gc\ReferenceCount</Filter>
     </ClCompile>
     <ClCompile Include="glad.c">
-      <Filter>源文件\glad</Filter>
+      <Filter>源文件\Enternal\glad</Filter>
     </ClCompile>
     <ClCompile Include="OpenglApplication.cpp">
       <Filter>源文件\platform</Filter>
@@ -115,6 +124,24 @@
       <Filter>源文件\Framework\scene</Filter>
     </ClCompile>
     <ClCompile Include="Image.cpp">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGEX.cpp">
+      <Filter>源文件\Enternal\OpenGEX</Filter>
+    </ClCompile>
+    <ClCompile Include="ODDLMap.cpp">
+      <Filter>源文件\Enternal\OpenDDL</Filter>
+    </ClCompile>
+    <ClCompile Include="ODDLString.cpp">
+      <Filter>源文件\Enternal\OpenDDL</Filter>
+    </ClCompile>
+    <ClCompile Include="ODDLTree.cpp">
+      <Filter>源文件\Enternal\OpenDDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenDDL.cpp">
+      <Filter>源文件\Enternal\OpenDDL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpexParser.cpp">
       <Filter>源文件\Framework\scene</Filter>
     </ClCompile>
   </ItemGroup>
@@ -196,6 +223,39 @@
     </ClInclude>
     <ClInclude Include="Math.h">
       <Filter>源文件\Framework\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneParser.h">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSceneNode.h">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseSceneObject.h">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGEX.h">
+      <Filter>源文件\Enternal\OpenGEX</Filter>
+    </ClInclude>
+    <ClInclude Include="ODDLArray.h">
+      <Filter>源文件\Enternal\OpenDDL</Filter>
+    </ClInclude>
+    <ClInclude Include="ODDLMap.h">
+      <Filter>源文件\Enternal\OpenDDL</Filter>
+    </ClInclude>
+    <ClInclude Include="ODDLString.h">
+      <Filter>源文件\Enternal\OpenDDL</Filter>
+    </ClInclude>
+    <ClInclude Include="ODDLTree.h">
+      <Filter>源文件\Enternal\OpenDDL</Filter>
+    </ClInclude>
+    <ClInclude Include="ODDLTypes.h">
+      <Filter>源文件\Enternal\OpenDDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenDDL.h">
+      <Filter>源文件\Enternal\OpenDDL</Filter>
+    </ClInclude>
+    <ClInclude Include="OgexParser.h">
+      <Filter>源文件\Framework\scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
