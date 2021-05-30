@@ -4,6 +4,8 @@
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
 
+#include "RenderInfo.h"
+
 namespace RealEngine {
 	class OpenglDriver :public IRuntimeModule 
 	{
@@ -25,5 +27,7 @@ namespace RealEngine {
 		void drawTriangle();
 
 		void loadShaderTest();
+
+		void draw(RenderInfo renderInfo);
 	};
 }

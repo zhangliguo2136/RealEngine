@@ -64,6 +64,9 @@
     <Filter Include="源文件\Enternal\OpenDDL">
       <UniqueIdentifier>{51ac3dbf-925e-47a7-94b3-98c20dc3a6a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\base">
+      <UniqueIdentifier>{9017912e-1dac-49be-aa14-1cbe382a49d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
@@ -221,9 +224,6 @@
     <ClInclude Include="Image.h">
       <Filter>源文件\Framework\scene</Filter>
     </ClInclude>
-    <ClInclude Include="Math.h">
-      <Filter>源文件\Framework\Common</Filter>
-    </ClInclude>
     <ClInclude Include="SceneParser.h">
       <Filter>源文件\Framework\scene</Filter>
     </ClInclude>
@@ -255,6 +255,12 @@
       <Filter>源文件\Enternal\OpenDDL</Filter>
     </ClInclude>
     <ClInclude Include="OgexParser.h">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>源文件\Framework\base</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneObjectTransfrom.h">
       <Filter>源文件\Framework\scene</Filter>
     </ClInclude>
   </ItemGroup>

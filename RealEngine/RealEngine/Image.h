@@ -8,7 +8,6 @@ public:
 	~Image();
 
 	void loadFromFile(std::string filename);
-	
 private:
 	int height;
 	int width;

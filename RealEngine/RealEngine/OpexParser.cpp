@@ -14,7 +14,7 @@ std::unique_ptr<BaseSceneNode> OgexParser::Parse(const std::string &buf)
 		const ODDL::Structure* structure = openGexDataDescription.GetRootStructure()->GetFirstSubnode();
 		while (structure)
 		{
-			ConvertOddlStructureToSceneNode(*structure, pScene->SceneGraph, *pScene);
+			ConvertOddlStructureToSceneNode(*structure, pScene->m_pSceneGraph, *pScene);
 
 			structure->Next();
 		}
@@ -24,7 +24,7 @@ std::unique_ptr<BaseSceneNode> OgexParser::Parse(const std::string &buf)
 }
 
 void OgexParser::ConvertOddlStructureToSceneNode(const ODDL::Structure &structure,
-	std::unique_ptr<BaseSceneNode>& base_node,
+	std::unique_ptr<BaseSceneNode> &base_node,
 	BaseSceneNode &pScene)
 {
 	std::unique_ptr<BaseSceneNode> node;
