@@ -28,6 +28,6 @@ namespace RealEngine {
 
 		void loadShaderTest();
 
-		void draw(RenderInfo renderInfo);
+		void draw(RenderInfo& renderInfo);
 	};
 }

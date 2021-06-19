@@ -9,10 +9,10 @@
 class Shader :public NonCopyable
 {
 public:
-	Shader(const std::string &vertexFile, const std::string &fragmentFile);
-
+	Shader() {};
 	virtual ~Shader();
 
+	Shader(const std::string &vertexFile, const std::string &fragmentFile);
 	void useProgram() const;
 
 protected:

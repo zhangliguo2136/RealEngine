@@ -147,6 +147,9 @@
     <ClCompile Include="OpexParser.cpp">
       <Filter>源文件\Framework\scene</Filter>
     </ClCompile>
+    <ClCompile Include="RenderInfo.cpp">
+      <Filter>源文件\Framework\graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -262,6 +265,9 @@
     </ClInclude>
     <ClInclude Include="SceneObjectTransfrom.h">
       <Filter>源文件\Framework\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderInfo.h">
+      <Filter>源文件\Framework\graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

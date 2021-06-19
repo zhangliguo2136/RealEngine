@@ -1,7 +1,9 @@
 #include "RenderInfo.h"
 
-RenderInfo::RenderInfo(float* vertices, size_t count)
+void RenderInfo::useGLProgram()
 {
-	verticeArray = vertices;
-	arraySize = count;
+	if (_shader != nullptr) 
+	{
+		_shader->useProgram();
+	}
 }

@@ -58,7 +58,10 @@ void RealEngine::OpenglDriver::loadShaderTest()
 	//printf("OpenglDriver::loadShaderTest_______shaderID is %d\n", shaderID);
 }
 
-void RealEngine::OpenglDriver::draw(RenderInfo renderInfo)
+void RealEngine::OpenglDriver::draw(RenderInfo& renderInfo)
 {
+	float* verticeArray = renderInfo.verticeArray;
+	renderInfo.useGLProgram();
 
+	glDrawArrays(renderInfo.shape, 0, renderInfo.count);
 }
