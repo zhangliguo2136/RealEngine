@@ -144,11 +144,11 @@
     <ClCompile Include="OpenDDL.cpp">
       <Filter>源文件\Enternal\OpenDDL</Filter>
     </ClCompile>
-    <ClCompile Include="OpexParser.cpp">
-      <Filter>源文件\Framework\scene</Filter>
-    </ClCompile>
     <ClCompile Include="RenderInfo.cpp">
       <Filter>源文件\Framework\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="OgexParser.cpp">
+      <Filter>源文件\Framework\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

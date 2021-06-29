@@ -138,7 +138,7 @@
     <ClCompile Include="ODDLMap.cpp" />
     <ClCompile Include="ODDLString.cpp" />
     <ClCompile Include="ODDLTree.cpp" />
-    <ClCompile Include="OpexParser.cpp" />
+    <ClCompile Include="OgexParser.cpp" />
     <ClCompile Include="OpenDDL.cpp" />
     <ClCompile Include="OpenGEX.cpp" />
     <ClCompile Include="OpenglDriver.cpp" />

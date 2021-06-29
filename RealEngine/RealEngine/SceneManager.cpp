@@ -1,5 +1,4 @@
 #include "SceneManager.h"
-
 #include "Image.h"
 
 RealEngine::SceneManager::SceneManager()
@@ -25,7 +24,14 @@ void RealEngine::SceneManager::addSceneObject(ISceneObject* object)
 
 void RealEngine::SceneManager::Tick() 
 {
-	//Image* image = new Image("../Resource/image/test1.png");
+	std::chrono::milliseconds ms = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch());
+	float deltaTime = ms.count() - _lastTime;
+	_lastTime = ms.count();
 
-	Image image("../Resource/image/test1.png");
+	_bUpdatingObjects = true;
+	for (auto iter = _objects.begin(); iter != _objects.end(); ++iter)
+	{
+		(*iter)->update(deltaTime);
+	}
+	_bUpdatingObjects = false;
 }

@@ -9,5 +9,6 @@ namespace RealEngine
 		virtual ~ISceneObject() {};
 
 		virtual void draw() = 0;
+		virtual void update(float deltaTime) = 0;
 	};
 }
