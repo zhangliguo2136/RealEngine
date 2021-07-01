@@ -34,4 +34,8 @@ void RealEngine::SceneManager::Tick()
 		(*iter)->update(deltaTime);
 	}
 	_bUpdatingObjects = false;
+
+	Image* image = new Image("../Resource/image/test1.png");
+	image->draw();
+	delete image;
 }

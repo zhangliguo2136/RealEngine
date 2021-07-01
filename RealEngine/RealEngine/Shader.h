@@ -14,6 +14,7 @@ public:
 
 	Shader(const std::string &vertexFile, const std::string &fragmentFile);
 	void useProgram() const;
+	void setActive() const;
 
 protected:
 	GLuint m_id;

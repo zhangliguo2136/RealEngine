@@ -2,9 +2,8 @@
 #include "ShaderLoader.h"
 
 Shader::Shader(const std::string &vertexFile, const std::string &fragmentFile)
-	:m_id(loadShaders(vertexFile, fragmentFile))
 {
-	useProgram();
+	m_id = loadShaders(vertexFile, fragmentFile);
 }
 
 Shader::~Shader() 
@@ -15,4 +14,9 @@ Shader::~Shader()
 void Shader::useProgram() const
 {
 	glUseProgram(m_id);
+}
+
+void Shader::setActive() const
+{
+	useProgram();
 }

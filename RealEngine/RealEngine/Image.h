@@ -17,4 +17,7 @@ private:
 
 private:
 	void loadFromMemoryTest(std::string filename);
+
+public:
+	void draw();
 };
