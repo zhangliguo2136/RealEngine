@@ -15,6 +15,9 @@ private:
 
 	unsigned char* m_pData;
 
+	unsigned int mTextureID;
+	void loadTexture();
+	void unloadTexture();
 private:
 	void loadFromMemoryTest(std::string filename);
 

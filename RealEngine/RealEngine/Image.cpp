@@ -39,22 +39,41 @@ void Image::loadFromMemoryTest(std::string filename)
 	delete[] buf;
 }
 
+void Image::loadTexture()
+{
+
+	glGenTextures(1, &mTextureID);
+	glBindTexture(GL_TEXTURE_2D, mTextureID);
+	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, m_pData);
+
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+	glBindTexture(GL_TEXTURE_2D, mTextureID);
+}
+void Image::unloadTexture()
+{
+	glDeleteTextures(1, &mTextureID);
+
+	mTextureID = -1;
+}
+
 void Image::draw()
 {
 	glClearColor(0.86f, 0.86f, 0.86f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-	Shader* shader = new Shader("../Resource/shader/common.vert", "../Resource/shader/common.frag");
+	Shader* shader = new Shader("../Resource/shader/sprite.vert", "../Resource/shader/sprite.frag");
 	shader->setActive();
 
 	/*-------------------------------------------------*/
 	// ¶¥µã
 	float vertexBuffer[] = 
 	{
-		-0.5f,	0.5f, 0.0f,
-		0.5f,	0.5f, 0.0f,
-		0.5f,  -0.5f, 0.0f,
-		-0.5f, -0.5f, 0.0f
+		-0.5f,	0.5f, 0.0f, 0.0f, 0.0f,
+		0.5f,	0.5f, 0.0f, 1.0f, 0.0f,
+		0.5f,  -0.5f, 0.0f, 1.0f, 1.0f,
+		-0.5f, -0.5f, 0.0f, 0.0f, 1.0f
 	};
 	// ¶¥µãË÷Òý
 	unsigned int indexBuffer[] = 
@@ -78,12 +97,18 @@ void Image::draw()
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indexBuffer), indexBuffer, GL_STATIC_DRAW);
 
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 3, 0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 5, 0);
+
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 5, reinterpret_cast<void*>(sizeof(float) * 3));
 
 	glBindVertexArray(vao);
 	/*-------------------------------------------------*/
 
+	loadTexture();
+
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
 
+	unloadTexture();
 	delete shader;
 }

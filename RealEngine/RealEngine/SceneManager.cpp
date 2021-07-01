@@ -35,7 +35,7 @@ void RealEngine::SceneManager::Tick()
 	}
 	_bUpdatingObjects = false;
 
-	Image* image = new Image("../Resource/image/test1.png");
+	Image* image = new Image("../Resource/image/test1.jpg");
 	image->draw();
 	delete image;
 }
