@@ -41,6 +41,9 @@ void Image::loadFromMemoryTest(std::string filename)
 
 void Image::loadTexture()
 {
+	// rgb 格式 一个像素三个字节 所以重设对齐方式， 默认是4字节对齐
+	// glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
 	glGenTextures(1, &mTextureID);
 	glBindTexture(GL_TEXTURE_2D, mTextureID);
@@ -58,17 +61,11 @@ void Image::unloadTexture()
 	mTextureID = -1;
 }
 
-void Image::draw()
+void Image::bindVertexArray()
 {
-	glClearColor(0.86f, 0.86f, 0.86f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-
-	Shader* shader = new Shader("../Resource/shader/sprite.vert", "../Resource/shader/sprite.frag");
-	shader->setActive();
-
 	/*-------------------------------------------------*/
-	// 顶点
-	float vertexBuffer[] = 
+// 顶点
+	float vertexBuffer[] =
 	{
 		-0.5f,	0.5f, 0.0f, 0.0f, 0.0f,
 		0.5f,	0.5f, 0.0f, 1.0f, 0.0f,
@@ -76,7 +73,7 @@ void Image::draw()
 		-0.5f, -0.5f, 0.0f, 0.0f, 1.0f
 	};
 	// 顶点索引
-	unsigned int indexBuffer[] = 
+	unsigned int indexBuffer[] =
 	{
 		0, 1, 2,
 		2, 3, 0
@@ -103,8 +100,17 @@ void Image::draw()
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 5, reinterpret_cast<void*>(sizeof(float) * 3));
 
 	glBindVertexArray(vao);
-	/*-------------------------------------------------*/
+}
 
+void Image::draw()
+{
+	glClearColor(0.86f, 0.86f, 0.86f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	Shader* shader = new Shader("../Resource/shader/sprite.vert", "../Resource/shader/sprite.frag");
+	shader->setActive();
+
+	bindVertexArray();
 	loadTexture();
 
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);

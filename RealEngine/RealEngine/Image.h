@@ -18,6 +18,8 @@ private:
 	unsigned int mTextureID;
 	void loadTexture();
 	void unloadTexture();
+
+	void bindVertexArray();
 private:
 	void loadFromMemoryTest(std::string filename);
 
