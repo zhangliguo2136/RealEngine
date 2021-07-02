@@ -14,7 +14,8 @@ public:
 
 	Shader(const std::string &vertexFile, const std::string &fragmentFile);
 	void useProgram() const;
-	void setActive() const;
+
+	void setMatrixUniform(const char* name, const GLfloat* mat4);
 
 protected:
 	GLuint m_id;

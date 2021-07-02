@@ -108,7 +108,7 @@ void Image::draw()
 	glClear(GL_COLOR_BUFFER_BIT);
 
 	Shader* shader = new Shader("../Resource/shader/sprite.vert", "../Resource/shader/sprite.frag");
-	shader->setActive();
+	shader->useProgram();
 
 	bindVertexArray();
 	loadTexture();

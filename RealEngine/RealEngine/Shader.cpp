@@ -16,7 +16,9 @@ void Shader::useProgram() const
 	glUseProgram(m_id);
 }
 
-void Shader::setActive() const
+void Shader::setMatrixUniform(const char* name, const GLfloat* mat4)
 {
-	useProgram();
+	GLuint loc = glGetUniformLocation(m_id, name);
+
+	glUniformMatrix4fv(loc, 1, GL_TRUE, mat4);
 }
