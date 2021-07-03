@@ -5,6 +5,7 @@
 #include <GLFW/glfw3.h>
 
 #include "NonCopyable.h"
+#include "Matrix.h"
 
 class Shader :public NonCopyable
 {
@@ -15,7 +16,7 @@ public:
 	Shader(const std::string &vertexFile, const std::string &fragmentFile);
 	void useProgram() const;
 
-	void setMatrixUniform(const char* name, const GLfloat* mat4);
+	void setMatrixUniform(const char* name, Matrix4* mat4);
 
 protected:
 	GLuint m_id;

@@ -150,6 +150,9 @@
     <ClCompile Include="OgexParser.cpp">
       <Filter>源文件\Framework\scene</Filter>
     </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>源文件\Framework\base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -268,6 +271,9 @@
     </ClInclude>
     <ClInclude Include="RenderInfo.h">
       <Filter>源文件\Framework\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>源文件\Framework\base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
