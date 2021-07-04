@@ -153,6 +153,9 @@
     <ClCompile Include="Matrix.cpp">
       <Filter>源文件\Framework\base</Filter>
     </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>源文件\Framework\base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
