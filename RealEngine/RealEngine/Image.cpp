@@ -110,6 +110,18 @@ void Image::draw()
 	Shader* shader = new Shader("../Resource/shader/sprite.vert", "../Resource/shader/sprite.frag");
 	shader->useProgram();
 
+	Matrix4 mat4;
+	mat4.IdentityMatrix();
+	shader->setMatrixUniform("uWorldTransform", &mat4);
+	shader->setMatrixUniform("uViewProj", &mat4);
+
+	//Matrix4 moveMat;
+	//moveMat.IdentityMatrix();
+	//Vector3f vec3(0.25f, 0.25f, 0.f);
+	//moveMat.MoveMatrix(vec3);
+	//Vector3f vec3(1.0f, 1.0f, 0.f);
+	//moveMat.ScaleMatrix(vec3);
+
 	bindVertexArray();
 	loadTexture();
 

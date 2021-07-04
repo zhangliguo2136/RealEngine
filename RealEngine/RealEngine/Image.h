@@ -22,7 +22,6 @@ private:
 	void bindVertexArray();
 private:
 	void loadFromMemoryTest(std::string filename);
-
 public:
 	void draw();
 };

@@ -6,15 +6,12 @@ class Matrix4;
 class Vector3f
 {
 public:
-	Vector3f(float x, float y, float z)
-	{
-		x = x;
-		y = y;
-		z = z;
-	};
+	Vector3f() {};
 	~Vector3f() {};
+public:
+	Vector3f(float x, float y, float z);
 
-private:
+public:
 	float x, y, z;
 };
 
@@ -29,7 +26,7 @@ public:
 	//重载向量与矩阵的乘法
 	Vector4f operator*(Matrix4 &mat) const;
 
-private:
+public:
 	float x, y, z, w;
 };
 

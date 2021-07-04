@@ -50,3 +50,17 @@ void Matrix4::IdentityMatrix()
 		}
 	}
 }
+
+void Matrix4::MoveMatrix(Vector3f vec3)
+{
+	data[12] += vec3.x;
+	data[13] += vec3.y;
+	data[14] += vec3.z;
+}
+
+void Matrix4::ScaleMatrix(Vector3f vec3) 
+{
+	data[0] += vec3.x;
+	data[5] += vec3.y;
+	data[10] += vec3.z;
+}
