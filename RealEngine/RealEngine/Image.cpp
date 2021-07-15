@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include "Shader.h"
+#include "Quaternion.h"
 
 using namespace std;
 
@@ -115,7 +116,13 @@ void Image::draw()
 	tranform.Identity();
 	tranform.MoveMatrix(Vector3f(0.0f, 0.0f, 0.0f));
 	tranform.ScaleMatrix(Vector3f(-(1.0 - width/800.0), -(1.0 - height/600.0), 0.f));
-	shader->setMatrixUniform("uWorldTransform", &tranform);
+
+	Vector3f axis(1.f, 0.f, 0.f);
+	Quaternion quat(axis, 3.14f);
+	Matrix4 rotation = Matrix4::CreateFromQuaternion(quat);
+	Matrix4 uWorldTransformMat4 = tranform * rotation;
+
+	shader->setMatrixUniform("uWorldTransform", &uWorldTransformMat4);
 
 	Matrix4 projMat4;
 	projMat4.Identity();
