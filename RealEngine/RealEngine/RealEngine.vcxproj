@@ -149,6 +149,7 @@
     <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="ObjectPool.cpp" />
     <ClCompile Include="OpenglApplication.cpp" />
+    <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Ref.cpp" />
     <ClCompile Include="RenderInfo.cpp" />
     <ClCompile Include="SceneManager.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="OpenglApplication.h" />
+    <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RealEngine.h" />
     <ClInclude Include="Ref.h" />
     <ClInclude Include="RenderInfo.h" />

@@ -156,6 +156,9 @@
     <ClCompile Include="Math.cpp">
       <Filter>源文件\Framework\base</Filter>
     </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>源文件\Framework\base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -276,6 +279,9 @@
       <Filter>源文件\Framework\graphics</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
+      <Filter>源文件\Framework\base</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
       <Filter>源文件\Framework\base</Filter>
     </ClInclude>
   </ItemGroup>

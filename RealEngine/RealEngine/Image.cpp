@@ -112,13 +112,13 @@ void Image::draw()
 	shader->useProgram();
 
 	Matrix4 tranform;
-	tranform.IdentityMatrix();
+	tranform.Identity();
 	tranform.MoveMatrix(Vector3f(0.0f, 0.0f, 0.0f));
 	tranform.ScaleMatrix(Vector3f(-(1.0 - width/800.0), -(1.0 - height/600.0), 0.f));
 	shader->setMatrixUniform("uWorldTransform", &tranform);
 
 	Matrix4 projMat4;
-	projMat4.IdentityMatrix();
+	projMat4.Identity();
 	shader->setMatrixUniform("uViewProj", &projMat4);
 
 	bindVertexArray();

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "math.h"
+#include "Quaternion.h"
 class Matrix4
 {
 public:
@@ -8,7 +9,7 @@ public:
 	~Matrix4();
 
 	// 单位矩阵
-	void IdentityMatrix();
+	void Identity();
 
 	// 平移矩阵
 	void MoveMatrix(Vector3f vec3);
@@ -18,7 +19,10 @@ public:
 	// 重载矩阵乘法
 	Matrix4 operator*(Matrix4 &) const;
 
-	float* getMatrixData();
+	float* GetMatrixData();
+
+public:
+	static Matrix4 CreateFromQuaternion(Quaternion& quat);
 private:
 	float data[16];
 };

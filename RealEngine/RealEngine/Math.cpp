@@ -14,7 +14,7 @@ Vector4f::Vector4f(float x, float y, float z, float w)
 
 Vector4f Vector4f::operator*(Matrix4 &mat) const 
 {
-	float* otherData = mat.getMatrixData();
+	float* otherData = mat.GetMatrixData();
 	float data[4] = { x, y, z, w };
 	float newData[4] = { 0 };
 
