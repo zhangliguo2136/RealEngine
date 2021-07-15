@@ -104,6 +104,7 @@ void Image::bindVertexArray()
 
 void Image::draw()
 {
+
 	glClearColor(0.86f, 0.86f, 0.86f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
