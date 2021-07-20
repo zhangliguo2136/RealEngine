@@ -6,21 +6,35 @@
 #include <iostream>
 #include "Shader.h"
 #include "Quaternion.h"
+#include "SceneManager.h"
+
+#define PI 3.1415926
 
 using namespace std;
 
 Image::Image(std::string filename) 
 {
+	uWorldTransform = new Matrix4();
+	uWorldTransform->Identity();
+
 	loadFromFile(filename);
 }
 Image::~Image() 
 {
+	delete uWorldTransform;
+
 	stbi_image_free(m_pData);
 }
 
 void Image::loadFromFile(std::string filename)
 {
 	m_pData = stbi_load(filename.c_str(), &width, &height, &nrChannel, 0);
+
+	RealEngine::SceneManager& pManager = RealEngine::SceneManager::getInstance();
+	Size winSize = pManager.getWinSize();
+	float scaleX = width / winSize.width;
+	float scaleY = height / winSize.height;
+	SetScale(scaleX, scaleX, 1.f);
 }
 
 void Image::loadFromMemoryTest(std::string filename)
@@ -112,17 +126,10 @@ void Image::draw()
 	Shader* shader = new Shader("../Resource/shader/sprite.vert", "../Resource/shader/sprite.frag");
 	shader->useProgram();
 
-	Matrix4 tranform;
-	tranform.Identity();
-	tranform.MoveMatrix(Vector3f(0.0f, 0.0f, 0.0f));
-	tranform.ScaleMatrix(Vector3f(-(1.0 - width/800.0), -(1.0 - height/600.0), 0.f));
+	SetPosition(20.f, 20.f, 0.f);
+	SetRotation(90.f);
 
-	Vector3f axis(1.f, 0.f, 0.f);
-	Quaternion quat(axis, 3.14f);
-	Matrix4 rotation = Matrix4::CreateFromQuaternion(quat);
-	Matrix4 uWorldTransformMat4 = tranform * rotation;
-
-	shader->setMatrixUniform("uWorldTransform", &uWorldTransformMat4);
+	shader->setMatrixUniform("uWorldTransform", uWorldTransform);
 
 	Matrix4 projMat4;
 	projMat4.Identity();
@@ -135,4 +142,40 @@ void Image::draw()
 
 	unloadTexture();
 	delete shader;
+}
+
+void Image::SetPosition(float inx, float iny, float inz) 
+{
+	RealEngine::SceneManager& pManager = RealEngine::SceneManager::getInstance();
+	Size winSize = pManager.getWinSize();
+
+	float x = inx / winSize.width - 0.5;
+	float y = iny / winSize.height - 0.5;
+
+	Matrix4 transfrom = Matrix4::CreateMoveMatrix(Vector3f(x, y, 0.0f));
+
+	//uWorldTransform = &((*uWorldTransform) * transfrom);
+
+}
+void Image::SetScale(float scaleX, float scaleY, float scaleZ) 
+{
+	RealEngine::SceneManager& pManager = RealEngine::SceneManager::getInstance();
+	Size winSize = pManager.getWinSize();
+
+	Matrix4 transfrom = Matrix4::CreateScaleMatrix(Vector3f(scaleX - 1.f, scaleY - 1.f, scaleZ - 1.f));
+	Matrix4 tmpMatrix = (*uWorldTransform) * transfrom;
+
+	float* uData = uWorldTransform->GetMatrixData();
+	float* tData = tmpMatrix.GetMatrixData();
+	for (int i = 0; i < 16; ++i)
+	{
+		uData[i] = tData[i];
+	}
+}
+void Image::SetRotation(float angle) 
+{
+	Vector3f axis(1.f, 0.f, 0.f);
+	Quaternion quat(axis, angle * PI / 180);
+	Matrix4 rotation = Matrix4::CreateFromQuaternion(quat);
+	//uWorldTransform = &((*uWorldTransform) * rotation);
 }

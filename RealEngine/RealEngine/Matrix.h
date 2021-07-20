@@ -23,6 +23,8 @@ public:
 
 public:
 	static Matrix4 CreateFromQuaternion(Quaternion& quat);
+	static Matrix4 CreateMoveMatrix(Vector3f vec3);
+	static Matrix4 CreateScaleMatrix(Vector3f vec3);
 private:
 	float data[16];
 };

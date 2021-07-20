@@ -30,3 +30,18 @@ public:
 	float x, y, z, w;
 };
 
+class Size
+{
+public:
+	Size() {};
+	~Size() {};
+public:
+	Size(float inWidth, float inHeight) 
+	{
+		width = inWidth;
+		height = inHeight;
+	}
+public:
+	float width, height;
+};
+

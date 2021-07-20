@@ -4,6 +4,7 @@
 #include <chrono>
 #include <iostream>
 #include "ISceneObject.h"
+#include "Math.h"
 
 namespace RealEngine 
 {
@@ -28,6 +29,10 @@ namespace RealEngine
 		void render();
 		void addSceneObject(ISceneObject* object);
 
+		Size getWinSize()
+		{
+			return Size(800.0, 600.0);
+		};
 	private:
 		std::vector<ISceneObject*> _objects;
 

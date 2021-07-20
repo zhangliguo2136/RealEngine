@@ -65,6 +65,30 @@ void Matrix4::ScaleMatrix(Vector3f vec3)
 	data[10] += vec3.z;
 }
 
+Matrix4 Matrix4::CreateMoveMatrix(Vector3f vec3)
+{
+	Matrix4 mat;
+	mat.Identity();
+	float* matData = mat.GetMatrixData();
+
+	matData[12] = vec3.x;
+	matData[13] = vec3.y;
+	matData[14] = vec3.z;
+
+	return mat;
+}
+Matrix4 Matrix4::CreateScaleMatrix(Vector3f vec3)
+{
+	Matrix4 mat;
+	mat.Identity();
+	float* matData = mat.GetMatrixData();
+	matData[0] = vec3.x;
+	matData[5] = vec3.y;
+	matData[10] = vec3.z;
+
+	return mat;
+}
+
 Matrix4 Matrix4::CreateFromQuaternion(Quaternion& quat) 
 {
 	Matrix4 mat;
