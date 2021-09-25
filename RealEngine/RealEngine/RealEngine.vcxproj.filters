@@ -67,6 +67,9 @@
     <Filter Include="源文件\Framework\base">
       <UniqueIdentifier>{9017912e-1dac-49be-aa14-1cbe382a49d6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\script">
+      <UniqueIdentifier>{873966b1-e940-4ae8-823a-e8f162bc30c2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
@@ -158,6 +161,9 @@
     </ClCompile>
     <ClCompile Include="Quaternion.cpp">
       <Filter>源文件\Framework\base</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>源文件\Framework\script</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -283,6 +289,12 @@
     </ClInclude>
     <ClInclude Include="Quaternion.h">
       <Filter>源文件\Framework\base</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>源文件\Framework\script</Filter>
+    </ClInclude>
+    <ClInclude Include="Parser.h">
+      <Filter>源文件\Framework\script</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

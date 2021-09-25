@@ -82,9 +82,9 @@ Matrix4 Matrix4::CreateScaleMatrix(Vector3f vec3)
 	Matrix4 mat;
 	mat.Identity();
 	float* matData = mat.GetMatrixData();
-	matData[0] = vec3.x;
-	matData[5] = vec3.y;
-	matData[10] = vec3.z;
+	matData[0] += vec3.x;
+	matData[5] += vec3.y;
+	matData[10] += vec3.z;
 
 	return mat;
 }

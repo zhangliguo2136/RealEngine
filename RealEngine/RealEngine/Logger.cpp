@@ -5,6 +5,7 @@ const void RealEngine::log(const char* fmt, ...)
 {
 	if (ENGINE_DEBUG)
 	{
+		printf("RealEngine[DEBUG]:  ");
 		va_list args;
 		va_start(args, fmt);
 		vprintf(fmt, args);

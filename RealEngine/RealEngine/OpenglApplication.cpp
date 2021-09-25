@@ -132,11 +132,13 @@ void RealEngine::OpenglApplication::onMouseCallback(GLFWwindow* window, int butt
 // 指针位置回调
 void RealEngine::OpenglApplication::onCursorCallback(GLFWwindow* window, double x, double y) 
 {
+	log("OpenglApplication:: the cursor pos x, y (%f, %f)\n", x, y);
 	return;
 }
 //滚轮回调
 void RealEngine::OpenglApplication::onScrollCallback(GLFWwindow* window, double x, double y) 
 {
+	log("OpenglApplication:: the scroll pos x, y (%f, %f)\n", x, y);
 	return;
 }
 

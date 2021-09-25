@@ -126,8 +126,11 @@ void Image::draw()
 	Shader* shader = new Shader("../Resource/shader/sprite.vert", "../Resource/shader/sprite.frag");
 	shader->useProgram();
 
-	SetPosition(20.f, 20.f, 0.f);
-	SetRotation(90.f);
+	RealEngine::SceneManager& pManager = RealEngine::SceneManager::getInstance();
+	Size winSize = pManager.getWinSize();
+
+	SetPosition(winSize.width/2, winSize.height/2, 0.f);
+	SetRotation(180.f);
 
 	shader->setMatrixUniform("uWorldTransform", uWorldTransform);
 
@@ -153,9 +156,14 @@ void Image::SetPosition(float inx, float iny, float inz)
 	float y = iny / winSize.height - 0.5;
 
 	Matrix4 transfrom = Matrix4::CreateMoveMatrix(Vector3f(x, y, 0.0f));
+	Matrix4 tmpMatrix = (*uWorldTransform) * transfrom;
 
-	//uWorldTransform = &((*uWorldTransform) * transfrom);
-
+	float* uData = uWorldTransform->GetMatrixData();
+	float* tData = tmpMatrix.GetMatrixData();
+	for (int i = 0; i < 16; ++i)
+	{
+		uData[i] = tData[i];
+	}
 }
 void Image::SetScale(float scaleX, float scaleY, float scaleZ) 
 {
@@ -174,8 +182,16 @@ void Image::SetScale(float scaleX, float scaleY, float scaleZ)
 }
 void Image::SetRotation(float angle) 
 {
-	Vector3f axis(1.f, 0.f, 0.f);
+	Vector3f axis(0.f, 0.f, 1.f);
 	Quaternion quat(axis, angle * PI / 180);
 	Matrix4 rotation = Matrix4::CreateFromQuaternion(quat);
-	//uWorldTransform = &((*uWorldTransform) * rotation);
+
+	Matrix4 tmpMatrix = (*uWorldTransform) * rotation;
+
+	float* uData = uWorldTransform->GetMatrixData();
+	float* tData = tmpMatrix.GetMatrixData();
+	for (int i = 0; i < 16; ++i)
+	{
+		uData[i] = tData[i];
+	}
 }

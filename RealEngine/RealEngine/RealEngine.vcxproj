@@ -137,6 +137,7 @@
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="ODDLMap.cpp" />
     <ClCompile Include="ODDLString.cpp" />
     <ClCompile Include="ODDLTree.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="NonCopyable.h" />
     <ClInclude Include="NonMovable.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="ODDLArray.h" />
     <ClInclude Include="ODDLMap.h" />
     <ClInclude Include="ODDLString.h" />
@@ -189,6 +191,7 @@
     <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="OpenglApplication.h" />
+    <ClInclude Include="Parser.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RealEngine.h" />
     <ClInclude Include="Ref.h" />
