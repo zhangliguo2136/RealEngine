@@ -38,9 +38,9 @@ public:
 public:
 	std::string funcBody;
 
-	//std::vector<TypeInterface> args;
+	std::vector<TypeInterface*> args;
 
-	//std::vector<TypeInterface> upvalues;
+	std::vector<TypeInterface*> upvalues;
 };
 
 class TObject;
