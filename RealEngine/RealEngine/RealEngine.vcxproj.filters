@@ -70,6 +70,9 @@
     <Filter Include="源文件\Framework\script">
       <UniqueIdentifier>{873966b1-e940-4ae8-823a-e8f162bc30c2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\test">
+      <UniqueIdentifier>{b4033991-7a4f-4955-b225-64bea3f21144}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
@@ -163,6 +166,9 @@
       <Filter>源文件\Framework\base</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
+      <Filter>源文件\Framework\script</Filter>
+    </ClCompile>
+    <ClCompile Include="Parser.cpp">
       <Filter>源文件\Framework\script</Filter>
     </ClCompile>
   </ItemGroup>
@@ -295,6 +301,9 @@
     </ClInclude>
     <ClInclude Include="Parser.h">
       <Filter>源文件\Framework\script</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineTest.h">
+      <Filter>源文件\Framework\test</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

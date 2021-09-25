@@ -150,6 +150,7 @@
     <ClCompile Include="MemoryManager.cpp" />
     <ClCompile Include="ObjectPool.cpp" />
     <ClCompile Include="OpenglApplication.cpp" />
+    <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Ref.cpp" />
     <ClCompile Include="RenderInfo.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="BaseSceneNode.h" />
     <ClInclude Include="BaseSceneObject.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="EngineTest.h" />
     <ClInclude Include="FileUtil.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="ISceneObject.h" />

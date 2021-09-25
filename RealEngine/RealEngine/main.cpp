@@ -9,6 +9,8 @@ int main(int argc, char** argv)
 {
 	int ret;
 
+	runTestCase();
+
 	if ((ret = g_pApp->Initialize()) != 0)
 	{
 		printf("RealEngine:app initialize faild, will exit.");

@@ -84,8 +84,3 @@ void TObject::setFunction(std::string name, TFunction func)
 	funcMaps[name] = func;
 }
 //-----------------------------------------------------
-
-static TClass createTClass(std::string filepath)
-{
-	std::string content = "Class TestClass = {TValue value1;TValue value2 = 100;TFunction func(TValue inValue);} TestClass:func(TValue inValue){print(inValue);}";
-}

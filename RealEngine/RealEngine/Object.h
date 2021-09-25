@@ -2,6 +2,8 @@
 #include <string>
 #include <vector>
 #include <map>
+#include "Parser.h"
+
 
 enum ObjectType :int
 {
@@ -83,4 +85,13 @@ private:
 	TClass m_Class;
 };
 
-static TClass createTClass(std::string filepath);
+static TClass createTClass(std::string filepath)
+{
+	std::string content = "if TValue TObject TFunction TClass else break while";
+
+	parser(content);
+
+	TClass classType;
+
+	return classType;
+}
