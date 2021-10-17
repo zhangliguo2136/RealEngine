@@ -87,9 +87,13 @@ private:
 
 static TClass createTClass(std::string filepath)
 {
-	std::string content = "if TValue TObject TFunction TClass else break while";
+	//std::string content = "if TValue TObject TFunction TClass else while\n";
 
-	parser(content);
+	std::string content = "if 300";
+
+	Parser* ps = new Parser();
+	ps->parser(content);
+	delete ps;
 
 	TClass classType;
 

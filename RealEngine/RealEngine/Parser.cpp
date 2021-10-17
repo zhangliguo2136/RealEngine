@@ -1,18 +1,12 @@
 #include "Parser.h"
+#include <vector>
 
-// 当前录入的关键字
-char token[32] = { '\0' };
+Parser::Parser()
+{
+	m_lineCount = 1;
+}
 
-int index = 0;
-
-//关键字列表
-char keys[5][32] = { "if", "else", "for", "while", "break" };
-char typeKeys[4][32] = { "TValue", "TFunction", "TClass", "TObject" };
-
-// 文本是否结束
-bool isBreak = false;
-
-bool isChar(char tmp)
+bool Parser::isChar(const char& tmp)
 {
 	if (tmp >= 'a'&& tmp <= 'z')
 	{
@@ -25,23 +19,42 @@ bool isChar(char tmp)
 	return false;
 }
 
-bool isNormalKey(char key[32])
+bool Parser::isDight(const char& tmp)
 {
-	for (int i = 0; i < 5; i++)
+	if (tmp >= '0'&& tmp <= '9')
 	{
-		if (strcmp(keys[i], key) == 0)
-		{
-			return true;
-		}
+		return true;
 	}
 	return false;
 }
 
-bool isTypeKey(char key[32])
+bool Parser::isKeys(const char token[32])
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (strcmp(typeKeys[i], key) == 0)
+		if (strcmp(KEYS[i], token))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+bool Parser::isType(const char token[32])
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (strcmp(TYPE_KEYS[i], token))
+		{
+			return true;
+		}
+	}
+	return false;
+}
+bool Parser::isOp(const char &tmp)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (OP_KEYS[i] == tmp)
 		{
 			return true;
 		}
@@ -49,55 +62,148 @@ bool isTypeKey(char key[32])
 	return false;
 }
 
-void scanner(std::string contents)
+void Parser::parser(const std::string &inContents)
 {
-	if (contents[index] == ' ')
+	m_contents = inContents;
+
+	int len = m_contents.length();
+	while (m_currIndex < len - 1)
 	{
-		index++;
+		this->statement();
+	}
+}
+
+char Parser::getNextChar() 
+{
+	return m_contents[m_currIndex + 1];
+}
+
+char Parser::getCurrChar()
+{
+	return m_contents[m_currIndex];
+}
+
+void Parser::toNext() 
+{
+	m_currIndex++;
+}
+
+char* Parser::getToken()
+{
+	char token[32] = { '0' };
+	char curr = this->getCurrChar();
+	
+	if (curr == ' ' || curr == '\t')
+	{
+		this->toNext();
+	}
+	if (curr == '\n')
+	{
+		m_lineCount++;
 	}
 
-	if (contents[index] == '\0')
+	int count = 0;
+	curr = this->getCurrChar();
+	while (this->isChar(curr))
 	{
-		isBreak = true;
+		token[count] = curr;
+		count++;
+
+		this->toNext();
+		curr = this->getCurrChar();
 	}
 
-	if (isChar(contents[index]))
+	return token;
+}
+
+void Parser::statement()
+{
+	char currToken[32] = { '0' };
+	memcpy(currToken, this->getToken(), 32);
+
+	if (this->isKeys(currToken))
 	{
-		int count = 0;
-		while (isChar(contents[index + count]))
+		printf("Parser: the curr key is %s\n", currToken);
+		this->expression();
+	}
+	else if (this->isType(currToken))
+	{
+		printf("Parser: the curr baseType is %s\n", currToken);
+	}
+}
+
+void Parser::expression()
+{
+	this->term();
+
+	while (true)
+	{
+		char curr = this->getCurrChar();
+		if (curr == '+')
 		{
-			token[count] = contents[index + count];
-			count++;
+			this->term();
 		}
-		index = index + count;
-		token[count] = '\0';
-
-		if (isNormalKey(token))
+		else if (curr == '-')
 		{
-			RealEngine::log("Script::Parser:: the normal key is %s\n", token);
-			// TODO 如果是关键字
-
-			memset(token, 0, sizeof(token));
+			this->term();
 		}
-		if (isTypeKey(token))
+		else
 		{
-			RealEngine::log("Script::Parser:: the type key is %s\n", token);
-			// 如果是类型关键字
-
-			memset(token, 0, sizeof(token));
+			break;
 		}
 	}
 }
 
-void parser(std::string contents)
+void Parser::term()
 {
+	this->factor();
 	while (true)
 	{
-		scanner(contents);
-
-		if (isBreak)
+		char curr = this->getCurrChar();
+		if (curr == '*')
+		{
+			this->factor();
+		}
+		else if (curr == '/')
+		{
+			this->factor();
+		}
+		else
 		{
 			break;
 		}
+	}
+}
+
+void Parser::factor()
+{ 
+	while (this->getCurrChar() == ' '|| this->getCurrChar() == '\t')
+	{
+		this->toNext();
+	}
+
+	if (this->isDight(this->getCurrChar()))
+	{
+		std::vector<int> arr;
+		while (this->isDight(this->getCurrChar()))
+		{
+			int num = this->getCurrChar() - '0';
+			arr.push_back(num);
+
+			this->toNext();
+		}
+
+		size_t size = arr.size();
+		int dight = 0;
+		for (int i = 0; i < size; i++)
+		{
+			dight = dight * 10 + arr.at(i);
+		}
+
+		printf("Parser: the factor dight is %d\n", dight);
+	}
+	else
+	{
+		printf("Parser: the curr char is %c, not dight\n", this->getCurrChar());
 	}
 }
