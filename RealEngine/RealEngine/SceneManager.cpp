@@ -1,14 +1,6 @@
 #include "SceneManager.h"
 #include "Image.h"
 
-RealEngine::SceneManager::SceneManager()
-{
-}
-
-RealEngine::SceneManager::~SceneManager()
-{
-}
-
 void RealEngine::SceneManager::render()
 {
 	for (auto iter = _objects.begin(); iter != _objects.end(); ++iter)

@@ -11,8 +11,8 @@ namespace RealEngine
 	class SceneManager 
 	{
 	public:
-		SceneManager();
-		~SceneManager();
+		SceneManager() {};
+		~SceneManager() {};
 
 		static SceneManager& getInstance()
 		{

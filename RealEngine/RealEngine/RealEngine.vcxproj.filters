@@ -73,6 +73,9 @@
     <Filter Include="源文件\Framework\test">
       <UniqueIdentifier>{b4033991-7a4f-4955-b225-64bea3f21144}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Input">
+      <UniqueIdentifier>{687ab5b9-2c4e-4c98-a3c6-d317fa9add2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
@@ -171,6 +174,9 @@
     <ClCompile Include="Parser.cpp">
       <Filter>源文件\Framework\script</Filter>
     </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>源文件\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -254,9 +260,6 @@
     <ClInclude Include="BaseSceneNode.h">
       <Filter>源文件\Framework\scene</Filter>
     </ClInclude>
-    <ClInclude Include="BaseSceneObject.h">
-      <Filter>源文件\Framework\scene</Filter>
-    </ClInclude>
     <ClInclude Include="OpenGEX.h">
       <Filter>源文件\Enternal\OpenGEX</Filter>
     </ClInclude>
@@ -304,6 +307,15 @@
     </ClInclude>
     <ClInclude Include="EngineTest.h">
       <Filter>源文件\Framework\test</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseObject.h">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>源文件\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="REKey.h">
+      <Filter>源文件\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

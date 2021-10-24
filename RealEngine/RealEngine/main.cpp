@@ -9,11 +9,11 @@ int main(int argc, char** argv)
 {
 	int ret;
 
-	runTestCase();
+	ret = g_pApp->Initialize();
 
-	if ((ret = g_pApp->Initialize()) != 0)
+	if (ret != 0)
 	{
-		printf("RealEngine:app initialize faild, will exit.");
+		printf("RealEngine:: app initialize faild, will exit.");
 		return ret;
 	}
 

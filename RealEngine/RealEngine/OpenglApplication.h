@@ -4,14 +4,16 @@
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
 
+#include <string>
+
 namespace RealEngine 
 {
 	class OpenglApplication :public BaseApplication
 	{
 	public:
-		virtual int Initialize();
-		virtual void Finalize();
-		virtual void Tick();
+		virtual int Initialize() override;
+		virtual void Finalize() override;
+		virtual void Tick() override;
 
 		static OpenglApplication& getInstance()
 		{
@@ -32,12 +34,15 @@ namespace RealEngine
 		static void onCursorCallback(GLFWwindow* window, double x, double y);
 		//滚轮回调
 		static void onScrollCallback(GLFWwindow* window, double x, double y);
+		// 鼠标进出窗口的回调
+		static void onCursorEnterCallback(GLFWwindow* window, int enterd);
 
 		// 窗口关闭的回调
 		static void onCloseCallback(GLFWwindow* window);
 	private:
 		GLFWwindow* pWindows;
-		int width;
-		int height;
+		int m_width;
+		int m_height;
+		std::string m_name;
 	};
 }

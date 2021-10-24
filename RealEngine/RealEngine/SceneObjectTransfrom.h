@@ -1,7 +1,7 @@
 #pragma once
-#include "BaseSceneObject.h"
+#include "BaseObject.h"
 
-class SceneObjectTransfrom :public BaseSceneObject
+class SceneObjectTransfrom :public BaseObject
 {
 public:
 	/*

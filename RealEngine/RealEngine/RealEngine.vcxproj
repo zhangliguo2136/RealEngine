@@ -134,6 +134,7 @@
     <ClCompile Include="FileUtil.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="Image.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="Mesh.cpp" />
@@ -165,11 +166,12 @@
     <ClInclude Include="AutoreleasePool.h" />
     <ClInclude Include="BaseApplication.h" />
     <ClInclude Include="BaseSceneNode.h" />
-    <ClInclude Include="BaseSceneObject.h" />
+    <ClInclude Include="BaseObject.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="EngineTest.h" />
     <ClInclude Include="FileUtil.h" />
     <ClInclude Include="Image.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="ISceneObject.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Math.h" />
@@ -197,6 +199,7 @@
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RealEngine.h" />
     <ClInclude Include="Ref.h" />
+    <ClInclude Include="REKey.h" />
     <ClInclude Include="RenderInfo.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SceneObjectTransfrom.h" />

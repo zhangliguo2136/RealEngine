@@ -12,9 +12,9 @@ namespace RealEngine {
 		WindowsApplication()
 			:BaseApplication() {};
 
-		virtual int Initialize();
-		virtual void Finalize();
-		virtual void Tick();
+		virtual int Initialize() override;
+		virtual void Finalize() override;
+		virtual void Tick() override;
 
 		static LRESULT CALLBACK WindowProc(HWND hWnd,
 			UINT message,
