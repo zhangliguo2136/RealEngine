@@ -3,6 +3,19 @@
 
 class Matrix4;
 
+class Vector2f
+{
+public:
+	Vector2f() {};
+	~Vector2f() {};
+public:
+	Vector2f(float x, float y);
+
+public:
+	float x, y;
+};
+
+
 class Vector3f
 {
 public:

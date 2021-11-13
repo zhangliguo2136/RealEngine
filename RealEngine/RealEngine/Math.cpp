@@ -1,5 +1,12 @@
 #include "Math.h"
 #include "Matrix.h"
+Vector2f::Vector2f(float x, float y)
+	:x(x), y(y)
+{
+}
+
+
+
 Vector3f::Vector3f(float x, float y, float z)
 	:x(x), y(y), z(z)
 {

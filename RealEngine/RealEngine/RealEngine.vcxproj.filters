@@ -177,6 +177,9 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>源文件\Input</Filter>
     </ClCompile>
+    <ClCompile Include="Bezier.cpp">
+      <Filter>源文件\Framework\graphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -316,6 +319,9 @@
     </ClInclude>
     <ClInclude Include="REKey.h">
       <Filter>源文件\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Bezier.h">
+      <Filter>源文件\Framework\graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
