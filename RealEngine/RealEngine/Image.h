@@ -1,10 +1,11 @@
 #pragma once
 #include <string>
+#include "BaseObject.h"
 
 class Matrix4;
 class Vector3f;
 
-class Image 
+class Image : public BaseObject
 {
 public:
 	Image(std::string filename);

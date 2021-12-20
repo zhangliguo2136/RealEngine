@@ -1,5 +1,6 @@
 #include "SceneManager.h"
 #include "Image.h"
+#include "Model.h"
 
 void RealEngine::SceneManager::render()
 {
@@ -27,7 +28,12 @@ void RealEngine::SceneManager::Tick()
 	}
 	_bUpdatingObjects = false;
 
-	Image* image = new Image("../Resource/image/test1.jpg");
-	image->draw();
-	delete image;
+
+	//Image* image = new Image("../Resource/image/test1.jpg");
+	//image->draw();
+	//delete image;
+
+	Model* model = new Model("../Resource/model/diablo3_pose.obj");
+	model->draw();
+	delete model;
 }

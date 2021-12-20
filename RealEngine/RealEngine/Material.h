@@ -4,12 +4,10 @@
 #include "Image.h"
 #include "Math.h"
 
-template<typename T>
 /*
-DCC工具当中的材质，除了极少的一部分之外，大多也是基于图像的。
-这种材质的特点是，可以为材质的每个属性（或者说通道）指定一个固定的值，
-或者是一张贴图
+材质属性值，或者材质贴图
 */
+template<typename T>
 struct ParameterMap 
 {
 	bool bUsingSingleValue = true;

@@ -114,7 +114,7 @@ void Image::bindVertexArray()
 	glEnableVertexAttribArray(1);
 	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 5, reinterpret_cast<void*>(sizeof(float) * 3));
 
-	glBindVertexArray(vao);
+	//glBindVertexArray(0);
 }
 
 void Image::draw()

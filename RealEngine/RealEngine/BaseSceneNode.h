@@ -1,7 +1,8 @@
 #pragma once
+#include "BaseObject.h"
 #include "SceneObjectTransfrom.h"
 
-class BaseSceneNode 
+class BaseSceneNode: public BaseObject
 {
 protected:
 	// вс╫з╣Ц

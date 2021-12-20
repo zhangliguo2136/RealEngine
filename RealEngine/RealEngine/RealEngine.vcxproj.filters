@@ -180,6 +180,9 @@
     <ClCompile Include="Bezier.cpp">
       <Filter>源文件\Framework\graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>源文件\Framework\scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -322,6 +325,9 @@
     </ClInclude>
     <ClInclude Include="Bezier.h">
       <Filter>源文件\Framework\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>源文件\Framework\scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

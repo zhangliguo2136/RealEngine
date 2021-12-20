@@ -3,7 +3,7 @@
 
 namespace RealEngine 
 {
-	#define ENGINE_DEBUG true
+	#define ENGINE_DEBUG false
 	#define ENGINE_WARN true
 
 	extern const void Log(const char* str, ...);
