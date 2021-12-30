@@ -2,6 +2,7 @@
 
 #include "math.h"
 #include "Quaternion.h"
+
 class Matrix4
 {
 public:
@@ -20,6 +21,8 @@ public:
 	Matrix4 operator*(Matrix4 &) const;
 
 	float* GetMatrixData();
+
+	void copyForm(Matrix4 &);
 
 public:
 	static Matrix4 CreateFromQuaternion(Quaternion& quat);

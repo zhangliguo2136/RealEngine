@@ -1,7 +1,9 @@
 #pragma once
-#include "BaseObject.h"
+#include "IBaseObject.h"
 
-class SceneObjectTransfrom :public BaseObject
+using namespace RealEngine;
+
+class SceneObjectTransfrom :public IBaseObject
 {
 public:
 	/*

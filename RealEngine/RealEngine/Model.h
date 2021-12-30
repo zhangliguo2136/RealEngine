@@ -1,23 +1,31 @@
 #pragma once
-#include "BaseObject.h"
+#include "IBaseObject.h"
 #include <string>
 #include <vector>
 
-class Model : public BaseObject
+using namespace RealEngine;
+
+class Model : public IBaseObject
 {
+public:
+	virtual void draw() ;
+	virtual void update(float deltaTime){};
+	virtual void onEnter() {};
+	virtual void onExit() {};
+	virtual void updateTransform(Matrix4* viewProj, Matrix4* uWorldTrans);
+
 public:
 	Model(const std::string &filename);
 	~Model();
 
 	void loadModelfile(const std::string &filename);
 
-	bool _isUpdate = false;
 public:
-	void updateModel();
-
-	void draw();
+	Matrix4* _viewProj;
+	Matrix4* _uWorldTransform;
 
 private:
 	std::vector<float> _vertexBuffer;
 	std::vector<int> _indexBuffer;
+	std::vector<float> _normalBuffer;
 };

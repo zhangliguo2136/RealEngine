@@ -233,9 +233,6 @@
     <ClInclude Include="Camera.h">
       <Filter>源文件\Framework\scene</Filter>
     </ClInclude>
-    <ClInclude Include="ISceneObject.h">
-      <Filter>源文件\Framework\Interface</Filter>
-    </ClInclude>
     <ClInclude Include="FileUtil.h">
       <Filter>源文件\Framework\utils</Filter>
     </ClInclude>
@@ -314,9 +311,6 @@
     <ClInclude Include="EngineTest.h">
       <Filter>源文件\Framework\test</Filter>
     </ClInclude>
-    <ClInclude Include="BaseObject.h">
-      <Filter>源文件\Framework\scene</Filter>
-    </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>源文件\Input</Filter>
     </ClInclude>
@@ -328,6 +322,9 @@
     </ClInclude>
     <ClInclude Include="Model.h">
       <Filter>源文件\Framework\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="IBaseObject.h">
+      <Filter>源文件\Framework\Interface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

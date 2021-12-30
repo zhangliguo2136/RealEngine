@@ -116,3 +116,13 @@ Matrix4 Matrix4::CreateFromQuaternion(Quaternion& quat)
 
 	return mat;
 }
+
+void Matrix4::copyForm(Matrix4 &mat4)
+{
+	float* inData = mat4.GetMatrixData();
+
+	for (int i = 0; i < 16; ++i)
+	{
+		data[i] = inData[i];
+	}
+}

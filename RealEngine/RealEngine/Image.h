@@ -1,11 +1,13 @@
 #pragma once
 #include <string>
-#include "BaseObject.h"
+#include "IBaseObject.h"
 
 class Matrix4;
 class Vector3f;
 
-class Image : public BaseObject
+using namespace RealEngine;
+
+class Image : public IBaseObject
 {
 public:
 	Image(std::string filename);

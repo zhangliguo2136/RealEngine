@@ -13,12 +13,16 @@
 Model::Model(const std::string &filename)
 {
 	loadModelfile(filename);
-
-	_isUpdate = true;
 }
 Model::~Model()
 {
 
+}
+
+void Model::updateTransform(Matrix4* viewProj, Matrix4* uWorldTrans)
+{
+	_viewProj = viewProj;
+	_uWorldTransform = uWorldTrans;
 }
 
 void Model::loadModelfile(const std::string &filename)
@@ -62,6 +66,13 @@ void Model::loadModelfile(const std::string &filename)
 		}
 		else if (!line.compare(0, 2, "vn"))
 		{
+			iss >> trash;
+			float f;
+			for (int i = 0; i < 3; ++i)
+			{
+				iss >> f;
+				_normalBuffer.push_back(f);
+			}
 		}
 		/*
 		"f" 表示face 三个顶点索引所构成(一个顶点索引由空间坐标 + 纹理坐标 + 法线向量)
@@ -79,10 +90,16 @@ void Model::loadModelfile(const std::string &filename)
 	}
 }
 
-void Model::updateModel()
+void Model::draw() 
 {
-	Shader* shader = new Shader("../Resource/shader/common.vert", "../Resource/shader/common.frag");
+	glClearColor(0.86f, 0.86f, 0.86f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	Shader* shader = new Shader("../Resource/shader/Model.vert", "../Resource/shader/Model.frag");
 	shader->useProgram();
+
+	shader->setMatrixUniform("uWorldTransform", _uWorldTransform);
+	shader->setMatrixUniform("uViewProj", _viewProj);
 
 	// 创建顶点数组对象
 	unsigned int vao, vbo, ebo;
@@ -111,14 +128,4 @@ void Model::updateModel()
 	glDrawElements(GL_TRIANGLES, _indexBuffer.size(), GL_UNSIGNED_INT, nullptr);
 
 	delete shader;
-}
-
-
-void Model::draw() 
-{
-	if (_isUpdate)
-	{
-		this->updateModel();
-		_isUpdate = false;
-	}
 }

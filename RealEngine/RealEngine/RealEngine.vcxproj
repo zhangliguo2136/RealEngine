@@ -168,14 +168,13 @@
     <ClInclude Include="AutoreleasePool.h" />
     <ClInclude Include="BaseApplication.h" />
     <ClInclude Include="BaseSceneNode.h" />
-    <ClInclude Include="BaseObject.h" />
     <ClInclude Include="Bezier.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="EngineTest.h" />
     <ClInclude Include="FileUtil.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="InputManager.h" />
-    <ClInclude Include="ISceneObject.h" />
+    <ClInclude Include="IBaseObject.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Matrix.h" />

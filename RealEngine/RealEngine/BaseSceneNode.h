@@ -1,9 +1,16 @@
 #pragma once
-#include "BaseObject.h"
+#include "IBaseObject.h"
 #include "SceneObjectTransfrom.h"
 
-class BaseSceneNode: public BaseObject
+class BaseSceneNode: public IBaseObject
 {
+public:
+	virtual void draw() {};
+	virtual void update(float deltaTime) {};
+	virtual void onEnter() {};
+	virtual void onExit() {};
+	virtual void updateTransform(Matrix4* viewProj, Matrix4* uWorldTrans) {};
+
 protected:
 	// вс╫з╣Ц
 	std::list<std::unique_ptr<BaseSceneNode>> m_Childrens;

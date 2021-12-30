@@ -15,9 +15,9 @@ const void RealEngine::Log(const char* fmt, ...)
 
 const void RealEngine::Warn(const char* fmt, ...)
 {
-	if (ENGINE_DEBUG)
+	if (ENGINE_WARN)
 	{
-		printf("RealEngine[DEBUG]:  ");
+		printf("RealEngine[Warn]:  ");
 		va_list args;
 		va_start(args, fmt);
 		vprintf(fmt, args);

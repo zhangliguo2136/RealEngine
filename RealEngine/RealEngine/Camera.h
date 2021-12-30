@@ -1,9 +1,9 @@
 #pragma once
-#include "ISceneObject.h"
+#include "IBaseObject.h"
 
 namespace RealEngine 
 {
-	class Camera : public ISceneObject
+	class Camera : public IBaseObject
 	{
 	public:
 		Camera();

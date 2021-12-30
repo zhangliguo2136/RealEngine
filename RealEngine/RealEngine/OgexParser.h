@@ -4,7 +4,7 @@
 #include "SceneParser.h"
 
 #include "BaseSceneNode.h"
-#include "BaseObject.h"
+#include "IBaseObject.h"
 
 #include "OpenGEX.h"
 
@@ -16,7 +16,7 @@ namespace RealEngine
 		std::unique_ptr<BaseSceneNode> Parse(const std::string& buf) override;
 
 	private:
-		std::unordered_map<std::string, std::shared_ptr<BaseObject>> m_SceneObjects;
+		std::unordered_map<std::string, std::shared_ptr<IBaseObject>> m_SceneObjects;
 
 	private:
 		void ConvertOddlStructureToSceneNode(const ODDL::Structure &structure, 

@@ -158,12 +158,7 @@ void Image::SetPosition(float inx, float iny, float inz)
 	Matrix4 transfrom = Matrix4::CreateMoveMatrix(Vector3f(x, y, 0.0f));
 	Matrix4 tmpMatrix = (*uWorldTransform) * transfrom;
 
-	float* uData = uWorldTransform->GetMatrixData();
-	float* tData = tmpMatrix.GetMatrixData();
-	for (int i = 0; i < 16; ++i)
-	{
-		uData[i] = tData[i];
-	}
+	uWorldTransform->copyForm(tmpMatrix);
 }
 void Image::SetScale(float scaleX, float scaleY, float scaleZ) 
 {
@@ -173,12 +168,7 @@ void Image::SetScale(float scaleX, float scaleY, float scaleZ)
 	Matrix4 transfrom = Matrix4::CreateScaleMatrix(Vector3f(scaleX - 1.f, scaleY - 1.f, scaleZ - 1.f));
 	Matrix4 tmpMatrix = (*uWorldTransform) * transfrom;
 
-	float* uData = uWorldTransform->GetMatrixData();
-	float* tData = tmpMatrix.GetMatrixData();
-	for (int i = 0; i < 16; ++i)
-	{
-		uData[i] = tData[i];
-	}
+	uWorldTransform->copyForm(tmpMatrix);
 }
 void Image::SetRotation(float angle) 
 {
@@ -188,10 +178,5 @@ void Image::SetRotation(float angle)
 
 	Matrix4 tmpMatrix = (*uWorldTransform) * rotation;
 
-	float* uData = uWorldTransform->GetMatrixData();
-	float* tData = tmpMatrix.GetMatrixData();
-	for (int i = 0; i < 16; ++i)
-	{
-		uData[i] = tData[i];
-	}
+	uWorldTransform->copyForm(tmpMatrix);
 }

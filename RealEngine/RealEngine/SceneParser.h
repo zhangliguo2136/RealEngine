@@ -3,11 +3,11 @@
 #include <memory>
 #include <string>
 
-#include "BaseObject.h"
+#include "IBaseObject.h"
 #include "BaseSceneNode.h"
 
 namespace RealEngine {
-	class SceneParser : public BaseObject
+	class SceneParser : public IBaseObject
 	{
 	public:
 		virtual std::unique_ptr<BaseSceneNode> Parse(const std::string &buf) = 0;
