@@ -22,3 +22,10 @@ void Shader::setMatrixUniform(const char* name, Matrix4* mat4)
 
 	glUniformMatrix4fv(loc, 1, GL_TRUE, mat4->GetMatrixData());
 }
+
+void Shader::setUniform1i(const char* name, unsigned int i)
+{
+	GLuint loc = glGetUniformLocation(m_id, name);
+
+	glUniform1i(loc, 0);
+}

@@ -12,7 +12,14 @@ public:
 	Vector2f(float x, float y);
 
 public:
-	float x, y;
+	union
+	{
+		float values[2];
+		struct
+		{
+			float x, y;
+		};
+	};
 };
 
 
@@ -25,7 +32,33 @@ public:
 	Vector3f(float x, float y, float z);
 
 public:
-	float x, y, z;
+	union 
+	{
+		float values[3];
+		struct 
+		{
+			float x, y, z;
+		};
+	};
+};
+
+class Vector3i
+{
+public:
+	Vector3i() {};
+	~Vector3i() {};
+public:
+	Vector3i(int x, int y, int z) {};
+
+public:
+	union
+	{
+		int values[3];
+		struct
+		{
+			int x, y, z;
+		};
+	};
 };
 
 class Vector4f 

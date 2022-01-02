@@ -18,7 +18,6 @@ namespace
 		if (!isSuccess) 
 		{
 			glGetShaderInfoLog(shaderID, 512, nullptr, infoLog);
-
 			throw std::runtime_error("Unable to load a shader:" + std::string(infoLog));
 		}
 

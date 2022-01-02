@@ -14,6 +14,8 @@ public:
 	~Image();
 
 	void loadFromFile(std::string filename);
+
+	static unsigned int BindTexture(std::string filename);
 private:
 	int height;
 	int width;

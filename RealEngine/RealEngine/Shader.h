@@ -18,6 +18,7 @@ public:
 
 	void setMatrixUniform(const char* name, Matrix4* mat4);
 
+	void setUniform1i(const char* name, unsigned int i);
 protected:
 	GLuint m_id;
 };

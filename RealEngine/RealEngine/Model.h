@@ -2,8 +2,16 @@
 #include "IBaseObject.h"
 #include <string>
 #include <vector>
+#include "Math.h"
 
 using namespace RealEngine;
+
+struct Vertex
+{
+	Vector3f Position;
+	Vector3f Normal;
+	Vector2f TexCoords;
+};
 
 class Model : public IBaseObject
 {
@@ -25,7 +33,10 @@ public:
 	Matrix4* _uWorldTransform;
 
 private:
-	std::vector<float> _vertexBuffer;
+	//std::vector<float> _vertexBuffer;
+	//std::vector<float> _texCoordBuffer;
+	//std::vector<float> _normalBuffer;
+
+	std::vector<Vertex> _vertexBuffer;
 	std::vector<int> _indexBuffer;
-	std::vector<float> _normalBuffer;
 };
