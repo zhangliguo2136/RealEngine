@@ -1,6 +1,6 @@
 #pragma once
 
-#include "math.h"
+#include "Math.h"
 #include "Quaternion.h"
 
 class Matrix4
@@ -12,22 +12,22 @@ public:
 	// µ•Œªæÿ’Û
 	void Identity();
 
-	// ∆Ω“∆æÿ’Û
-	void MoveMatrix(Vector3f vec3);
-	// Àı∑≈æÿ’Û
-	void ScaleMatrix(Vector3f vec3);
-
 	// ÷ÿ‘ÿæÿ’Û≥À∑®
 	Matrix4 operator*(Matrix4 &) const;
 
-	float* GetMatrixData();
+	float* data();
 
 	void copyForm(Matrix4 &);
 
 public:
-	static Matrix4 CreateFromQuaternion(Quaternion& quat);
+	static Matrix4 IdentityMatrix();
+
+	static Matrix4 Perspective(float fov, float aspect, float n, float f);
+
+	static Matrix4 CreateRotationMatrix(Quaternion& quat);
 	static Matrix4 CreateMoveMatrix(Vector3f vec3);
 	static Matrix4 CreateScaleMatrix(Vector3f vec3);
+
 private:
-	float data[16];
+	float _values[16];
 };

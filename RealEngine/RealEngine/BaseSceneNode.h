@@ -1,6 +1,7 @@
 #pragma once
 #include "IBaseObject.h"
 #include "SceneObjectTransfrom.h"
+#include "Matrix.h"
 
 class BaseSceneNode: public IBaseObject
 {
@@ -9,7 +10,7 @@ public:
 	virtual void update(float deltaTime) {};
 	virtual void onEnter() {};
 	virtual void onExit() {};
-	virtual void updateTransform(Matrix4* viewProj, Matrix4* uWorldTrans) {};
+	virtual void updateTransform(Matrix4 view, Matrix4 projection) {};
 
 protected:
 	// вс╫з╣Ц

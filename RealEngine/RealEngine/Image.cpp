@@ -8,7 +8,7 @@
 #include "Quaternion.h"
 #include "SceneManager.h"
 
-#define PI 3.1415926
+#define PI 3.1415926f
 
 using namespace std;
 
@@ -104,7 +104,7 @@ unsigned int Image::BindTexture(std::string filename)
 	}
 	else
 	{
-		printf("Texture failed to load at file: %s", filename);
+		printf("Texture failed to load at file: %s", filename.c_str());
 	}
 	stbi_image_free(data);
 	return textureID;
@@ -163,14 +163,14 @@ void Image::draw()
 	RealEngine::SceneManager& pManager = RealEngine::SceneManager::getInstance();
 	Size winSize = pManager.getWinSize();
 
-	SetPosition(winSize.width/2, winSize.height/2, 0.f);
-	SetRotation(180.f);
+	//SetPosition(winSize.width/2, winSize.height/2, 0.f);
+	//SetRotation(180.f);
 
-	shader->setMatrixUniform("uWorldTransform", uWorldTransform);
+	//shader->setMatrixUniform("uWorldTransform", uWorldTransform);
 
-	Matrix4 projMat4;
-	projMat4.Identity();
-	shader->setMatrixUniform("uViewProj", &projMat4);
+	//Matrix4 projMat4;
+	//projMat4.Identity();
+	//shader->setMatrixUniform("uViewProj", &projMat4);
 
 	bindVertexArray();
 	loadTexture();
@@ -186,8 +186,8 @@ void Image::SetPosition(float inx, float iny, float inz)
 	RealEngine::SceneManager& pManager = RealEngine::SceneManager::getInstance();
 	Size winSize = pManager.getWinSize();
 
-	float x = inx / winSize.width - 0.5;
-	float y = iny / winSize.height - 0.5;
+	float x = inx / winSize.width - 0.5f;
+	float y = iny / winSize.height - 0.5f;
 
 	Matrix4 transfrom = Matrix4::CreateMoveMatrix(Vector3f(x, y, 0.0f));
 	Matrix4 tmpMatrix = (*uWorldTransform) * transfrom;
@@ -208,7 +208,7 @@ void Image::SetRotation(float angle)
 {
 	Vector3f axis(0.f, 0.f, 1.f);
 	Quaternion quat(axis, angle * PI / 180);
-	Matrix4 rotation = Matrix4::CreateFromQuaternion(quat);
+	Matrix4 rotation = Matrix4::CreateRotationMatrix(quat);
 
 	Matrix4 tmpMatrix = (*uWorldTransform) * rotation;
 

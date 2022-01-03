@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include "Math.h"
+#include "Matrix.h"
 
 using namespace RealEngine;
 
@@ -20,7 +21,7 @@ public:
 	virtual void update(float deltaTime){};
 	virtual void onEnter() {};
 	virtual void onExit() {};
-	virtual void updateTransform(Matrix4* viewProj, Matrix4* uWorldTrans);
+	virtual void updateTransform(Matrix4 view, Matrix4 projection);
 
 public:
 	Model(const std::string &filename);
@@ -29,13 +30,11 @@ public:
 	void loadModelfile(const std::string &filename);
 
 public:
-	Matrix4* _viewProj;
-	Matrix4* _uWorldTransform;
+	Matrix4 _view;
+	Matrix4 _projection;
+	Matrix4 _model;
 
 private:
-	//std::vector<float> _vertexBuffer;
-	//std::vector<float> _texCoordBuffer;
-	//std::vector<float> _normalBuffer;
 
 	std::vector<Vertex> _vertexBuffer;
 	std::vector<int> _indexBuffer;

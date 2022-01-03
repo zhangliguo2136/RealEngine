@@ -16,7 +16,7 @@ public:
 	Shader(const std::string &vertexFile, const std::string &fragmentFile);
 	void useProgram() const;
 
-	void setMatrixUniform(const char* name, Matrix4* mat4);
+	void setMatrixUniform(const char* name, Matrix4 mat4);
 
 	void setUniform1i(const char* name, unsigned int i);
 protected:

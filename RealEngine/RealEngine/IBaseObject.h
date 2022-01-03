@@ -14,6 +14,6 @@ namespace RealEngine
 		virtual void onEnter() = 0;
 		virtual void onExit() = 0;
 
-		virtual void updateTransform(Matrix4* viewProj, Matrix4* uWorldTrans) = 0;
+		virtual void updateTransform(Matrix4 view, Matrix4 projection) = 0;
 	};
 }

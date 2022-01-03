@@ -6,6 +6,7 @@
 #include "IBaseObject.h"
 #include "Math.h"
 #include "REKey.h"
+#include "Camera.h"
 
 namespace RealEngine 
 {
@@ -31,11 +32,13 @@ namespace RealEngine
 
 		Size getWinSize()
 		{
-			return Size(800.0, 600.0);
+			return Size(1920, 1080);
 		};
 
-		Matrix4* _viewProj;
-		Matrix4* _uWorldTransform;
+	public:
+		Camera* _camera = nullptr;
+
+
 	private:
 		std::vector<IBaseObject*> _objects;
 
@@ -46,19 +49,6 @@ namespace RealEngine
 
 		// 是否正在执行渲染
 		bool _bObjectsRendering = false;
-
-
-	public:
-		void processKeyDown(int key);
-		void processKeyUp(int key);
-		void processCursor(double, double);
-		void processScroll(double, double);
-
-		bool _isMoving = false;
-		double _cursorX = 0.0;
-		double _cursorY = 0.0;
-
-		float _scale = 1.0f;
 
 	};
 }

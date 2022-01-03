@@ -13,6 +13,8 @@
 
 Model::Model(const std::string &filename)
 {
+	_model.Identity();
+
 	loadModelfile(filename);
 }
 Model::~Model()
@@ -20,10 +22,10 @@ Model::~Model()
 
 }
 
-void Model::updateTransform(Matrix4* viewProj, Matrix4* uWorldTrans)
+void Model::updateTransform(Matrix4 inView, Matrix4 inProjection)
 {
-	_viewProj = viewProj;
-	_uWorldTransform = uWorldTrans;
+	_view = inView;
+	_projection = inProjection;
 }
 
 void Model::loadModelfile(const std::string &filename)
@@ -143,14 +145,12 @@ void Model::loadModelfile(const std::string &filename)
 
 void Model::draw() 
 {
-	glClearColor(0.86f, 0.86f, 0.86f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
-
 	Shader* shader = new Shader("../Resource/shader/Model.vert", "../Resource/shader/Model.frag");
 	shader->useProgram();
 
-	shader->setMatrixUniform("uWorldTransform", _uWorldTransform);
-	shader->setMatrixUniform("uViewProj", _viewProj);
+	shader->setMatrixUniform("model", _model);
+	shader->setMatrixUniform("view", _view);
+	shader->setMatrixUniform("projection", _projection);
 
 	// 创建顶点数组对象
 	unsigned int vao, vbo, ebo;

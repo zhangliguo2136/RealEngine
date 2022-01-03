@@ -22,6 +22,25 @@ public:
 	};
 };
 
+class Vector2d
+{
+public:
+	Vector2d() {};
+	~Vector2d() {};
+public:
+	Vector2d(double x, double y);
+
+public:
+	union
+	{
+		double values[2];
+		struct
+		{
+			double x, y;
+		};
+	};
+};
+
 
 class Vector3f
 {
@@ -31,6 +50,12 @@ public:
 public:
 	Vector3f(float x, float y, float z);
 
+	Vector3f operator-(Vector3f &) const;
+	Vector3f operator+(Vector3f &) const;
+
+	static Vector3f normalize(Vector3f &);
+	static Vector3f cross(Vector3f &, Vector3f &);
+	static Vector3f dot(Vector3f &, Vector3f &);
 public:
 	union 
 	{

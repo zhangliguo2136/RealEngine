@@ -2,6 +2,8 @@
 #include <vector>
 #include "REKey.h"
 
+#include "math.h"
+
 namespace RealEngine
 {
 	class InputManager
@@ -28,11 +30,18 @@ namespace RealEngine
 
 		void InputCursorEnter(bool isEnter);
 
-	private:
-		std::vector<int> m_keys;
+	public:
+		Vector2d getCursorPosition();
+		Vector2d getScrollPosition();
 
+		bool isPressed(int key);
 	private:
-		double m_currCursorX;
-		double m_currCursorY;
+		std::vector<int> _keys;
+
+		double _currCursorX;
+		double _currCursorY;
+
+		double _currScrollX = 0.0;
+		double _currScrollY = 0.0;
 	};
 }

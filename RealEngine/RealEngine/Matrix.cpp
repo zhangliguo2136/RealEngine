@@ -1,26 +1,27 @@
 #include "Matrix.h"
+#include <math.h>
 
 Matrix4::Matrix4() 
 {
 	for (int i = 0; i < 16; ++i)
 	{
-		data[i] = 0;
+		_values[i] = 0;
 	}
 }
 Matrix4::~Matrix4() 
 {
 
 }
-float* Matrix4::GetMatrixData()
+float* Matrix4::data()
 {
-	return data;
+	return _values;
 }
 
 Matrix4 Matrix4::operator*(Matrix4 &mat4) const
 {
 	Matrix4 mat;
-	float* newData = mat.GetMatrixData();
-	float* otherData = mat4.GetMatrixData();
+	float* newValues = mat.data();
+	float* otherValues = mat4.data();
 
 	for (int row = 0; row < 4; ++row)
 	{
@@ -30,7 +31,7 @@ Matrix4 Matrix4::operator*(Matrix4 &mat4) const
 
 			for (int k = 0; k < 4; ++k)
 			{
-				newData[index] += data[row*4 + k] * otherData[k*4 + col];
+				newValues[index] += _values[row * 4 + k] * otherValues[k * 4 + col];
 			}
 		}
 	}
@@ -45,31 +46,23 @@ void Matrix4::Identity()
 		{
 			if (i == j)
 			{
-				data[i * 4 + j] = 1;
+				_values[i * 4 + j] = 1;
 			}
 		}
 	}
 }
 
-void Matrix4::MoveMatrix(Vector3f vec3)
+Matrix4 Matrix4::IdentityMatrix()
 {
-	data[12] += vec3.x;
-	data[13] += vec3.y;
-	data[14] += vec3.z;
-}
-
-void Matrix4::ScaleMatrix(Vector3f vec3) 
-{
-	data[0] += vec3.x;
-	data[5] += vec3.y;
-	data[10] += vec3.z;
+	Matrix4 mat;
+	mat.Identity();
+	return mat;
 }
 
 Matrix4 Matrix4::CreateMoveMatrix(Vector3f vec3)
 {
-	Matrix4 mat;
-	mat.Identity();
-	float* matData = mat.GetMatrixData();
+	Matrix4 mat = Matrix4::IdentityMatrix();
+	float* matData = mat.data();
 
 	matData[12] = vec3.x;
 	matData[13] = vec3.y;
@@ -79,9 +72,8 @@ Matrix4 Matrix4::CreateMoveMatrix(Vector3f vec3)
 }
 Matrix4 Matrix4::CreateScaleMatrix(Vector3f vec3)
 {
-	Matrix4 mat;
-	mat.Identity();
-	float* matData = mat.GetMatrixData();
+	Matrix4 mat = Matrix4::IdentityMatrix();
+	float* matData = mat.data();
 	matData[0] += vec3.x;
 	matData[5] += vec3.y;
 	matData[10] += vec3.z;
@@ -89,10 +81,10 @@ Matrix4 Matrix4::CreateScaleMatrix(Vector3f vec3)
 	return mat;
 }
 
-Matrix4 Matrix4::CreateFromQuaternion(Quaternion& quat) 
+Matrix4 Matrix4::CreateRotationMatrix(Quaternion& quat)
 {
 	Matrix4 mat;
-	float* data = mat.GetMatrixData();
+	float* data = mat.data();
 
 	data[0] = 1.0f - 2.0f * quat.y * quat.y - 2.0f * quat.z * quat.z;
 	data[1] = 2.0f * quat.x * quat.y + 2.0f * quat.w * quat.z;
@@ -119,10 +111,29 @@ Matrix4 Matrix4::CreateFromQuaternion(Quaternion& quat)
 
 void Matrix4::copyForm(Matrix4 &mat4)
 {
-	float* inData = mat4.GetMatrixData();
+	float* inValues = mat4.data();
 
 	for (int i = 0; i < 16; ++i)
 	{
-		data[i] = inData[i];
+		_values[i] = inValues[i];
 	}
+}
+
+Matrix4 Matrix4::Perspective(float fov, float aspect, float n, float f)
+{
+	float q = 1.0f / tan(fov / 3.1415 * 180);
+
+	float A = q / aspect;
+	float B = (n + f) / (n - f);
+	float C = (2.0f * n * f) / (n - f);
+
+	Matrix4 mat;
+	float* values = mat.data();
+	values[0] = A;
+	values[5] = q;
+	values[10] = B;
+	values[11] = -1;
+	values[14] = C;
+
+	return mat;
 }

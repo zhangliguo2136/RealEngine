@@ -39,6 +39,9 @@ void RealEngine::OpenglApplication::Finalize()
 }
 void RealEngine::OpenglApplication::Tick() 
 {
+	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+	glClear(GL_COLOR_BUFFER_BIT);
+
 	BaseApplication::Tick();
 
 	glfwSwapBuffers(pWindows);
@@ -52,7 +55,7 @@ int RealEngine::OpenglApplication::createWindow(int inWidth, int inHeight, const
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-	pWindows = glfwCreateWindow(m_width, m_height, winName, NULL, NULL);
+	pWindows = glfwCreateWindow(inWidth, inHeight, winName, NULL, NULL);
 
 	if (pWindows == nullptr) 
 	{

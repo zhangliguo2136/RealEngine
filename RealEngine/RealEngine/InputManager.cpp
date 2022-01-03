@@ -6,41 +6,31 @@
 
 void RealEngine::InputManager::InputKeyDown(int key)
 {
-	m_keys.push_back(key);
-
-	SceneManager& pManager = SceneManager::getInstance();
-	pManager.processKeyDown(key);
+	_keys.push_back(key);
 }
 
 void RealEngine::InputManager::InputKeyUp(int key)
 {
-	for (auto iter = m_keys.begin(); iter != m_keys.end(); iter++)
+	for (auto iter = _keys.begin(); iter != _keys.end(); iter++)
 	{
 		if (*iter == key)
 		{
-			m_keys.erase(iter);
+			_keys.erase(iter);
 			break;
 		}
 	}
-
-	SceneManager& pManager = SceneManager::getInstance();
-	pManager.processKeyUp(key);
 }
 
 void RealEngine::InputManager::InputCursor(double x, double y)
 {
-	m_currCursorX = x;
-	m_currCursorY = y;
-
-
-	SceneManager& pManager = SceneManager::getInstance();
-	pManager.processCursor(x, y);
+	_currCursorX = x;
+	_currCursorY = y;
 }
 
 void RealEngine::InputManager::InputScroll(double x, double y)
 {
-	SceneManager& pManager = SceneManager::getInstance();
-	pManager.processScroll(x, y);
+	_currScrollX += x;
+	_currScrollY += y;
 }
 
 void RealEngine::InputManager::InputCursorEnter(bool isEnter)
@@ -53,4 +43,27 @@ void RealEngine::InputManager::InputCursorEnter(bool isEnter)
 	{
 		RealEngine::Log("InputManager:: Input Cursor is left window\n");
 	}
+}
+
+Vector2d RealEngine::InputManager::getCursorPosition() 
+{
+	return Vector2d(_currCursorX, _currCursorY);
+}
+
+Vector2d RealEngine::InputManager::getScrollPosition() 
+{
+	return Vector2d(_currScrollX, _currScrollY);
+}
+
+bool RealEngine::InputManager::isPressed(int key)
+{
+	for (auto iter = _keys.begin(); iter != _keys.end(); iter++)
+	{
+		if (*iter == key)
+		{
+			return true;
+		}
+	}
+
+	return false;
 }
