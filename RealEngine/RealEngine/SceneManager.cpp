@@ -12,6 +12,8 @@
 RealEngine::SceneManager::SceneManager() 
 {
 	_camera = new Camera();
+
+	_model = new Model("../Resource/model/diablo3_pose/diablo3_pose.obj");
 }
 RealEngine::SceneManager::~SceneManager() 
 {
@@ -31,25 +33,30 @@ void RealEngine::SceneManager::Tick()
 	_lastTime = ms.count();
 
 	// view projection 处理
+	_camera->update(deltaTime);
+
 
 	Matrix4 view = _camera->getViewMatrix();
 	Matrix4 projection = _camera->getProjectionMatrix();
+	_model->updateTransform(view, projection);
+	_model->update(deltaTime);
+	_model->draw();
 
-	// 更新
-	_bUpdatingObjects = true;
-	for (auto iter = _objects.begin(); iter != _objects.end(); ++iter)
-	{
-		(*iter)->updateTransform(view, projection);
+	//// 更新
+	//_bUpdatingObjects = true;
+	//for (auto iter = _objects.begin(); iter != _objects.end(); ++iter)
+	//{
+	//	(*iter)->updateTransform(view, projection);
 
-		(*iter)->update(deltaTime);
-	}
-	_bUpdatingObjects = false;
+	//	(*iter)->update(deltaTime);
+	//}
+	//_bUpdatingObjects = false;
 
 
-	_bObjectsRendering = true;
-	for (auto iter = _objects.begin(); iter != _objects.end(); ++iter)
-	{
-		(*iter)->draw();
-	}
-	_bObjectsRendering = false;
+	//_bObjectsRendering = true;
+	//for (auto iter = _objects.begin(); iter != _objects.end(); ++iter)
+	//{
+	//	(*iter)->draw();
+	//}
+	//_bObjectsRendering = false;
 }

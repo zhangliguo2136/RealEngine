@@ -7,6 +7,7 @@
 #include "Math.h"
 #include "REKey.h"
 #include "Camera.h"
+#include "Model.h"
 
 namespace RealEngine 
 {
@@ -37,7 +38,7 @@ namespace RealEngine
 
 	public:
 		Camera* _camera = nullptr;
-
+		Model* _model = nullptr;
 
 	private:
 		std::vector<IBaseObject*> _objects;

@@ -1,27 +1,68 @@
 #include "Camera.h"
 #include "RealEngine.h"
+#include "InputManager.h"
 
 RealEngine::Camera::Camera() 
 {
-	_position = Vector3f(0.0f, 0.0f, 3.0f);
+	_position = Vector3f(0.f, 0.f, 3.f);
+
 	_front = Vector3f(0.0f, 0.0f, -1.0f);
 	_up = Vector3f(0.0f, 1.0f, 0.0f);
+
+	_lastCursorPosition = Vector2d(960, 540);
 }
 
 RealEngine::Camera::~Camera() 
 {
 }
 
+void RealEngine::Camera::update(float deltaTime)
+{
+	float cameraSpeed = 0.05f;
+	InputManager& pManager = InputManager::getInstance();
+	if (pManager.isPressed(GLFW_KEY_W))
+	{
+		_position = _position + _front * cameraSpeed;
+	}
+	else if (pManager.isPressed(GLFW_KEY_S))
+	{
+		_position = _position - _front * cameraSpeed;
+	}
+	else if (pManager.isPressed(GLFW_KEY_A))
+	{
+		_position = _position - Vector3f::normalize(Vector3f::cross(_front, _up)) * cameraSpeed;
+	}
+	else if (pManager.isPressed(GLFW_KEY_D))
+	{
+		_position = _position + Vector3f::normalize(Vector3f::cross(_front, _up)) * cameraSpeed;
+	}
+
+	//float sensitivity = 0.05f;
+	//auto cursorPosition = pManager.getCursorPosition();
+	//float xoffset = cursorPosition.x - _lastCursorPosition.x;
+	//float yoffset = _lastCursorPosition.y - cursorPosition.y;
+	//_lastCursorPosition = cursorPosition;
+
+	//yaw += xoffset;
+	//pitch += yoffset;
+
+	//if (pitch > 89.0f)
+	//	pitch = 89.0f;
+	//if (pitch < -89.0f)
+	//	pitch = -89.0f;
+
+	//using namespace RealEngine::Math;
+	//Vector3f front;
+	//front.x = cos(radians(yaw)) * cos(radians(pitch));
+	//front.y = sin(radians(pitch));
+	//front.z = sin(radians(yaw)) * cos(radians(pitch));
+	//_front = Vector3f::normalize(front);
+}
+
 Matrix4 RealEngine::Camera::lookAt(Vector3f& position, Vector3f&target, Vector3f& worldUp) 
 {
-	Vector3f temp1 = position - target;
-	Vector3f zaxis = Vector3f::normalize(temp1);
-
-	Vector3f normUp = Vector3f::normalize(worldUp);
-	Vector3f temp2 = Vector3f::cross(normUp, zaxis);
-	Vector3f xaxis = Vector3f::normalize(temp2);
-
-
+	Vector3f zaxis = Vector3f::normalize(position - target);
+	Vector3f xaxis = Vector3f::normalize(Vector3f::cross(Vector3f::normalize(worldUp), zaxis));
 	Vector3f yaxis = Vector3f::cross(zaxis, xaxis);
 
 	Matrix4 mat1 = Matrix4::IdentityMatrix();

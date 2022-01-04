@@ -7,22 +7,19 @@
 #include "Shader.h"
 #include "Quaternion.h"
 #include "SceneManager.h"
-
-#define PI 3.1415926f
+#include "Vector.h"
+#include "Math.h"
 
 using namespace std;
 
 Image::Image(std::string filename) 
 {
-	uWorldTransform = new Matrix4();
-	uWorldTransform->Identity();
+	_model.Identity();
 
 	loadFromFile(filename);
 }
 Image::~Image() 
 {
-	delete uWorldTransform;
-
 	stbi_image_free(m_pData);
 }
 
@@ -189,28 +186,18 @@ void Image::SetPosition(float inx, float iny, float inz)
 	float x = inx / winSize.width - 0.5f;
 	float y = iny / winSize.height - 0.5f;
 
-	Matrix4 transfrom = Matrix4::CreateMoveMatrix(Vector3f(x, y, 0.0f));
-	Matrix4 tmpMatrix = (*uWorldTransform) * transfrom;
-
-	uWorldTransform->copyForm(tmpMatrix);
+	Matrix4 transfrom = Matrix4::Translate(Vector3f(x, y, 0.0f));
+	_model = _model * transfrom;
 }
 void Image::SetScale(float scaleX, float scaleY, float scaleZ) 
 {
-	RealEngine::SceneManager& pManager = RealEngine::SceneManager::getInstance();
-	Size winSize = pManager.getWinSize();
-
-	Matrix4 transfrom = Matrix4::CreateScaleMatrix(Vector3f(scaleX - 1.f, scaleY - 1.f, scaleZ - 1.f));
-	Matrix4 tmpMatrix = (*uWorldTransform) * transfrom;
-
-	uWorldTransform->copyForm(tmpMatrix);
+	Matrix4 transfrom = Matrix4::Scale(Vector3f(scaleX - 1.f, scaleY - 1.f, scaleZ - 1.f));
+	_model = _model * transfrom;
 }
 void Image::SetRotation(float angle) 
 {
-	Vector3f axis(0.f, 0.f, 1.f);
-	Quaternion quat(axis, angle * PI / 180);
-	Matrix4 rotation = Matrix4::CreateRotationMatrix(quat);
+	Quaternion quat(Vector3f(0.0f, 0.0f, 1.0f), Math::radians(angle));
+	Matrix4 rotation = Matrix4::RotationByQuat(quat);
 
-	Matrix4 tmpMatrix = (*uWorldTransform) * rotation;
-
-	uWorldTransform->copyForm(tmpMatrix);
+	_model = _model * rotation;
 }

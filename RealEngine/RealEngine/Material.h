@@ -2,7 +2,7 @@
 #include<memory>
 
 #include "Image.h"
-#include "Math.h"
+#include "Vector.h"
 
 /*
 材质属性值，或者材质贴图

@@ -1,6 +1,8 @@
 #include "Matrix.h"
 #include <math.h>
 
+#include "Math.h"
+
 Matrix4::Matrix4() 
 {
 	for (int i = 0; i < 16; ++i)
@@ -59,7 +61,7 @@ Matrix4 Matrix4::IdentityMatrix()
 	return mat;
 }
 
-Matrix4 Matrix4::CreateMoveMatrix(Vector3f vec3)
+Matrix4 Matrix4::Translate(const Vector3f& vec3)
 {
 	Matrix4 mat = Matrix4::IdentityMatrix();
 	float* matData = mat.data();
@@ -70,7 +72,7 @@ Matrix4 Matrix4::CreateMoveMatrix(Vector3f vec3)
 
 	return mat;
 }
-Matrix4 Matrix4::CreateScaleMatrix(Vector3f vec3)
+Matrix4 Matrix4::Scale(const Vector3f& vec3)
 {
 	Matrix4 mat = Matrix4::IdentityMatrix();
 	float* matData = mat.data();
@@ -81,7 +83,7 @@ Matrix4 Matrix4::CreateScaleMatrix(Vector3f vec3)
 	return mat;
 }
 
-Matrix4 Matrix4::CreateRotationMatrix(Quaternion& quat)
+Matrix4 Matrix4::RotationByQuat(const Quaternion& quat)
 {
 	Matrix4 mat;
 	float* data = mat.data();
@@ -121,7 +123,7 @@ void Matrix4::copyForm(Matrix4 &mat4)
 
 Matrix4 Matrix4::Perspective(float fov, float aspect, float n, float f)
 {
-	float q = 1.0f / tan(fov / 3.1415 * 180);
+	float q = 1.0f / tan(Math::radians(fov));
 
 	float A = q / aspect;
 	float B = (n + f) / (n - f);

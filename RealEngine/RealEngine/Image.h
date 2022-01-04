@@ -1,9 +1,8 @@
 #pragma once
 #include <string>
 #include "IBaseObject.h"
-
-class Matrix4;
-class Vector3f;
+#include "Matrix.h"
+#include "Vector.h"
 
 using namespace RealEngine;
 
@@ -12,6 +11,12 @@ class Image : public IBaseObject
 public:
 	Image(std::string filename);
 	~Image();
+
+	virtual void draw() override;
+	virtual void update(float deltaTime) override {} ;
+	virtual void onEnter() override {};
+	virtual void onExit() override {};
+	virtual void updateTransform(Matrix4 view, Matrix4 projection) override {};
 
 	void loadFromFile(std::string filename);
 
@@ -22,8 +27,8 @@ private:
 	// 通道数量
 	int nrChannel;
 
-	// 世界变换矩阵
-	Matrix4* uWorldTransform;
+	// 模型变换矩阵
+	Matrix4 _model;
 
 	unsigned char* m_pData;
 
@@ -36,9 +41,6 @@ private:
 	void bindVertexArray();
 private:
 	void loadFromMemoryTest(std::string filename);
-public:
-	// 调用绘制
-	void draw();
 
 public:
 	void SetPosition(float x, float y, float z);

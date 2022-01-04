@@ -16,6 +16,31 @@ Model::Model(const std::string &filename)
 	_model.Identity();
 
 	loadModelfile(filename);
+
+	// 创建顶点数组对象
+	glGenVertexArrays(1, &vao);
+	glBindVertexArray(vao);
+
+	// 顶点缓冲对象
+	glGenBuffers(1, &vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, vbo);
+	glBufferData(GL_ARRAY_BUFFER, _vertexBuffer.size() * sizeof(Vertex), _vertexBuffer.data(), GL_STATIC_DRAW);
+
+	// 索引缓冲对象
+	glGenBuffers(1, &ebo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer.size() * sizeof(int), _indexBuffer.data(), GL_STATIC_DRAW);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
+
+	glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
+
+	glBindVertexArray(0);
 }
 Model::~Model()
 {
@@ -151,32 +176,6 @@ void Model::draw()
 	shader->setMatrixUniform("model", _model);
 	shader->setMatrixUniform("view", _view);
 	shader->setMatrixUniform("projection", _projection);
-
-	// 创建顶点数组对象
-	unsigned int vao, vbo, ebo;
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-
-	// 顶点缓冲对象
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, _vertexBuffer.size() * sizeof(Vertex), _vertexBuffer.data(), GL_STATIC_DRAW);
-
-	// 索引缓冲对象
-	glGenBuffers(1, &ebo);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer.size() * sizeof(int), _indexBuffer.data(), GL_STATIC_DRAW);
-
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
-
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
-
-	glEnableVertexAttribArray(2);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
-
-	glBindVertexArray(0);
 
 
 	glActiveTexture(GL_TEXTURE0);

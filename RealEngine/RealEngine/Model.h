@@ -2,7 +2,7 @@
 #include "IBaseObject.h"
 #include <string>
 #include <vector>
-#include "Math.h"
+#include "Vector.h"
 #include "Matrix.h"
 
 using namespace RealEngine;
@@ -35,7 +35,7 @@ public:
 	Matrix4 _model;
 
 private:
-
+	unsigned int vao, vbo, ebo;
 	std::vector<Vertex> _vertexBuffer;
 	std::vector<int> _indexBuffer;
 };

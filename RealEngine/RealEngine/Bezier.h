@@ -1,6 +1,7 @@
 #pragma once
-#include "Math.h"
 #include <vector>
+
+#include "Vector.h"
 
 class Bezier2D
 {

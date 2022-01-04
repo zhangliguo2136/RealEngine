@@ -1,6 +1,6 @@
 #pragma once
 #include "IBaseObject.h"
-#include "Math.h"
+#include "Vector.h"
 #include "Matrix.h"
 
 namespace RealEngine 
@@ -13,7 +13,7 @@ namespace RealEngine
 
 	public:
 		virtual void draw() {};
-		virtual void update(float deltaTime) {};
+		virtual void update(float deltaTime);
 
 		virtual void onEnter() {};
 		virtual void onExit() {};
@@ -28,6 +28,9 @@ namespace RealEngine
 	private:
 		Matrix4 lookAt(Vector3f&, Vector3f&, Vector3f&);
 
+		Vector2d _lastCursorPosition;
+		float yaw = -90.0f;
+		float pitch = 0.0f;
 	private:
 		// œ‡ª˙Œª÷√
 		Vector3f _position;

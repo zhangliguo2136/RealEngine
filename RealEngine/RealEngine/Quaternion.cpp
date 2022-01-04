@@ -1,7 +1,7 @@
 #include <cmath>
 
 #include "Quaternion.h"
-#include "Math.h"
+#include "Vector.h"
 
 Quaternion::Quaternion(float inX, float inY, float inZ, float inW)
 {
@@ -11,7 +11,7 @@ Quaternion::Quaternion(float inX, float inY, float inZ, float inW)
 	w = inW;
 }
 
-Quaternion::Quaternion(Vector3f& axis, float angle)
+Quaternion::Quaternion(const Vector3f& axis, float angle)
 {
 	float scalar = sinf(angle / 2.0f);
 	x = axis.x * scalar;

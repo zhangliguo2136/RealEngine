@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Math.h"
+#include "Vector.h"
 #include "Quaternion.h"
 
 class Matrix4
@@ -24,9 +24,10 @@ public:
 
 	static Matrix4 Perspective(float fov, float aspect, float n, float f);
 
-	static Matrix4 CreateRotationMatrix(Quaternion& quat);
-	static Matrix4 CreateMoveMatrix(Vector3f vec3);
-	static Matrix4 CreateScaleMatrix(Vector3f vec3);
+	static Matrix4 RotationByQuat(const Quaternion& quat);
+	static Matrix4 Rotation(const Vector3f& vec3);
+	static Matrix4 Translate(const Vector3f& vec3);
+	static Matrix4 Scale(const Vector3f& vec3);
 
 private:
 	float _values[16];

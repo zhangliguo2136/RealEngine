@@ -9,5 +9,5 @@ public:
 	float x, y, z, w;
 
 	explicit Quaternion(float inX, float inY, float inZ, float inW);
-	explicit Quaternion(Vector3f& axis, float angle);
+	explicit Quaternion(const Vector3f& axis, float angle);
 };

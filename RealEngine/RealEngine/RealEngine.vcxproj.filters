@@ -183,6 +183,9 @@
     <ClCompile Include="Model.cpp">
       <Filter>源文件\Framework\scene</Filter>
     </ClCompile>
+    <ClCompile Include="Vector.cpp">
+      <Filter>源文件\Framework\base</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -325,6 +328,9 @@
     </ClInclude>
     <ClInclude Include="IBaseObject.h">
       <Filter>源文件\Framework\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.h">
+      <Filter>源文件\Framework\base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
