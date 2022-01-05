@@ -49,9 +49,9 @@ Vector3f Vector3f::cross(const Vector3f &vec1, const Vector3f &vec2)
 
 	return vec;
 }
-Vector3f Vector3f::dot(const Vector3f &, const Vector3f &)
+float Vector3f::dot(const Vector3f &, const Vector3f &)
 {
-	return Vector3f(0.0f, 0.0f, 0.0f);
+	return 0.0f;
 }
 
 

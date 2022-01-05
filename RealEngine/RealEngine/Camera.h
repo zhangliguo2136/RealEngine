@@ -2,6 +2,7 @@
 #include "IBaseObject.h"
 #include "Vector.h"
 #include "Matrix.h"
+#include "Math.h"
 
 namespace RealEngine 
 {
@@ -26,7 +27,7 @@ namespace RealEngine
 		Vector3f getViewPosition();
 
 	private:
-		Matrix4 lookAt(Vector3f&, Vector3f&, Vector3f&);
+		Matrix4 lookAt(const Vector3f&, const Vector3f&, const Vector3f&);
 
 		Vector2d _lastCursorPosition;
 		float yaw = -90.0f;

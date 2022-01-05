@@ -14,11 +14,6 @@ public:
 
 	// ÷ÿ‘ÿæÿ’Û≥À∑®
 	Matrix4 operator*(Matrix4 &) const;
-
-	float* data();
-
-	void copyForm(Matrix4 &);
-
 public:
 	static Matrix4 IdentityMatrix();
 
@@ -29,6 +24,8 @@ public:
 	static Matrix4 Translate(const Vector3f& vec3);
 	static Matrix4 Scale(const Vector3f& vec3);
 
+public:
+	float* data();
 private:
 	float _values[16];
 };

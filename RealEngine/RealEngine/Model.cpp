@@ -13,7 +13,7 @@
 
 Model::Model(const std::string &filename)
 {
-	_model.Identity();
+	_model = Matrix4::Translate(Vector3f(0.f, 0.f, 0.f));
 
 	loadModelfile(filename);
 

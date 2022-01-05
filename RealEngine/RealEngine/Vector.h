@@ -56,7 +56,7 @@ public:
 
 	static Vector3f normalize(const Vector3f &);
 	static Vector3f cross(const Vector3f &, const Vector3f &);
-	static Vector3f dot(const Vector3f &, const Vector3f &);
+	static float dot(const Vector3f &, const Vector3f &);
 public:
 	union
 	{

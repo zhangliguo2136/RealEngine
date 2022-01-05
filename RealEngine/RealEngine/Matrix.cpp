@@ -19,25 +19,33 @@ float* Matrix4::data()
 	return _values;
 }
 
-Matrix4 Matrix4::operator*(Matrix4 &mat4) const
+Matrix4 Matrix4::operator*(Matrix4 &inMat) const
 {
-	Matrix4 mat;
-	float* newValues = mat.data();
-	float* otherValues = mat4.data();
+	Matrix4 newMat;
+	float* newValues = newMat.data();
+	float* otherValues = inMat.data();
 
-	for (int row = 0; row < 4; ++row)
-	{
-		for (int col = 0; col < 4; ++col)
-		{
-			int index = row * 4 + col;
+	newValues[0] = _values[0] * otherValues[0] + _values[1] * otherValues[4] + _values[2] * otherValues[8] + _values[3] * otherValues[12];
+	newValues[1] = _values[0] * otherValues[1] + _values[1] * otherValues[5] + _values[2] * otherValues[9] + _values[3] * otherValues[13];
+	newValues[2] = _values[0] * otherValues[2] + _values[1] * otherValues[6] + _values[2] * otherValues[10] + _values[3] * otherValues[14];
+	newValues[3] = _values[0] * otherValues[3] + _values[1] * otherValues[7] + _values[2] * otherValues[11] + _values[3] * otherValues[15];
 
-			for (int k = 0; k < 4; ++k)
-			{
-				newValues[index] += _values[row * 4 + k] * otherValues[k * 4 + col];
-			}
-		}
-	}
-	return mat;
+	newValues[4] = _values[4] * otherValues[0] + _values[5] * otherValues[4] + _values[6] * otherValues[8] + _values[7] * otherValues[12];
+	newValues[5] = _values[4] * otherValues[1] + _values[5] * otherValues[5] + _values[6] * otherValues[9] + _values[7] * otherValues[13];
+	newValues[6] = _values[4] * otherValues[2] + _values[5] * otherValues[6] + _values[6] * otherValues[10] + _values[7] * otherValues[14];
+	newValues[7] = _values[4] * otherValues[3] + _values[5] * otherValues[7] + _values[6] * otherValues[11] + _values[7] * otherValues[15];
+
+	newValues[8] = _values[8] * otherValues[0] + _values[9] * otherValues[4] + _values[10] * otherValues[8] + _values[11] * otherValues[12];
+	newValues[9] = _values[8] * otherValues[1] + _values[9] * otherValues[5] + _values[10] * otherValues[9] + _values[11] * otherValues[13];
+	newValues[10] = _values[8] * otherValues[2] + _values[9] * otherValues[6] + _values[10] * otherValues[10] + _values[11] * otherValues[14];
+	newValues[11] = _values[8] * otherValues[3] + _values[9] * otherValues[7] + _values[10] * otherValues[11] + _values[11] * otherValues[15];
+
+	newValues[12] = _values[12] * otherValues[0] + _values[13] * otherValues[4] + _values[14] * otherValues[8] + _values[15] * otherValues[12];
+	newValues[13] = _values[12] * otherValues[1] + _values[13] * otherValues[5] + _values[14] * otherValues[9] + _values[15] * otherValues[13];
+	newValues[14] = _values[12] * otherValues[2] + _values[13] * otherValues[6] + _values[14] * otherValues[10] + _values[15] * otherValues[14];
+	newValues[15] = _values[12] * otherValues[3] + _values[13] * otherValues[7] + _values[14] * otherValues[11] + _values[15] * otherValues[15];
+
+	return newMat;
 }
 
 void Matrix4::Identity()
@@ -66,9 +74,9 @@ Matrix4 Matrix4::Translate(const Vector3f& vec3)
 	Matrix4 mat = Matrix4::IdentityMatrix();
 	float* matData = mat.data();
 
-	matData[12] = vec3.x;
-	matData[13] = vec3.y;
-	matData[14] = vec3.z;
+	matData[3] = vec3.x;
+	matData[7] = vec3.y;
+	matData[11] = vec3.z;
 
 	return mat;
 }
@@ -111,16 +119,6 @@ Matrix4 Matrix4::RotationByQuat(const Quaternion& quat)
 	return mat;
 }
 
-void Matrix4::copyForm(Matrix4 &mat4)
-{
-	float* inValues = mat4.data();
-
-	for (int i = 0; i < 16; ++i)
-	{
-		_values[i] = inValues[i];
-	}
-}
-
 Matrix4 Matrix4::Perspective(float fov, float aspect, float n, float f)
 {
 	float q = 1.0f / tan(Math::radians(fov));
@@ -131,11 +129,12 @@ Matrix4 Matrix4::Perspective(float fov, float aspect, float n, float f)
 
 	Matrix4 mat;
 	float* values = mat.data();
+
 	values[0] = A;
 	values[5] = q;
 	values[10] = B;
-	values[11] = -1;
-	values[14] = C;
+	values[11] = C;
+	values[14] = -1;
 
 	return mat;
 }
