@@ -22,36 +22,6 @@
     <Filter Include="源文件\Framework\Interface">
       <UniqueIdentifier>{38c41538-8207-4c75-bcbe-a6fb6349c649}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\platform">
-      <UniqueIdentifier>{1e2f4370-07d1-4b6f-913f-ad19d8060c0c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\platform\win32">
-      <UniqueIdentifier>{ac3a7ff9-2c21-4e6c-85dc-60d41690213c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Framework\graphics">
-      <UniqueIdentifier>{5d794eb4-0ed2-4a19-a2c8-1c51c7778a69}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Framework\utils">
-      <UniqueIdentifier>{1b5caf20-b444-4aa1-a07a-0388731f8975}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Framework\gc">
-      <UniqueIdentifier>{7df33ba7-e705-4c0e-9502-7e62e6ecc7b4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Framework\gc\ReferenceCount">
-      <UniqueIdentifier>{6779709c-c0f5-41cb-876d-be8d04814300}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Framework\gc\MarkAndClear">
-      <UniqueIdentifier>{eca2fe95-cd2b-4dce-8d85-66acc3701c94}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Framework\scene">
-      <UniqueIdentifier>{52814657-bc4d-4045-811c-dc2a559b74c0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Framework\ecs">
-      <UniqueIdentifier>{2d9adc0a-35a3-44b5-acab-9493bee5a7d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Framework\graphics\Shaders">
-      <UniqueIdentifier>{112f5170-200d-473f-8ea3-917c0b1e8576}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\Enternal">
       <UniqueIdentifier>{434ec3b3-d277-475a-ba72-b6de419cb549}</UniqueIdentifier>
     </Filter>
@@ -64,17 +34,47 @@
     <Filter Include="源文件\Enternal\OpenDDL">
       <UniqueIdentifier>{51ac3dbf-925e-47a7-94b3-98c20dc3a6a0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\Framework\base">
-      <UniqueIdentifier>{9017912e-1dac-49be-aa14-1cbe382a49d6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Framework\script">
-      <UniqueIdentifier>{873966b1-e940-4ae8-823a-e8f162bc30c2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="源文件\Framework\test">
-      <UniqueIdentifier>{b4033991-7a4f-4955-b225-64bea3f21144}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\Input">
       <UniqueIdentifier>{687ab5b9-2c4e-4c98-a3c6-d317fa9add2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Base">
+      <UniqueIdentifier>{9017912e-1dac-49be-aa14-1cbe382a49d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Ecs">
+      <UniqueIdentifier>{2d9adc0a-35a3-44b5-acab-9493bee5a7d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\GC">
+      <UniqueIdentifier>{7df33ba7-e705-4c0e-9502-7e62e6ecc7b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\GC\ReferenceCount">
+      <UniqueIdentifier>{6779709c-c0f5-41cb-876d-be8d04814300}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\GC\MarkAndClear">
+      <UniqueIdentifier>{eca2fe95-cd2b-4dce-8d85-66acc3701c94}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Graphics">
+      <UniqueIdentifier>{5d794eb4-0ed2-4a19-a2c8-1c51c7778a69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Graphics\Shaders">
+      <UniqueIdentifier>{112f5170-200d-473f-8ea3-917c0b1e8576}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Scene">
+      <UniqueIdentifier>{52814657-bc4d-4045-811c-dc2a559b74c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Script">
+      <UniqueIdentifier>{873966b1-e940-4ae8-823a-e8f162bc30c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Test">
+      <UniqueIdentifier>{b4033991-7a4f-4955-b225-64bea3f21144}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Utils">
+      <UniqueIdentifier>{1b5caf20-b444-4aa1-a07a-0388731f8975}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Platform">
+      <UniqueIdentifier>{1e2f4370-07d1-4b6f-913f-ad19d8060c0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Platform\win32">
+      <UniqueIdentifier>{ac3a7ff9-2c21-4e6c-85dc-60d41690213c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -82,7 +82,7 @@
       <Filter>源文件\Framework\Common</Filter>
     </ClCompile>
     <ClCompile Include="WindowsApplication.cpp">
-      <Filter>源文件\platform\win32</Filter>
+      <Filter>源文件\Platform\win32</Filter>
     </ClCompile>
     <ClCompile Include="ObjectPool.cpp">
       <Filter>源文件\Framework\Common</Filter>
@@ -94,49 +94,46 @@
       <Filter>源文件\Framework\Common</Filter>
     </ClCompile>
     <ClCompile Include="Ref.cpp">
-      <Filter>源文件\Framework\gc\ReferenceCount</Filter>
+      <Filter>源文件\Framework\GC\ReferenceCount</Filter>
     </ClCompile>
     <ClCompile Include="AutoreleasePool.cpp">
-      <Filter>源文件\Framework\gc\ReferenceCount</Filter>
+      <Filter>源文件\Framework\GC\ReferenceCount</Filter>
     </ClCompile>
     <ClCompile Include="glad.c">
       <Filter>源文件\Enternal\glad</Filter>
     </ClCompile>
     <ClCompile Include="OpenglApplication.cpp">
-      <Filter>源文件\platform</Filter>
+      <Filter>源文件\Platform</Filter>
     </ClCompile>
     <ClCompile Include="ThreadPool.cpp">
       <Filter>源文件\Framework\Common</Filter>
     </ClCompile>
     <ClCompile Include="Logger.cpp">
-      <Filter>源文件\Framework\utils</Filter>
+      <Filter>源文件\Framework\Utils</Filter>
     </ClCompile>
     <ClCompile Include="OpenglDriver.cpp">
-      <Filter>源文件\Framework\graphics</Filter>
+      <Filter>源文件\Framework\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件\Framework</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
-      <Filter>源文件\Framework\scene</Filter>
+      <Filter>源文件\Framework\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>源文件\Framework\scene</Filter>
+      <Filter>源文件\Framework\Scene</Filter>
     </ClCompile>
     <ClCompile Include="FileUtil.cpp">
-      <Filter>源文件\Framework\utils</Filter>
+      <Filter>源文件\Framework\Utils</Filter>
     </ClCompile>
     <ClCompile Include="ShaderLoader.cpp">
-      <Filter>源文件\Framework\graphics\Shaders</Filter>
+      <Filter>源文件\Framework\Graphics\Shaders</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
-      <Filter>源文件\Framework\graphics\Shaders</Filter>
-    </ClCompile>
-    <ClCompile Include="Mesh.cpp">
-      <Filter>源文件\Framework\scene</Filter>
+      <Filter>源文件\Framework\Graphics\Shaders</Filter>
     </ClCompile>
     <ClCompile Include="Image.cpp">
-      <Filter>源文件\Framework\scene</Filter>
+      <Filter>源文件\Framework\Scene</Filter>
     </ClCompile>
     <ClCompile Include="OpenGEX.cpp">
       <Filter>源文件\Enternal\OpenGEX</Filter>
@@ -154,37 +151,49 @@
       <Filter>源文件\Enternal\OpenDDL</Filter>
     </ClCompile>
     <ClCompile Include="RenderInfo.cpp">
-      <Filter>源文件\Framework\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="OgexParser.cpp">
-      <Filter>源文件\Framework\scene</Filter>
+      <Filter>源文件\Framework\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Matrix.cpp">
-      <Filter>源文件\Framework\base</Filter>
+      <Filter>源文件\Framework\Base</Filter>
     </ClCompile>
     <ClCompile Include="Math.cpp">
-      <Filter>源文件\Framework\base</Filter>
+      <Filter>源文件\Framework\Base</Filter>
     </ClCompile>
     <ClCompile Include="Quaternion.cpp">
-      <Filter>源文件\Framework\base</Filter>
+      <Filter>源文件\Framework\Base</Filter>
     </ClCompile>
     <ClCompile Include="Object.cpp">
-      <Filter>源文件\Framework\script</Filter>
+      <Filter>源文件\Framework\Script</Filter>
     </ClCompile>
     <ClCompile Include="Parser.cpp">
-      <Filter>源文件\Framework\script</Filter>
+      <Filter>源文件\Framework\Script</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>源文件\Input</Filter>
     </ClCompile>
     <ClCompile Include="Bezier.cpp">
-      <Filter>源文件\Framework\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Model.cpp">
-      <Filter>源文件\Framework\scene</Filter>
+      <Filter>源文件\Framework\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Vector.cpp">
-      <Filter>源文件\Framework\base</Filter>
+      <Filter>源文件\Framework\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshTest.cpp">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelTest.cpp">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>源文件\Framework\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Mesh.cpp">
+      <Filter>源文件\Framework\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>源文件\Framework\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="glmCamera.cpp">
+      <Filter>源文件\Framework\Scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -198,7 +207,7 @@
       <Filter>源文件\Framework\Interface</Filter>
     </ClInclude>
     <ClInclude Include="WindowsApplication.h">
-      <Filter>源文件\platform\win32</Filter>
+      <Filter>源文件\Platform\win32</Filter>
     </ClInclude>
     <ClInclude Include="ObjectPool.h">
       <Filter>源文件\Framework\Common</Filter>
@@ -210,40 +219,40 @@
       <Filter>源文件\Framework\Common</Filter>
     </ClInclude>
     <ClInclude Include="Ref.h">
-      <Filter>源文件\Framework\gc\ReferenceCount</Filter>
+      <Filter>源文件\Framework\GC\ReferenceCount</Filter>
     </ClInclude>
     <ClInclude Include="AutoreleasePool.h">
-      <Filter>源文件\Framework\gc\ReferenceCount</Filter>
+      <Filter>源文件\Framework\GC\ReferenceCount</Filter>
     </ClInclude>
     <ClInclude Include="OpenglApplication.h">
-      <Filter>源文件\platform</Filter>
+      <Filter>源文件\Platform</Filter>
     </ClInclude>
     <ClInclude Include="ThreadPool.h">
       <Filter>源文件\Framework\Common</Filter>
     </ClInclude>
     <ClInclude Include="Logger.h">
-      <Filter>源文件\Framework\utils</Filter>
+      <Filter>源文件\Framework\Utils</Filter>
     </ClInclude>
     <ClInclude Include="RealEngine.h">
       <Filter>源文件</Filter>
     </ClInclude>
     <ClInclude Include="OpenglDriver.h">
-      <Filter>源文件\Framework\graphics</Filter>
+      <Filter>源文件\Framework\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="SceneManager.h">
-      <Filter>源文件\Framework\scene</Filter>
+      <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>源文件\Framework\scene</Filter>
+      <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
     <ClInclude Include="FileUtil.h">
-      <Filter>源文件\Framework\utils</Filter>
+      <Filter>源文件\Framework\Utils</Filter>
     </ClInclude>
     <ClInclude Include="ShaderLoader.h">
-      <Filter>源文件\Framework\graphics\Shaders</Filter>
+      <Filter>源文件\Framework\Graphics\Shaders</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
-      <Filter>源文件\Framework\graphics\Shaders</Filter>
+      <Filter>源文件\Framework\Graphics\Shaders</Filter>
     </ClInclude>
     <ClInclude Include="NonCopyable.h">
       <Filter>源文件\Framework\Interface</Filter>
@@ -251,20 +260,11 @@
     <ClInclude Include="NonMovable.h">
       <Filter>源文件\Framework\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="Mesh.h">
-      <Filter>源文件\Framework\scene</Filter>
-    </ClInclude>
     <ClInclude Include="Material.h">
-      <Filter>源文件\Framework\scene</Filter>
+      <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Image.h">
-      <Filter>源文件\Framework\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneParser.h">
-      <Filter>源文件\Framework\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseSceneNode.h">
-      <Filter>源文件\Framework\scene</Filter>
+      <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
     <ClInclude Include="OpenGEX.h">
       <Filter>源文件\Enternal\OpenGEX</Filter>
@@ -287,32 +287,29 @@
     <ClInclude Include="OpenDDL.h">
       <Filter>源文件\Enternal\OpenDDL</Filter>
     </ClInclude>
-    <ClInclude Include="OgexParser.h">
-      <Filter>源文件\Framework\scene</Filter>
-    </ClInclude>
     <ClInclude Include="Math.h">
-      <Filter>源文件\Framework\base</Filter>
+      <Filter>源文件\Framework\Base</Filter>
     </ClInclude>
     <ClInclude Include="SceneObjectTransfrom.h">
-      <Filter>源文件\Framework\scene</Filter>
+      <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
     <ClInclude Include="RenderInfo.h">
-      <Filter>源文件\Framework\graphics</Filter>
+      <Filter>源文件\Framework\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Matrix.h">
-      <Filter>源文件\Framework\base</Filter>
+      <Filter>源文件\Framework\Base</Filter>
     </ClInclude>
     <ClInclude Include="Quaternion.h">
-      <Filter>源文件\Framework\base</Filter>
+      <Filter>源文件\Framework\Base</Filter>
     </ClInclude>
     <ClInclude Include="Object.h">
-      <Filter>源文件\Framework\script</Filter>
+      <Filter>源文件\Framework\Script</Filter>
     </ClInclude>
     <ClInclude Include="Parser.h">
-      <Filter>源文件\Framework\script</Filter>
+      <Filter>源文件\Framework\Script</Filter>
     </ClInclude>
     <ClInclude Include="EngineTest.h">
-      <Filter>源文件\Framework\test</Filter>
+      <Filter>源文件\Framework\Test</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>源文件\Input</Filter>
@@ -321,16 +318,28 @@
       <Filter>源文件\Input</Filter>
     </ClInclude>
     <ClInclude Include="Bezier.h">
-      <Filter>源文件\Framework\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>源文件\Framework\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="IBaseObject.h">
-      <Filter>源文件\Framework\Interface</Filter>
+      <Filter>源文件\Framework\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Vector.h">
-      <Filter>源文件\Framework\base</Filter>
+      <Filter>源文件\Framework\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="MeshTest.h">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelTest.h">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>源文件\Framework\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>源文件\Framework\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>源文件\Framework\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="glmCamera.h">
+      <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

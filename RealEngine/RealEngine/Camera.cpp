@@ -2,9 +2,14 @@
 #include "RealEngine.h"
 #include "InputManager.h"
 
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 RealEngine::Camera::Camera() 
 {
-	_position = Vector3f(0.f, 0.f, 0.f);
+	_position = Vector3f(0.f, 0.f, 3.f);
 
 	_front = Vector3f(0.0f, 0.0f, -1.0f);
 	_up = Vector3f(0.0f, 1.0f, 0.0f);
@@ -63,39 +68,34 @@ void RealEngine::Camera::update(float deltaTime)
 
 Matrix4 RealEngine::Camera::lookAt(const Vector3f& position, const Vector3f&target, const Vector3f& worldUp) 
 {
-	Vector3f zaxis = Vector3f::normalize(position - target);
-	Vector3f xaxis = Vector3f::normalize(Vector3f::cross(Vector3f::normalize(worldUp), zaxis));
-	Vector3f yaxis = Vector3f::cross(zaxis, xaxis);
+	Vector3f zaxis = Vector3f::normalize(target - position);
+	Vector3f xaxis = Vector3f::normalize(Vector3f::cross(zaxis, worldUp));
+	Vector3f yaxis = Vector3f::cross(xaxis, zaxis);
 
-	Matrix4 mat1 = Matrix4::IdentityMatrix();
-	float* translation = mat1.data();
+	Matrix4 mat = Matrix4::IdentityMatrix();
+	float* result = mat.data();
+	result[0] = xaxis.x;
+	result[4] = xaxis.y;
+	result[8] = xaxis.z;
 
-	translation[3] = -position.x;
-	translation[7] = -position.y;
-	translation[11] = -position.z;
+	result[1] = yaxis.x;
+	result[5] = yaxis.y;
+	result[9] = yaxis.z;
 
-	Matrix4 mat2 = Matrix4::IdentityMatrix();
-	float* rotation = mat2.data();
+	result[2] = -zaxis.x;
+	result[6] = -zaxis.y;
+	result[10] = -zaxis.z;
 
-	rotation[0] = xaxis.x;
-	rotation[1] = xaxis.y;
-	rotation[2] = xaxis.z;
+	result[12] = -Vector3f::dot(xaxis, position);
+	result[13] = -Vector3f::dot(yaxis, position);
+	result[14] = Vector3f::dot(zaxis, position);
 
-	rotation[4] = yaxis.x;
-	rotation[5] = yaxis.y;
-	rotation[6] = yaxis.z;
-
-	rotation[8] = zaxis.x;
-	rotation[9] = zaxis.y;
-	rotation[10] = zaxis.z;
-
-	return mat2 * mat1;
+	return mat;
 }
 
 Matrix4 RealEngine::Camera::getViewMatrix() 
 {
 	Matrix4 view = this->lookAt(_position, _position + _front, _up);
-
 	return view;
 }
 
@@ -105,7 +105,7 @@ Matrix4 RealEngine::Camera::getProjectionMatrix()
 	float width = config.Width;
 	float height = config.Height;
 
-	Matrix4 projection = Matrix4::Perspective(45.f, (float)width / height, 0.1f, 100.f);
+	Matrix4 projection = Matrix4::Perspective(Math::radians(45.f), width / height, 0.1f, 100.f);
 
 	return projection;
 }

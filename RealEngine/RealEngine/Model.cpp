@@ -1,195 +1,136 @@
 #include "Model.h"
-
-#include <GLAD/glad.h>
-#include <GLFW/glfw3.h>
-
-#include <fstream>
-#include <sstream>
-#include <stdexcept>
-
-#include "Shader.h"
 #include "Image.h"
 
-#include <assimp/Importer.hpp>
-#include <assimp/scene.h>
-#include <assimp/postprocess.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
-
-Model::Model(const std::string &filename)
+Model::Model(std::string filename) 
 {
-	_model = Matrix4::Translate(Vector3f(0.f, 0.f, 0.f));
+	_filename = filename;
+	_filepath = filename.substr(0, filename.find_last_of('/'));
 
-	loadModelfile(filename);
+	_translate = Matrix4::Translate(Vector3f(0.f, 0.f, 0.f));
 
-	// 创建顶点数组对象
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-
-	// 顶点缓冲对象
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	glBufferData(GL_ARRAY_BUFFER, _vertexBuffer.size() * sizeof(Vertex), _vertexBuffer.data(), GL_STATIC_DRAW);
-
-	// 索引缓冲对象
-	glGenBuffers(1, &ebo);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-	glBufferData(GL_ELEMENT_ARRAY_BUFFER, _indexBuffer.size() * sizeof(int), _indexBuffer.data(), GL_STATIC_DRAW);
-
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
-
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
-
-	glEnableVertexAttribArray(2);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
-
-	glBindVertexArray(0);
+	this->loadModelfile(filename);
 }
-Model::~Model()
+
+Model::~Model() 
 {
 
 }
 
-void Model::updateTransform(Matrix4 inView, Matrix4 inProjection)
+void Model::draw(Shader& shader)
 {
-	_view = inView;
-	_projection = inProjection;
-}
+	shader.setMatrixUniform("model", _translate.data());
 
-void Model::loadModelfile(const std::string &filename)
-{
-	if (!_vertexBuffer.empty())
+	for (auto mesh : _meshs)
 	{
+		mesh.draw(shader);
+	}
+}
+
+void Model::loadModelfile(std::string filename)
+{
+	Assimp::Importer importer;
+	const aiScene* scene = importer.ReadFile(filename, aiProcess_Triangulate | aiProcess_FlipUVs);
+	if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
+	{
+		printf("ERROR::ASSIMP::%s", importer.GetErrorString());
 		return;
 	}
 
-	std::ifstream infile(filename, std::ios_base::in);
-
-	if (!infile.is_open())
-	{
-		throw std::runtime_error("Unable to open file: " + filename);
-	}
-
-	std::string line;
-
-	std::vector<Vector3f> Positions;
-	std::vector<Vector3f> Normals;
-	std::vector<Vector2f> TexCoords;
-
-	std::vector<std::vector<Vector3i>> Faces;
-
-	while (!infile.eof())
-	{
-		std::getline(infile, line);
-
-		std::istringstream iss(line.c_str());
-		/*
-		"v " 表示空间坐标
-		"vt" 表示纹理坐标
-		"vn" 表示法线向量
-		*/
-		char trash;
-		if (!line.compare(0, 2, "v "))
-		{
-			iss >> trash;
-
-			Vector3f vec;
-			float f;
-			for (int i = 0; i < 3; ++i)
-			{
-				iss >> f;
-				vec.values[i] = f;
-			}
-			Positions.push_back(vec);
-		}
-		else if (!line.compare(0, 2, "vt"))
-		{
-			iss >> trash >> trash;
-
-			Vector2f vec;
-			float f;
-			for (int i = 0; i < 2; ++i)
-			{
-				iss >> f;
-				vec.values[i] = f;
-			}
-			TexCoords.push_back(vec);
-		}
-		else if (!line.compare(0, 2, "vn"))
-		{
-			iss >> trash >> trash;
-			float f;
-			Vector3f vec;
-			for (int i = 0; i < 3; ++i)
-			{
-				iss >> f;
-
-				vec.values[i] = f;
-			}
-			Normals.push_back(vec);
-		}
-		/*
-		"f" 表示face 三个顶点索引所构成(一个顶点索引由空间坐标 + 纹理坐标 + 法线向量)
-		*/
-		else if (!line.compare(0, 2, "f "))
-		{
-			iss >> trash;
-			int f, n, uv;
-
-			std::vector<Vector3i> face;
-			for (int i = 0; i < 3; ++i)
-			{
-				Vector3i vec;
-				iss >> f >> trash >> uv >> trash >> n;
-				vec.x = f - 1;
-				vec.y = n - 1;
-				vec.z = uv - 1;
-
-				face.push_back(vec);
-			}
-			Faces.push_back(face);
-		}
-	}
-
-	printf("Positions count %d\n", Positions.size());
-	printf("Normals count %d\n", Normals.size());
-	printf("TexCoords count %d\n", TexCoords.size());
-
-	for (auto face : Faces)
-	{
-		for (auto vec : face)
-		{
-			_indexBuffer.push_back(vec.x);
-
-			Vertex vertex;
-			vertex.Position = Positions[vec.x];
-			vertex.Normal = Normals[vec.y];
-			vertex.TexCoords = TexCoords[vec.z];
-
-			_vertexBuffer.push_back(vertex);
-		}
-	}
+	processNode(scene->mRootNode, scene);
 }
 
-void Model::draw() 
+void Model::processNode(aiNode* node, const aiScene *scene)
 {
-	Shader* shader = new Shader("../Resource/shader/Model.vert", "../Resource/shader/Model.frag");
-	shader->useProgram();
+	for (unsigned int i = 0; i < node->mNumMeshes; ++i)
+	{
+		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
+		_meshs.push_back(processMesh(mesh, scene));
+	}
 
-	shader->setMatrixUniform("model", _model);
-	shader->setMatrixUniform("view", _view);
-	shader->setMatrixUniform("projection", _projection);
+	for (unsigned int i = 0; i < node->mNumChildren; ++i)
+	{
+		processNode(node->mChildren[i], scene);
+	}
+}
+Mesh Model::processMesh(aiMesh* mesh, const aiScene *scene)
+{
+	std::vector<Vertex> vertexs;
+	std::vector<unsigned int> indices;
+	std::vector<Texture> textures;
 
+	for (unsigned int i = 0; i < mesh->mNumVertices; ++i)
+	{
+		Vertex vertex;
+		vertex.Position.x = mesh->mVertices[i].x;
+		vertex.Position.y = mesh->mVertices[i].y;
+		vertex.Position.z = mesh->mVertices[i].z;
 
-	glActiveTexture(GL_TEXTURE0);
-	shader->setUniform1i("texture_diffuse", 0);
-	glBindTexture(GL_TEXTURE_2D, Image::BindTexture("../Resource/model/diablo3_pose/diablo3_pose_diffuse.tga"));
+		if (mesh->HasNormals())
+		{
+			vertex.Normal.x = mesh->mNormals[i].x;
+			vertex.Normal.y = mesh->mNormals[i].y;
+			vertex.Normal.z = mesh->mNormals[i].z;
+		}
 
-	// 绘制网格
-	glBindVertexArray(vao);
-	glDrawElements(GL_TRIANGLES, _indexBuffer.size(), GL_UNSIGNED_INT, nullptr);
-	glBindVertexArray(0);
+		if (mesh->mTextureCoords[0])
+		{
+			vertex.TexCoords.x = mesh->mTextureCoords[0][i].x;
+			vertex.TexCoords.y = mesh->mTextureCoords[0][i].y;
+		}
+		else
+		{
+			vertex.TexCoords = Vector2f(0.0f, 0.0f);
+		}
 
-	delete shader;
+		vertexs.push_back(vertex);
+	}
+
+	for (unsigned int i = 0; i < mesh->mNumFaces; ++i) 
+	{
+		aiFace face = mesh->mFaces[i];
+
+		for (unsigned int j = 0; j < face.mNumIndices; ++j)
+		{
+			indices.push_back(face.mIndices[j]);
+		}
+	}
+
+	aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
+	// diffuse
+	std::vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "Texutre_Diffuse");
+	textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
+	// spec
+	std::vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "Texutre_Specular");
+	textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
+	// normal
+	std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "Texutre_Normal");
+	textures.insert(textures.end(), normalMaps.begin(), normalMaps.end());
+	// height
+	std::vector<Texture> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "Texutre_Height");
+	textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
+
+	return Mesh(vertexs, indices, textures);
+}
+
+std::vector<Texture> Model::loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string name)
+{
+	std::vector<Texture> textures;
+	for (unsigned int i = 0; i < mat->GetTextureCount(type); i++)
+	{
+		aiString str;
+		mat->GetTexture(type, i, &str);
+
+		std::string filepath = _filepath + std::string("/") + str.C_Str();
+
+		Texture texture;
+		texture.ID = Image::BindTexture(filepath);
+		texture.TextureType = name;
+		texture.Path = str.C_Str();
+		textures.push_back(texture);
+	}
+	return textures;
 }

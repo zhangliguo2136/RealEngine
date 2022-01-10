@@ -23,11 +23,6 @@ namespace RealEngine {
 		OpenglDriver();
 		~OpenglDriver();
 
-		// »æÖÆÈý½ÇÐÎ
-		void drawTriangle();
-
-		void loadShaderTest();
-
 		void draw(RenderInfo& renderInfo);
 	};
 }

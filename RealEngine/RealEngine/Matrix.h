@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 #include "Vector.h"
 #include "Quaternion.h"
@@ -14,6 +15,8 @@ public:
 
 	// ÷ÿ‘ÿæÿ’Û≥À∑®
 	Matrix4 operator*(Matrix4 &) const;
+
+	void Debug();
 public:
 	static Matrix4 IdentityMatrix();
 

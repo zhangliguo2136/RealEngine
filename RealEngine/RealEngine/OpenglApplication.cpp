@@ -37,10 +37,10 @@ void RealEngine::OpenglApplication::Finalize()
 {
 	BaseApplication::Finalize();
 }
-void RealEngine::OpenglApplication::Tick() 
+void RealEngine::OpenglApplication::Tick()
 {
 	glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	BaseApplication::Tick();
 
@@ -83,7 +83,7 @@ int RealEngine::OpenglApplication::createWindow(int inWidth, int inHeight, const
 }
 void RealEngine::OpenglApplication::onFrameBufferSizeCallback(GLFWwindow* window, int width, int height)
 {
-	//glViewport(0, 0, width, height);
+	glViewport(0, 0, width, height);
 }
 
 void RealEngine::OpenglApplication::onKeyboardCallback(GLFWwindow* window, int key, int scancode, int action, int mods)

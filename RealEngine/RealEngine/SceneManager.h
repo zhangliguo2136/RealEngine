@@ -3,11 +3,8 @@
 #include <vector>
 #include <chrono>
 #include <iostream>
-#include "IBaseObject.h"
 #include "Math.h"
-#include "REKey.h"
-#include "Camera.h"
-#include "Model.h"
+#include "Scene.h"
 
 namespace RealEngine 
 {
@@ -29,27 +26,14 @@ namespace RealEngine
 	public:
 		void Tick();
 
-		void addSceneObject(IBaseObject* object);
-
 		Size getWinSize()
 		{
 			return Size(1920, 1080);
 		};
 
-	public:
-		Camera* _camera = nullptr;
-		Model* _model = nullptr;
-
 	private:
-		std::vector<IBaseObject*> _objects;
+		Scene* _scene = nullptr;
 
 		float _lastTime = 0.0f;
-
-		// 是否正在执行更新
-		bool _bUpdatingObjects = false;
-
-		// 是否正在执行渲染
-		bool _bObjectsRendering = false;
-
 	};
 }

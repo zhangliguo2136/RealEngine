@@ -84,9 +84,9 @@ Matrix4 Matrix4::Scale(const Vector3f& vec3)
 {
 	Matrix4 mat = Matrix4::IdentityMatrix();
 	float* matData = mat.data();
-	matData[0] += vec3.x;
-	matData[5] += vec3.y;
-	matData[10] += vec3.z;
+	matData[0] = vec3.x;
+	matData[5] = vec3.y;
+	matData[10] = vec3.z;
 
 	return mat;
 }
@@ -121,7 +121,7 @@ Matrix4 Matrix4::RotationByQuat(const Quaternion& quat)
 
 Matrix4 Matrix4::Perspective(float fov, float aspect, float n, float f)
 {
-	float q = 1.0f / tan(Math::radians(fov));
+	float q = 1.0f / tan(fov / 2);
 
 	float A = q / aspect;
 	float B = (n + f) / (n - f);
@@ -133,8 +133,18 @@ Matrix4 Matrix4::Perspective(float fov, float aspect, float n, float f)
 	values[0] = A;
 	values[5] = q;
 	values[10] = B;
-	values[11] = C;
-	values[14] = -1;
+	values[11] = -1;
+	values[14] = C;
 
 	return mat;
+}
+
+void Matrix4::Debug()
+{
+	printf("[");
+	for (auto i = 0; i < 16; ++i)
+	{
+		printf("%f ", _values[i]);
+	}
+	printf("]\n");
 }

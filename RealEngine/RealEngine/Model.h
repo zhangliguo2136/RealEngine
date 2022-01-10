@@ -1,41 +1,33 @@
 #pragma once
-#include "IBaseObject.h"
-#include <string>
+
 #include <vector>
-#include "Vector.h"
+#include <string>
+
+#include <assimp/Importer.hpp>
+#include <assimp/scene.h>
+#include <assimp/postprocess.h>
+
+#include "Mesh.h"
 #include "Matrix.h"
 
-using namespace RealEngine;
-
-struct Vertex
-{
-	Vector3f Position;
-	Vector3f Normal;
-	Vector2f TexCoords;
-};
-
-class Model : public IBaseObject
+class Model
 {
 public:
-	virtual void draw() ;
-	virtual void update(float deltaTime){};
-	virtual void onEnter() {};
-	virtual void onExit() {};
-	virtual void updateTransform(Matrix4 view, Matrix4 projection);
-
-public:
-	Model(const std::string &filename);
+	Model(std::string filename);
 	~Model();
 
-	void loadModelfile(const std::string &filename);
-
-public:
-	Matrix4 _view;
-	Matrix4 _projection;
-	Matrix4 _model;
+	void draw(Shader& shader);
 
 private:
-	unsigned int vao, vbo, ebo;
-	std::vector<Vertex> _vertexBuffer;
-	std::vector<int> _indexBuffer;
+	void loadModelfile(std::string filename);
+	void processNode(aiNode* node, const aiScene *scene);
+	Mesh processMesh(aiMesh* mesh, const aiScene *scene);
+	std::vector<Texture> loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string name);
+
+private:
+	std::string _filename;
+	std::string _filepath;
+	std::vector<Mesh> _meshs;
+
+	Matrix4 _translate;
 };

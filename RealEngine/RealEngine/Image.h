@@ -1,22 +1,16 @@
 #pragma once
 #include <string>
-#include "IBaseObject.h"
 #include "Matrix.h"
 #include "Vector.h"
 
-using namespace RealEngine;
 
-class Image : public IBaseObject
+class Image
 {
 public:
 	Image(std::string filename);
 	~Image();
 
-	virtual void draw() override;
-	virtual void update(float deltaTime) override {} ;
-	virtual void onEnter() override {};
-	virtual void onExit() override {};
-	virtual void updateTransform(Matrix4 view, Matrix4 projection) override {};
+	virtual void draw();
 
 	void loadFromFile(std::string filename);
 

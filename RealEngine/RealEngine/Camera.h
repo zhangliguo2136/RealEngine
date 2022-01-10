@@ -1,26 +1,18 @@
 #pragma once
-#include "IBaseObject.h"
 #include "Vector.h"
 #include "Matrix.h"
 #include "Math.h"
 
 namespace RealEngine 
 {
-	class Camera : public IBaseObject
+	class Camera
 	{
 	public:
 		Camera();
 		~Camera();
 
-	public:
-		virtual void draw() {};
-		virtual void update(float deltaTime);
-
-		virtual void onEnter() {};
-		virtual void onExit() {};
-
-		virtual void updateTransform(Matrix4 view, Matrix4 projection) {};
-		
+		void update(float deltaTime);
+	
 	public:
 		Matrix4 getViewMatrix();
 		Matrix4 getProjectionMatrix();

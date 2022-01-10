@@ -101,7 +101,7 @@ unsigned int Image::BindTexture(std::string filename)
 	}
 	else
 	{
-		printf("Texture failed to load at file: %s", filename.c_str());
+		printf("Texture failed to load at file: %s\n", filename.c_str());
 	}
 	stbi_image_free(data);
 	return textureID;
