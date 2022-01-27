@@ -195,6 +195,15 @@
     <ClCompile Include="glmCamera.cpp">
       <Filter>源文件\Framework\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Material.cpp">
+      <Filter>源文件\Framework\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="ComputeShader.cpp">
+      <Filter>源文件\Framework\Graphics\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystem.cpp">
+      <Filter>源文件\Framework\Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -260,9 +269,6 @@
     <ClInclude Include="NonMovable.h">
       <Filter>源文件\Framework\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="Material.h">
-      <Filter>源文件\Framework\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Image.h">
       <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
@@ -289,9 +295,6 @@
     </ClInclude>
     <ClInclude Include="Math.h">
       <Filter>源文件\Framework\Base</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneObjectTransfrom.h">
-      <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
     <ClInclude Include="RenderInfo.h">
       <Filter>源文件\Framework\Graphics</Filter>
@@ -339,6 +342,18 @@
       <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
     <ClInclude Include="glmCamera.h">
+      <Filter>源文件\Framework\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="MateriaTestl.h">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>源文件\Framework\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="ComputeShader.h">
+      <Filter>源文件\Framework\Graphics\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleSystem.h">
       <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
   </ItemGroup>

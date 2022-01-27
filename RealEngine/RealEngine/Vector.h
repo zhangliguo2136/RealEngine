@@ -99,5 +99,13 @@ public:
 	Vector4f operator*(Matrix4 &mat) const;
 
 public:
-	float x, y, z, w;
+public:
+	union
+	{
+		int values[4];
+		struct
+		{
+			int x, y, z, w;
+		};
+	};
 };

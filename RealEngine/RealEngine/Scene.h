@@ -3,6 +3,7 @@
 #include "Camera.h"
 #include "Model.h"
 #include "Shader.h"
+#include "ComputeShader.h"
 
 #include "glmCamera.h"
 
@@ -22,5 +23,6 @@ namespace RealEngine
 		Model* _model = nullptr;
 		Shader* _modelShader = nullptr;
 
+		ComputeShader* _computeShader = nullptr;
 	};
 }

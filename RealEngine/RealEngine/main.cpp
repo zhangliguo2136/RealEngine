@@ -6,7 +6,6 @@ namespace RealEngine
 	extern IApplication* g_pApp;
 }
 
-#include "Model.h"
 int main(int argc, char** argv)
 {
 	int ret;
