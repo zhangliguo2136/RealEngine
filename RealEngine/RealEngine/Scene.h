@@ -22,7 +22,5 @@ namespace RealEngine
 		glmCamera* _glmCamera = nullptr;
 		Model* _model = nullptr;
 		Shader* _modelShader = nullptr;
-
-		ComputeShader* _computeShader = nullptr;
 	};
 }

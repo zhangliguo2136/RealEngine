@@ -3,8 +3,12 @@
 #include <vector>
 #include <chrono>
 #include <iostream>
+
 #include "Math.h"
+
+
 #include "Scene.h"
+#include "OITScene.h"
 
 namespace RealEngine 
 {
@@ -31,9 +35,10 @@ namespace RealEngine
 			return Size(1920, 1080);
 		};
 
-	private:
-		Scene* _scene = nullptr;
-
 		float _lastTime = 0.0f;
+
+	private:
+		//Scene* _scene = nullptr;
+		OITScene* _scene = nullptr;
 	};
 }

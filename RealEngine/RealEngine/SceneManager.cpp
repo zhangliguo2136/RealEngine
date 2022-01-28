@@ -10,7 +10,7 @@
 
 RealEngine::SceneManager::SceneManager() 
 {
-	_scene = new Scene();
+	_scene = new OITScene();
 }
 RealEngine::SceneManager::~SceneManager() 
 {

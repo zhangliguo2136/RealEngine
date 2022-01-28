@@ -149,6 +149,7 @@
     <ClCompile Include="ODDLMap.cpp" />
     <ClCompile Include="ODDLString.cpp" />
     <ClCompile Include="ODDLTree.cpp" />
+    <ClCompile Include="OITScene.cpp" />
     <ClCompile Include="OpenDDL.cpp" />
     <ClCompile Include="OpenGEX.cpp" />
     <ClCompile Include="OpenglDriver.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="ODDLString.h" />
     <ClInclude Include="ODDLTree.h" />
     <ClInclude Include="ODDLTypes.h" />
+    <ClInclude Include="OITScene.h" />
     <ClInclude Include="OpenDDL.h" />
     <ClInclude Include="OpenGEX.h" />
     <ClInclude Include="OpenglDriver.h" />

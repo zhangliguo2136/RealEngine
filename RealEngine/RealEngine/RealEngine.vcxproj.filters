@@ -204,6 +204,9 @@
     <ClCompile Include="ParticleSystem.cpp">
       <Filter>源文件\Framework\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="OITScene.cpp">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -355,6 +358,9 @@
     </ClInclude>
     <ClInclude Include="ParticleSystem.h">
       <Filter>源文件\Framework\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="OITScene.h">
+      <Filter>源文件\Framework\Test</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
