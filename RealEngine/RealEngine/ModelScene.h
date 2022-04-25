@@ -9,11 +9,11 @@
 
 namespace RealEngine
 {
-	class Scene
+	class ModelScene
 	{
 	public:
-		Scene();
-		~Scene();
+		ModelScene();
+		~ModelScene();
 
 		void update(float deltaTime);
 

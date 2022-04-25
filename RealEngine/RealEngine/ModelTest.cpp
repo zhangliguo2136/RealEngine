@@ -171,9 +171,9 @@ void ModelTest::draw()
 	Shader* shader = new Shader("../Resource/shader/ModelTest.vert", "../Resource/shader/ModelTest.frag");
 	shader->useProgram();
 
-	shader->setMatrixUniform("model", _model.data());
-	shader->setMatrixUniform("view", _view.data());
-	shader->setMatrixUniform("projection", _projection.data());
+	shader->setUniformMatrix4fv("model", _model.data());
+	shader->setUniformMatrix4fv("view", _view.data());
+	shader->setUniformMatrix4fv("projection", _projection.data());
 
 
 	glActiveTexture(GL_TEXTURE0);

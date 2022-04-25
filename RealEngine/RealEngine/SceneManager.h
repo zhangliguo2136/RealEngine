@@ -7,8 +7,10 @@
 #include "Math.h"
 
 
-#include "Scene.h"
+#include "ModelScene.h"
 #include "OITScene.h"
+#include "TextScene.h"
+#include "ParticleScene.h"
 
 namespace RealEngine 
 {
@@ -38,7 +40,9 @@ namespace RealEngine
 		float _lastTime = 0.0f;
 
 	private:
-		//Scene* _scene = nullptr;
-		OITScene* _scene = nullptr;
+		Text* _frameText = nullptr;
+
+	private:
+		ParticleScene* _scene = nullptr;
 	};
 }

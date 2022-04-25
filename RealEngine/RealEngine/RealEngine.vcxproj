@@ -82,7 +82,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <AdditionalLibraryDirectories>$(SolutionDir)libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc141-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc141-mt.lib;freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -159,14 +159,19 @@
     <ClCompile Include="ObjectPool.cpp" />
     <ClCompile Include="OpenglApplication.cpp" />
     <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="ParticleScene.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
+    <ClCompile Include="PhysicsSystem.cpp" />
+    <ClCompile Include="PhysicsWorld.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Ref.cpp" />
     <ClCompile Include="RenderInfo.cpp" />
-    <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="ModelScene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
+    <ClCompile Include="Text.cpp" />
+    <ClCompile Include="TextScene.cpp" />
     <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="WindowsApplication.cpp" />
@@ -178,13 +183,12 @@
     <ClInclude Include="Bezier.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ComputeShader.h" />
-    <ClInclude Include="EngineTest.h" />
     <ClInclude Include="FileUtil.h" />
     <ClInclude Include="glmCamera.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Material.h" />
-    <ClInclude Include="MateriaTestl.h" />
+    <ClInclude Include="MateriaTest.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="Mesh.h" />
@@ -210,7 +214,10 @@
     <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="OpenglApplication.h" />
     <ClInclude Include="Parser.h" />
+    <ClInclude Include="ParticleScene.h" />
     <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="PhysicsSystem.h" />
+    <ClInclude Include="PhysicsWorld.h" />
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RealEngine.h" />
     <ClInclude Include="Ref.h" />
@@ -219,10 +226,12 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderLoader.h" />
+    <ClInclude Include="Text.h" />
+    <ClInclude Include="TextScene.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="WindowsApplication.h" />
-    <ClInclude Include="Scene.h" />
+    <ClInclude Include="ModelScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

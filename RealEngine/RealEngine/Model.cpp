@@ -22,7 +22,7 @@ Model::~Model()
 
 void Model::draw(Shader& shader)
 {
-	shader.setMatrixUniform("model", _translate.data());
+	shader.setUniformMatrix4fv("model", _translate.data());
 
 	for (auto mesh : _meshs)
 	{

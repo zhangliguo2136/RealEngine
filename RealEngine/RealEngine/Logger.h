@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 
+#include <vector>
+
 namespace RealEngine 
 {
 	#define ENGINE_DEBUG false

@@ -12,12 +12,17 @@ public:
 	Shader() {};
 	virtual ~Shader();
 
-	Shader(const std::string &vertexFile, const std::string &fragmentFile);
+	Shader(const std::string &vertexFile, const std::string &fragmentFile, const std::string &geomFile = "");
+
 	void useProgram() const;
 
-	void setMatrixUniform(const char* name, float* data);
+	void setUniformMatrix4fv(const char* name, float* data);
 
 	void setUniform1i(const char* name, unsigned int i);
+
+	void setUniform3fv(const char* name, float* data);
+
+	void setUniform4fv(const char* name, float* data);
 
 	unsigned int getShaderID() 
 	{

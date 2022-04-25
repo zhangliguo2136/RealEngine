@@ -1,6 +1,6 @@
-#include "Scene.h"
+#include "ModelScene.h"
 
-RealEngine::Scene::Scene()
+RealEngine::ModelScene::ModelScene()
 {
 	_camera = new Camera();
 
@@ -8,12 +8,12 @@ RealEngine::Scene::Scene()
 	_modelShader = new Shader("../Resource/shaders/Model.vs", "../Resource/shaders/Model.fs");
 }
 
-RealEngine::Scene::~Scene()
+RealEngine::ModelScene::~ModelScene()
 {
 
 }
 
-void RealEngine::Scene::update(float deltaTime)
+void RealEngine::ModelScene::update(float deltaTime)
 {
 	_camera->update(deltaTime);
 	glEnable(GL_DEPTH_TEST);
@@ -24,8 +24,8 @@ void RealEngine::Scene::update(float deltaTime)
 	auto view = _camera->getViewMatrix();
 	auto projection = _camera->getProjectionMatrix();
 
-	_modelShader->setMatrixUniform("projection", projection.data());
-	_modelShader->setMatrixUniform("view", view.data());
+	_modelShader->setUniformMatrix4fv("projection", projection.data());
+	_modelShader->setUniformMatrix4fv("view", view.data());
 
 	_model->draw(*_modelShader);
 }

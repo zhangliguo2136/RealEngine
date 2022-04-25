@@ -1,11 +1,11 @@
 #version 430 core
 
-layout(binding = 0 r32ui) uniform uimage2D head_pointer_image;
+layout(binding = 0, r32ui) uniform uimage2D head_pointer_image;
 layout(binding = 1, rgba32ui) uniform uimageBuffer list_buffer;
 
 layout(location = 0) out vec4 color;
 
-#define MAX_FRAGMENTS = 40;
+#define MAX_FRAGMENTS 40
 
 uvec4 fragment_list[MAX_FRAGMENTS];
 

@@ -6,4 +6,4 @@
 #include <string>
 
 GLuint loadShaders(const std::string &vertexShader,
-	const std::string &fragmentShader);
+	const std::string &fragmentShader, const std::string &geomShader = nullptr);

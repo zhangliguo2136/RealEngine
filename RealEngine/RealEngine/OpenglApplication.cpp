@@ -71,6 +71,9 @@ int RealEngine::OpenglApplication::createWindow(int inWidth, int inHeight, const
 		return -1;
 	}
 
+	// 设置交换间隔（垂直同步）
+	glfwSwapInterval(0);
+
 	glfwSetFramebufferSizeCallback(pWindows, onFrameBufferSizeCallback);
 	glfwSetKeyCallback(pWindows, onKeyboardCallback);
 	glfwSetCursorPosCallback(pWindows, onCursorCallback);

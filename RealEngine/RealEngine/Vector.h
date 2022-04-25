@@ -2,6 +2,25 @@
 
 class Matrix4;
 
+class Vector2i
+{
+public:
+	Vector2i() {};
+	~Vector2i() {};
+public:
+	Vector2i(int x, int y);
+
+public:
+	union
+	{
+		int values[2];
+		struct
+		{
+			int x, y;
+		};
+	};
+};
+
 class Vector2f
 {
 public:
@@ -102,10 +121,10 @@ public:
 public:
 	union
 	{
-		int values[4];
+		float values[4];
 		struct
 		{
-			int x, y, z, w;
+			float x, y, z, w;
 		};
 	};
 };

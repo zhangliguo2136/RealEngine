@@ -1,6 +1,7 @@
 
 #include "BaseApplication.h"
 #include "SceneManager.h"
+#include "PhysicsSystem.h"
 
 
 bool RealEngine::BaseApplication::m_bQuit = false;
@@ -15,6 +16,9 @@ void RealEngine::BaseApplication::Finalize()
 }
 void RealEngine::BaseApplication::Tick()
 {
+	PhysicEngine::PhysicsSystem& pSystem = PhysicEngine::PhysicsSystem::getInstance();
+	pSystem.Tick(0);
+
 	SceneManager& pManager = SceneManager::getInstance();
 	pManager.Tick();
 }

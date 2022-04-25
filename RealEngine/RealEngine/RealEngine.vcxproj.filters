@@ -76,6 +76,9 @@
     <Filter Include="源文件\Platform\win32">
       <UniqueIdentifier>{ac3a7ff9-2c21-4e6c-85dc-60d41690213c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\Physic">
+      <UniqueIdentifier>{a9ef581a-1561-4e3d-b1e3-f3c0a37be7d5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
@@ -113,9 +116,6 @@
     </ClCompile>
     <ClCompile Include="OpenglDriver.cpp">
       <Filter>源文件\Framework\Graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>源文件\Framework</Filter>
     </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>源文件\Framework\Scene</Filter>
@@ -189,9 +189,6 @@
     <ClCompile Include="Mesh.cpp">
       <Filter>源文件\Framework\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>源文件\Framework\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="glmCamera.cpp">
       <Filter>源文件\Framework\Scene</Filter>
     </ClCompile>
@@ -206,6 +203,27 @@
     </ClCompile>
     <ClCompile Include="OITScene.cpp">
       <Filter>源文件\Framework\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="ModelScene.cpp">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>源文件\Framework\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="TextScene.cpp">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleScene.cpp">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsSystem.cpp">
+      <Filter>源文件\Framework\Physic</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicsWorld.cpp">
+      <Filter>源文件\Framework\Physic</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -314,9 +332,6 @@
     <ClInclude Include="Parser.h">
       <Filter>源文件\Framework\Script</Filter>
     </ClInclude>
-    <ClInclude Include="EngineTest.h">
-      <Filter>源文件\Framework\Test</Filter>
-    </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>源文件\Input</Filter>
     </ClInclude>
@@ -341,14 +356,8 @@
     <ClInclude Include="Mesh.h">
       <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>源文件\Framework\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="glmCamera.h">
       <Filter>源文件\Framework\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="MateriaTestl.h">
-      <Filter>源文件\Framework\Test</Filter>
     </ClInclude>
     <ClInclude Include="Material.h">
       <Filter>源文件\Framework\Scene</Filter>
@@ -361,6 +370,27 @@
     </ClInclude>
     <ClInclude Include="OITScene.h">
       <Filter>源文件\Framework\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="ModelScene.h">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="MateriaTest.h">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>源文件\Framework\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="TextScene.h">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleScene.h">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsSystem.h">
+      <Filter>源文件\Framework\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicsWorld.h">
+      <Filter>源文件\Framework\Physic</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
