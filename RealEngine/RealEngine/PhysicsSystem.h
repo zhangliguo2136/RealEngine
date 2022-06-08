@@ -21,7 +21,7 @@ namespace PhysicEngine
 		PhysicsSystem& operator = (const PhysicsSystem&) = delete;
 
 	public:
-		void Tick(float dt);
+		void Tick();
 
 		void AddPhysicsWorld(PhysicsWorld* world);
 

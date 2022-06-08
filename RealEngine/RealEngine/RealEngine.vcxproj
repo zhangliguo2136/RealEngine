@@ -145,6 +145,7 @@
     <ClCompile Include="MeshTest.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ModelTest.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="ODDLMap.cpp" />
     <ClCompile Include="ODDLString.cpp" />
@@ -165,9 +166,12 @@
     <ClCompile Include="PhysicsWorld.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="Ref.cpp" />
+    <ClCompile Include="RenderCommand.cpp" />
     <ClCompile Include="RenderInfo.cpp" />
     <ClCompile Include="ModelScene.cpp" />
+    <ClCompile Include="RenderQueue.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ScriptEngine.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="Text.cpp" />
@@ -195,6 +199,7 @@
     <ClInclude Include="MeshTest.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelTest.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="NonCopyable.h" />
     <ClInclude Include="NonMovable.h" />
     <ClInclude Include="Object.h" />
@@ -222,8 +227,11 @@
     <ClInclude Include="RealEngine.h" />
     <ClInclude Include="Ref.h" />
     <ClInclude Include="REKey.h" />
+    <ClInclude Include="RenderCommand.h" />
     <ClInclude Include="RenderInfo.h" />
+    <ClInclude Include="RenderQueue.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ScriptEngine.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="Text.h" />

@@ -23,6 +23,6 @@ namespace RealEngine {
 		OpenglDriver();
 		~OpenglDriver();
 
-		void draw(RenderInfo& renderInfo);
+		void render(RenderInfo& renderInfo);
 	};
 }

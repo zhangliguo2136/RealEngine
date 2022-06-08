@@ -1,209 +1,211 @@
 #include "Parser.h"
-#include <vector>
 
-Parser::Parser()
+Statement::Statement(std::string s)
 {
-	m_lineCount = 1;
+	_content = s;
+	_length = s.length();
 }
 
-bool Parser::isChar(const char& tmp)
-{
-	if (tmp >= 'a'&& tmp <= 'z')
-	{
-		return true;
-	}
-	if (tmp >= 'A'&& tmp <= 'Z')
-	{
-		return true;
-	}
-	return false;
-}
 
-bool Parser::isDight(const char& tmp)
+std::string Statement::getToken() 
 {
-	if (tmp >= '0'&& tmp <= '9')
+	while (true)
 	{
-		return true;
-	}
-	return false;
-}
+		auto ch = getCurrChar();
 
-bool Parser::isKeys(const char token[32])
-{
-	for (int i = 0; i < 4; i++)
-	{
-		if (strcmp(KEYS[i], token))
+		if (ch == '\t' || ch == '\n' || ch == ' ')
 		{
-			return true;
+			this->skip();
+		}
+		else
+		{
+			break;
 		}
 	}
-	return false;
-}
-bool Parser::isType(const char token[32])
-{
-	for (int i = 0; i < 4; i++)
-	{
-		if (strcmp(TYPE_KEYS[i], token))
+
+	std::string token;
+
+	while (true)
+	{	
+		auto ch = getCurrChar();
+
+		if (ch != '\t' && ch != '\n' && ch != ' ')
 		{
-			return true;
+			if (isChar(ch))
+			{
+				token.push_back(ch);
+				
+				this->skip();
+			}
+			else
+			{
+				break;
+			}
 		}
-	}
-	return false;
-}
-bool Parser::isOp(const char &tmp)
-{
-	for (int i = 0; i < 4; i++)
-	{
-		if (OP_KEYS[i] == tmp)
+		else
 		{
-			return true;
+			break;
 		}
-	}
-	return false;
-}
-
-void Parser::parser(const std::string &inContents)
-{
-	m_contents = inContents;
-
-	int len = m_contents.length();
-	while (m_currIndex < len - 1)
-	{
-		this->statement();
-	}
-}
-
-char Parser::getNextChar() 
-{
-	return m_contents[m_currIndex + 1];
-}
-
-char Parser::getCurrChar()
-{
-	return m_contents[m_currIndex];
-}
-
-void Parser::toNext() 
-{
-	m_currIndex++;
-}
-
-char* Parser::getToken()
-{
-	char token[32] = { '0' };
-	char curr = this->getCurrChar();
-	
-	if (curr == ' ' || curr == '\t')
-	{
-		this->toNext();
-	}
-	if (curr == '\n')
-	{
-		m_lineCount++;
-	}
-
-	int count = 0;
-	curr = this->getCurrChar();
-	while (this->isChar(curr))
-	{
-		token[count] = curr;
-		count++;
-
-		this->toNext();
-		curr = this->getCurrChar();
 	}
 
 	return token;
 }
-
-void Parser::statement()
+const char Statement::getCurrChar() 
 {
-	char currToken[32] = { '0' };
-	memcpy(currToken, this->getToken(), 32);
+	return _content[_currIndex];
+}
 
-	if (this->isKeys(currToken))
+std::string Statement::getContent()
+{
+	return _content;
+}
+
+void Statement::skip() 
+{
+	_currIndex++;
+}
+
+void Statement::skipSpace()
+{
+	if (_content[_currIndex] == ' ' || _content[_currIndex] == '\t'|| _content[_currIndex] == '\n')
 	{
-		printf("Parser: the curr key is %s\n", currToken);
-		this->expression();
-	}
-	else if (this->isType(currToken))
-	{
-		printf("Parser: the curr baseType is %s\n", currToken);
+		_currIndex++;
 	}
 }
 
-void Parser::expression()
-{
-	this->term();
 
-	while (true)
+Expression::Expression(std::string s)
+{
+	_content = s;
+}
+
+std::string Expression::getContent()
+{
+	return _content;
+}
+
+// 执行函数
+void execfunction(std::string func, std::vector<std::string> args)
+{
+	// 执行函数
+	if (func == "print")
 	{
-		char curr = this->getCurrChar();
-		if (curr == '+')
+		for (auto iter : args)
 		{
-			this->term();
+			printf("%s", iter.c_str());
 		}
-		else if (curr == '-')
-		{
-			this->term();
-		}
-		else
-		{
-			break;
-		}
+
+		printf("\n");
 	}
 }
 
-void Parser::term()
+// 是否是控制语句
+bool isControlToken(std::string token)
 {
-	this->factor();
-	while (true)
-	{
-		char curr = this->getCurrChar();
-		if (curr == '*')
-		{
-			this->factor();
-		}
-		else if (curr == '/')
-		{
-			this->factor();
-		}
-		else
-		{
-			break;
-		}
-	}
+	if (token == "if")
+		return true;
+
+	return false;
 }
 
-void Parser::factor()
-{ 
-	while (this->getCurrChar() == ' '|| this->getCurrChar() == '\t')
+// 分割字符串
+std::vector<std::string> split(std::string s, const char split)
+{
+	std::istringstream iss(s);
+	std::vector<std::string> result;
+
+	std::string token;
+	while (getline(iss, token, split))
 	{
-		this->toNext();
+		std::string res = token;
+		result.push_back(res);
 	}
 
-	if (this->isDight(this->getCurrChar()))
+	return result;
+}
+
+// 计算表达式
+void eval(Expression expr)
+{
+	// 赋值表达式
+	// 算数表达式
+	// 关系表达式
+
+	std::vector<std::string> vs;
+	vs.pop_back();
+}
+
+// 执行语句
+void exec(Statement stat)
+{
+	std::string token = stat.getToken();
+
+	// 控制语句
+	if (isControlToken(token))
 	{
-		std::vector<int> arr;
-		while (this->isDight(this->getCurrChar()))
+		stat.skipSpace();
+		auto ch = stat.getCurrChar();
+
+		if (ch == '(')
 		{
-			int num = this->getCurrChar() - '0';
-			arr.push_back(num);
+			stat.skip();
 
-			this->toNext();
+			std::string expr;
+			while (true)
+			{
+				ch = stat.getCurrChar();
+
+				if (ch != ')')
+				{
+					expr.push_back(ch);
+					stat.skip();
+				}
+				else
+				{
+					stat.skip();
+					break;
+				}
+			}
+
+			eval(Expression(expr));
 		}
-
-		size_t size = arr.size();
-		int dight = 0;
-		for (int i = 0; i < size; i++)
-		{
-			dight = dight * 10 + arr.at(i);
-		}
-
-		printf("Parser: the factor dight is %d\n", dight);
 	}
+
 	else
 	{
-		printf("Parser: the curr char is %c, not dight\n", this->getCurrChar());
+		auto ch = stat.getCurrChar();
+
+		// 函数执行语句
+		if (ch == '(')
+		{
+			stat.skip();
+
+			std::string expr;
+			while (true)
+			{
+				ch = stat.getCurrChar();
+
+				if (ch != ')')
+				{
+					expr.push_back(ch);
+					stat.skip();
+				}
+				else
+				{
+					stat.skip();
+					break;
+				}
+			}
+
+			auto func = token;
+			auto args = split(expr, ',');
+
+			execfunction(func, args);
+		}
+
+		else
+		{
+			eval(Expression(stat.getContent()));
+		}
 	}
 }

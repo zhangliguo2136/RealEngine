@@ -79,6 +79,9 @@
     <Filter Include="源文件\Framework\Physic">
       <UniqueIdentifier>{a9ef581a-1561-4e3d-b1e3-f3c0a37be7d5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\UI">
+      <UniqueIdentifier>{99e0b70a-f14e-4f76-ae04-6324681b02fe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
@@ -224,6 +227,18 @@
     </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptEngine.cpp">
+      <Filter>源文件\Framework\Script</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>源文件\Framework\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderCommand.cpp">
+      <Filter>源文件\Framework\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderQueue.cpp">
+      <Filter>源文件\Framework\Graphics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -391,6 +406,18 @@
     </ClInclude>
     <ClInclude Include="PhysicsWorld.h">
       <Filter>源文件\Framework\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptEngine.h">
+      <Filter>源文件\Framework\Script</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>源文件\Framework\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderCommand.h">
+      <Filter>源文件\Framework\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderQueue.h">
+      <Filter>源文件\Framework\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

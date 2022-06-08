@@ -1,54 +1,80 @@
 #pragma once
 #include <string>
-#include "Logger.h"
+#include <vector>
+#include <iostream>
+#include <sstream>
+#include <map>
 
-//关键字列表
-static char KEYS[4][32] = { "if", "else", "for", "while"};
-static char TYPE_KEYS[4][32] = { "TValue", "TFunction", "TClass", "TObject" };
-static char OP_KEYS[4] = { '+','-','*','/' };
-
-class Parser
+class Statement
 {
 public:
-	Parser();
-	
-	~Parser() {};
+	Statement(std::string s);
 
-	void parser(const std::string &contents);
+	std::string getToken();
+	const char getCurrChar();
+	void skip();
+	void skipSpace();
 
+	std::string getContent();
 private:
-	bool isChar(const char &tmp);
-	bool isDight(const char &tmp);
+	std::string _content;
+	int _length = 0;
 
-	bool isKeys(const char token[32]);
-	bool isType(const char token[32]);
-	bool isOp(const char &tmp);
-
-private:
-
-	char getNextChar();
-
-	char getCurrChar();
-
-	void toNext();
-
-	char* getToken();
-private:
-	// 语句
-	void statement();
-	// 表达式
-	void expression();
-	// term
-	void term();
-	// factor
-	void factor();
-
-private:
-	char m_token[32] = { '0' };
-	int m_lineCount = 0;
-
-	// 当前读取的字符
-	int m_currIndex = 0;
-
-	std::string m_contents;
+	int _currIndex = 0;
 };
+
+static bool isChar(const char ch)
+{
+	if (ch >= 'a'&& ch <= 'z')
+	{
+		return true;
+	}
+	else if (ch >= 'A'&&ch <= 'Z')
+	{
+		return true;
+	}
+
+	return false;
+}
+
+static bool isDight(const char ch)
+{
+	if (ch >= '0'&& ch <= '9')
+	{
+		return true;
+	}
+
+	return false;
+}
+
+class Expression
+{
+public:
+	Expression(std::string s);
+
+	std::string getContent();
+private:
+	std::string _content;
+};
+
+
+/*
+@控制语句
+@函数执行
+@表达式语句
+*/
+
+// 执行函数
+void execfunction(std::string func, std::vector<std::string> args);
+
+// 是否是控制语句
+bool isControlToken(std::string token);
+
+// 分割字符串
+std::vector<std::string> split(std::string s, const char split);
+
+// 计算表达式
+void eval(Expression expr);
+
+// 执行语句
+void exec(Statement stat);

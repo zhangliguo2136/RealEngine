@@ -15,10 +15,10 @@ void PhysicEngine::PhysicsSystem::AddPhysicsWorld(PhysicsWorld* world)
 
 }
 
-void PhysicEngine::PhysicsSystem::Tick(float dt)
+void PhysicEngine::PhysicsSystem::Tick()
 {
 	for (auto world : _worlds)
 	{
-		world->Tick(dt);
+		world->Tick(0);
 	}
 }

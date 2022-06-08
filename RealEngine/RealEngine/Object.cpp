@@ -8,6 +8,7 @@ ObjectType TValue::getType()
 }
 //-----------------------------------------------------
 
+
 // TFunction
 //-----------------------------------------------------
 ObjectType TFunction::getType()
@@ -16,38 +17,6 @@ ObjectType TFunction::getType()
 }
 //-----------------------------------------------------
 
-// TClass
-//-----------------------------------------------------
-ObjectType TClass::getType()
-{
-	return ObjectType::Class;
-}
-
-TObject TClass::createTObject()
-{
-	TObject outObject;
-
-	// copy value
-	for (auto& pair : valueMaps)
-	{
-		outObject.valueMaps[pair.first] = pair.second;
-	}
-
-	// copy func
-	for (auto& pair : funcMaps)
-	{
-		outObject.funcMaps[pair.first] = pair.second;
-	}
-
-	// copy class object
-	for (auto& pair : classMaps)
-	{
-		outObject.objectMaps[pair.first] = pair.second.createTObject();
-	}
-
-	return outObject;
-}
-//-----------------------------------------------------
 
 // TObject
 //-----------------------------------------------------
@@ -56,15 +25,6 @@ ObjectType TObject::getType()
 	return ObjectType::Object;
 }
 
-TClass TObject::getClass()
-{
-	return m_Class;
-}
-
-void TObject::setClass(TClass inClass)
-{
-	m_Class = inClass;
-}
 
 TValue TObject::getValue(std::string name)
 {

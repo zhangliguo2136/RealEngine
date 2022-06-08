@@ -14,10 +14,9 @@ RealEngine::OpenglDriver::~OpenglDriver()
 
 }
 
-void RealEngine::OpenglDriver::draw(RenderInfo& renderInfo)
+void RealEngine::OpenglDriver::render(RenderInfo& renderInfo)
 {
 	float* verticeArray = renderInfo.verticeArray;
-	renderInfo.useGLProgram();
 
 	glDrawArrays(renderInfo.shape, 0, renderInfo.count);
 }

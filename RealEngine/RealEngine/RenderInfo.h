@@ -6,13 +6,7 @@ class RenderInfo
 public:
 	RenderInfo(float *vertices, size_t count);
 
-	~RenderInfo() 
-	{
-		if (_shader)
-		{
-			delete _shader;
-		}
-	}
+	~RenderInfo() {};
 public:
 	// 顶点数组
 	float *verticeArray;
@@ -23,9 +17,4 @@ public:
 	int count;
 	// 形状
 	int shape;
-public:
-	void useGLProgram();
-
-private:
-	Shader* _shader = nullptr;
 };

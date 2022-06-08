@@ -13,6 +13,16 @@ enum ObjectType :int
 	Object		= 1 << 4,
 };
 
+enum ValueType :int
+{
+	IntValue = 1 << 1,
+	FloatValue = 1 << 2,
+	DoubleValue = 1 << 3,
+	BoolValue = 1 << 4,
+	CharValue = 1 << 5,
+	StringValue = 1 << 6,
+};
+
 
 // 统一类型接口
 class TypeInterface
@@ -21,14 +31,23 @@ public:
 	virtual ObjectType getType() = 0;
 };
 
-// 数值类型
+// 基础类型
 class TValue :public TypeInterface
 {
 public:
 	virtual ObjectType getType() override;
 
 public:
-	double value;
+	std::string name;
+	
+	ValueType _valueType;
+	union _value
+	{
+		int i;
+		float f;
+		double d;
+		char c;
+	};
 };
 
 // 函数类型
@@ -38,36 +57,20 @@ public:
 	virtual ObjectType getType() override;
 
 public:
+	std::string name;
 	std::string funcBody;
-
 	std::vector<TypeInterface*> args;
-
-	std::vector<TypeInterface*> upvalues;
 };
 
-class TObject;
-// 类对象
-class TClass :public TypeInterface
-{
-public:
-	virtual ObjectType getType() override;
-
-public:
-	std::map<std::string, TValue> valueMaps;
-	std::map<std::string, TFunction> funcMaps;
-	std::map<std::string, TClass> classMaps;
-
-public:
-	TObject createTObject();
-};
-
-// 对象对象
+// 对象类型
 class TObject :public TypeInterface
 {
 public:
 	virtual ObjectType getType() override;
 
 public:
+	std::string name;
+
 	std::map<std::string, TValue> valueMaps;
 	std::map<std::string, TObject> objectMaps;
 	std::map<std::string, TFunction> funcMaps;
@@ -77,25 +80,4 @@ public:
 
 	TFunction getFunction(std::string name);
 	void setFunction(std::string name, TFunction func);
-
-public:
-	TClass getClass();
-	void setClass(TClass inClass);
-private:
-	TClass m_Class;
 };
-
-static TClass createTClass(std::string filepath)
-{
-	//std::string content = "if TValue TObject TFunction TClass else while\n";
-
-	std::string content = "if 300";
-
-	Parser* ps = new Parser();
-	ps->parser(content);
-	delete ps;
-
-	TClass classType;
-
-	return classType;
-}
