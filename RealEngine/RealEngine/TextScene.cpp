@@ -13,5 +13,5 @@ TextScene::~TextScene()
 
 void TextScene::update(float deltaTime)
 {
-	_myText->draw();
+	_myText->onDraw();
 }

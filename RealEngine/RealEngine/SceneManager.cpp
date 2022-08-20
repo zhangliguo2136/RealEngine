@@ -1,17 +1,12 @@
 #include "SceneManager.h"
 
-#include <math.h>
-
-#include <GLAD/glad.h>
-#include <GLFW/glfw3.h>
-
 #include "Logger.h"
 #include "Matrix.h"
+#include "TimeUtils.h"
 
 RealEngine::SceneManager::SceneManager() 
 {
-	_frameText = new Text();
-
+	_lastTime = getMillSecondTime();
 	_scene = new ParticleScene();
 }
 RealEngine::SceneManager::~SceneManager() 
@@ -23,13 +18,10 @@ RealEngine::SceneManager::~SceneManager()
 
 void RealEngine::SceneManager::Tick() 
 {
-	float deltaTime = glfwGetTime() - _lastTime;
-	_lastTime = glfwGetTime();
+	auto currTime = getMillSecondTime();
+	float deltaTime = (float)(currTime - _lastTime)/1000.f;
+	_lastTime = currTime;
 
 	// 更新场景
-	_scene->update(deltaTime);
-
-	//显示帧数
-	_frameText->setText(1.0f / deltaTime);
-	_frameText->draw();
+	//_scene->update(deltaTime);
 }

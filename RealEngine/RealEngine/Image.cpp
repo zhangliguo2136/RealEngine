@@ -1,6 +1,6 @@
 #include "Image.h"
 
-#define STB_IMAGE_IMPLEMENTATION
+//#define STB_IMAGE_IMPLEMENTATION
 #include "stb_image/stb_image.h"
 
 #include <iostream>
@@ -101,7 +101,7 @@ unsigned int Image::BindTexture(std::string filename)
 	}
 	else
 	{
-		printf("Texture failed to load at file: %s\n", filename.c_str());
+		printf("Image failed to load at file: %s\n", filename.c_str());
 	}
 	stbi_image_free(data);
 	return textureID;

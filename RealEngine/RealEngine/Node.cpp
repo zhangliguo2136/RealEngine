@@ -1,11 +1,11 @@
 #include "Node.h"
 #include <memory>
 
-void Node::draw()
+void Node::onDraw()
 {
 	for (auto child : _childrens)
 	{
-		child->draw();
+		child->onDraw();
 	}
 }
 
@@ -26,14 +26,26 @@ void Node::onExit()
 
 void Node::setPosition(int px, int py)
 {
-	_px = px;
-	_py = py;
+	_position.x = px;
+	_position.y = py;
 }
 
 void Node::setSize(int sx, int sy)
 {
-	_sx = sx;
-	_sy = sy;
+	_size.x = sx;
+	_size.y = sy;
+}
+
+void Node::setRotation(int rx, int ry)
+{
+	_rotate.x = rx;
+	_rotate.y = ry;
+}
+
+void Node::setScale(float sx, float sy)
+{
+	_scale.x = sx;
+	_scale.y = sy;
 }
 
 void Node::addChild(Node* node)

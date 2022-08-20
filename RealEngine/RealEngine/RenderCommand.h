@@ -3,6 +3,5 @@
 class RenderCommand
 {
 public:
-	RenderCommand();
-	~RenderCommand();
+	virtual void execute();
 };

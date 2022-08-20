@@ -82,6 +82,15 @@
     <Filter Include="源文件\Framework\UI">
       <UniqueIdentifier>{99e0b70a-f14e-4f76-ae04-6324681b02fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\Graphics\Command">
+      <UniqueIdentifier>{e68b1d63-9f79-43bc-a2e6-888fa80be435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Graphics\Driver">
+      <UniqueIdentifier>{a8948a15-b51a-4931-885a-7199acfb1ff7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Component">
+      <UniqueIdentifier>{db684fb2-5094-4335-9597-a874dbf75ee0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseApplication.cpp">
@@ -117,9 +126,6 @@
     <ClCompile Include="Logger.cpp">
       <Filter>源文件\Framework\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="OpenglDriver.cpp">
-      <Filter>源文件\Framework\Graphics</Filter>
-    </ClCompile>
     <ClCompile Include="SceneManager.cpp">
       <Filter>源文件\Framework\Scene</Filter>
     </ClCompile>
@@ -135,9 +141,6 @@
     <ClCompile Include="Shader.cpp">
       <Filter>源文件\Framework\Graphics\Shaders</Filter>
     </ClCompile>
-    <ClCompile Include="Image.cpp">
-      <Filter>源文件\Framework\Scene</Filter>
-    </ClCompile>
     <ClCompile Include="OpenGEX.cpp">
       <Filter>源文件\Enternal\OpenGEX</Filter>
     </ClCompile>
@@ -152,9 +155,6 @@
     </ClCompile>
     <ClCompile Include="OpenDDL.cpp">
       <Filter>源文件\Enternal\OpenDDL</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderInfo.cpp">
-      <Filter>源文件\Framework\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Matrix.cpp">
       <Filter>源文件\Framework\Base</Filter>
@@ -173,9 +173,6 @@
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>源文件\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Bezier.cpp">
-      <Filter>源文件\Framework\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Vector.cpp">
       <Filter>源文件\Framework\Base</Filter>
@@ -234,11 +231,50 @@
     <ClCompile Include="Node.cpp">
       <Filter>源文件\Framework\UI</Filter>
     </ClCompile>
-    <ClCompile Include="RenderCommand.cpp">
+    <ClCompile Include="TimeUtils.cpp">
+      <Filter>源文件\Framework\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="PhysicBody.cpp">
+      <Filter>源文件\Framework\Physic</Filter>
+    </ClCompile>
+    <ClCompile Include="UISystem.cpp">
+      <Filter>源文件\Framework\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderSystem.cpp">
       <Filter>源文件\Framework\Graphics</Filter>
     </ClCompile>
+    <ClCompile Include="Image2D.cpp">
+      <Filter>源文件\Framework\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Image.cpp">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenglDriver.cpp">
+      <Filter>源文件\Framework\Graphics\Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderInfo.cpp">
+      <Filter>源文件\Framework\Graphics\Driver</Filter>
+    </ClCompile>
+    <ClCompile Include="Bezier.cpp">
+      <Filter>源文件\Framework\Component</Filter>
+    </ClCompile>
     <ClCompile Include="RenderQueue.cpp">
-      <Filter>源文件\Framework\Graphics</Filter>
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderCommand.cpp">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture2D.cpp">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTextureCmd.cpp">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="UIScene.cpp">
+      <Filter>源文件\Framework\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTextCmd.cpp">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -281,9 +317,6 @@
     <ClInclude Include="RealEngine.h">
       <Filter>源文件</Filter>
     </ClInclude>
-    <ClInclude Include="OpenglDriver.h">
-      <Filter>源文件\Framework\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="SceneManager.h">
       <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
@@ -304,9 +337,6 @@
     </ClInclude>
     <ClInclude Include="NonMovable.h">
       <Filter>源文件\Framework\Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="Image.h">
-      <Filter>源文件\Framework\Scene</Filter>
     </ClInclude>
     <ClInclude Include="OpenGEX.h">
       <Filter>源文件\Enternal\OpenGEX</Filter>
@@ -332,9 +362,6 @@
     <ClInclude Include="Math.h">
       <Filter>源文件\Framework\Base</Filter>
     </ClInclude>
-    <ClInclude Include="RenderInfo.h">
-      <Filter>源文件\Framework\Graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Matrix.h">
       <Filter>源文件\Framework\Base</Filter>
     </ClInclude>
@@ -352,9 +379,6 @@
     </ClInclude>
     <ClInclude Include="REKey.h">
       <Filter>源文件\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Bezier.h">
-      <Filter>源文件\Framework\Graphics</Filter>
     </ClInclude>
     <ClInclude Include="Vector.h">
       <Filter>源文件\Framework\Base</Filter>
@@ -413,11 +437,50 @@
     <ClInclude Include="Node.h">
       <Filter>源文件\Framework\UI</Filter>
     </ClInclude>
-    <ClInclude Include="RenderCommand.h">
+    <ClInclude Include="TimeUtils.h">
+      <Filter>源文件\Framework\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="PhysicBody.h">
+      <Filter>源文件\Framework\Physic</Filter>
+    </ClInclude>
+    <ClInclude Include="UISystem.h">
+      <Filter>源文件\Framework\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderSystem.h">
       <Filter>源文件\Framework\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="Image2D.h">
+      <Filter>源文件\Framework\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Image.h">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenglDriver.h">
+      <Filter>源文件\Framework\Graphics\Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderInfo.h">
+      <Filter>源文件\Framework\Graphics\Driver</Filter>
+    </ClInclude>
+    <ClInclude Include="Bezier.h">
+      <Filter>源文件\Framework\Component</Filter>
+    </ClInclude>
     <ClInclude Include="RenderQueue.h">
-      <Filter>源文件\Framework\Graphics</Filter>
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderCommand.h">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture2D.h">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTextureCmd.h">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="UIScene.h">
+      <Filter>源文件\Framework\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTextCmd.h">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

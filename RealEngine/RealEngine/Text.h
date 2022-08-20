@@ -2,15 +2,11 @@
 
 #include <map>
 #include <vector>
-
-#include "Vector.h"
-#include "Shader.h"
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-
 #include <stdarg.h>
+
+#include "Node.h"
+#include "Vector.h"
+#include "Texture2D.h"
 
 static std::string format(const char *pszFmt, ...)
 {
@@ -32,21 +28,26 @@ static std::string format(const char *pszFmt, ...)
 
 struct Character
 {
-	unsigned int Texture;
+	Texture2D TextureID;
 	Vector2i Size;
 	Vector2i Bearing;
 	unsigned int Advance;
 };
 
-class Text
+class Text :public Node
 {
 public:
 	Text();
 	~Text();
 
-	void draw();
+	void onDraw();
 
-
+private:
+	//std::map<unsigned char, Character> _characters;
+	std::map<unsigned char, unsigned int> _textures;
+	std::map<unsigned char, Vector2i> _sizes;
+	std::map<unsigned char, Vector2i> _bearings;
+	std::map<unsigned char, unsigned int> _advances;
 public:
 	void setText(std::string inContent)
 	{
@@ -60,11 +61,4 @@ public:
 
 private:
 	std::string _content;
-
-	std::map<unsigned char, Character> _characters;
-
-	unsigned int _vao;
-	unsigned int _vbo;
-
-	Shader* _shader = nullptr;
 };

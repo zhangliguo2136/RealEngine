@@ -28,5 +28,8 @@ namespace PhysicEngine
 	private:
 
 		std::vector<PhysicsWorld*> _worlds;
+
+		// ¼ÇÂ¼Ê±¼ä´Á£¨ºÁÃë£©
+		long long _lastTime = 0;
 	};
 }

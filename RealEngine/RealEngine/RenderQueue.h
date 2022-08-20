@@ -1,5 +1,6 @@
 #pragma once
 #include <queue>
+#include <memory>
 
 #include "RenderCommand.h"
 
@@ -11,9 +12,10 @@ public:
 	RenderQueue();
 	~RenderQueue();
 
-	void Push(RenderCommand cmd);
-	RenderCommand Front();
+	void Push(std::shared_ptr<RenderCommand> cmd);
+	std::shared_ptr<RenderCommand> Front();
 
+	bool isEmpty();
 private:
-	std::queue<RenderCommand> _commands;
+	std::queue<std::shared_ptr<RenderCommand> > _commands;
 };

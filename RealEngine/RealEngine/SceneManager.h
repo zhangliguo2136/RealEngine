@@ -37,10 +37,8 @@ namespace RealEngine
 			return Size(1920, 1080);
 		};
 
-		float _lastTime = 0.0f;
-
-	private:
-		Text* _frameText = nullptr;
+		// ¼ÇÂ¼Ê±¼ä´Á£¨ºÁÃë£©
+		long long _lastTime = 0;
 
 	private:
 		ParticleScene* _scene = nullptr;

@@ -33,7 +33,7 @@ public:
 private:
 	std::vector<Particle> _particles;
 
-	long long _particleCount = 100000;
+	long long _particleCount = 50000;
 
 	unsigned int _vao;
 	unsigned int _positionBuffer;

@@ -3,6 +3,8 @@
 #include "SceneManager.h"
 #include "PhysicsSystem.h"
 #include "ScriptEngine.h"
+#include "UISystem.h"
+#include "RenderSystem.h"
 
 
 bool RealEngine::BaseApplication::m_bQuit = false;
@@ -26,6 +28,12 @@ void RealEngine::BaseApplication::Tick()
 
 	SceneManager& pManager = SceneManager::getInstance();
 	pManager.Tick();
+
+	UISystem& uSystem = UISystem::getInstance();
+	uSystem.Tick();
+
+	RenderSystem& rSystem = RenderSystem::getInstance();
+	rSystem.Tick();
 }
 bool RealEngine::BaseApplication::IsQuit()
 {

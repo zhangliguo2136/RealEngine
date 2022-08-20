@@ -136,6 +136,7 @@
     <ClCompile Include="FileUtil.cpp" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="glmCamera.cpp" />
+    <ClCompile Include="Image2D.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Material.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="ParticleScene.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
+    <ClCompile Include="PhysicBody.cpp" />
     <ClCompile Include="PhysicsSystem.cpp" />
     <ClCompile Include="PhysicsWorld.cpp" />
     <ClCompile Include="Quaternion.cpp" />
@@ -170,13 +172,20 @@
     <ClCompile Include="RenderInfo.cpp" />
     <ClCompile Include="ModelScene.cpp" />
     <ClCompile Include="RenderQueue.cpp" />
+    <ClCompile Include="RenderSystem.cpp" />
+    <ClCompile Include="RenderTextCmd.cpp" />
+    <ClCompile Include="RenderTextureCmd.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ScriptEngine.cpp" />
     <ClCompile Include="Shader.cpp" />
     <ClCompile Include="ShaderLoader.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="TextScene.cpp" />
+    <ClCompile Include="Texture2D.cpp" />
     <ClCompile Include="ThreadPool.cpp" />
+    <ClCompile Include="TimeUtils.cpp" />
+    <ClCompile Include="UIScene.cpp" />
+    <ClCompile Include="UISystem.cpp" />
     <ClCompile Include="Vector.cpp" />
     <ClCompile Include="WindowsApplication.cpp" />
   </ItemGroup>
@@ -221,6 +230,7 @@
     <ClInclude Include="Parser.h" />
     <ClInclude Include="ParticleScene.h" />
     <ClInclude Include="ParticleSystem.h" />
+    <ClInclude Include="PhysicBody.h" />
     <ClInclude Include="PhysicsSystem.h" />
     <ClInclude Include="PhysicsWorld.h" />
     <ClInclude Include="Quaternion.h" />
@@ -230,13 +240,21 @@
     <ClInclude Include="RenderCommand.h" />
     <ClInclude Include="RenderInfo.h" />
     <ClInclude Include="RenderQueue.h" />
+    <ClInclude Include="RenderSystem.h" />
+    <ClInclude Include="RenderTextCmd.h" />
+    <ClInclude Include="RenderTextureCmd.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ScriptEngine.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderLoader.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="TextScene.h" />
+    <ClInclude Include="Texture2D.h" />
     <ClInclude Include="ThreadPool.h" />
+    <ClInclude Include="TimeUtils.h" />
+    <ClInclude Include="Image2D.h" />
+    <ClInclude Include="UIScene.h" />
+    <ClInclude Include="UISystem.h" />
     <ClInclude Include="Vector.h" />
     <ClInclude Include="WindowsApplication.h" />
     <ClInclude Include="ModelScene.h" />
