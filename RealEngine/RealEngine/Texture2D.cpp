@@ -20,13 +20,11 @@ Texture2D::Texture2D(unsigned char* pData, int width, int height, int nrChannel)
 			glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 			format = GL_RED;
 		}
-
 		else if (nrChannel == 3)
 		{
 			glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 			format = GL_RGB;
 		}
-
 		else if (nrChannel == 4)
 		{
 			glPixelStorei(GL_UNPACK_ALIGNMENT, 4);

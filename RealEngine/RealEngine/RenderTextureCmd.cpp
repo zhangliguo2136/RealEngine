@@ -1,6 +1,6 @@
 #include "RenderTextureCmd.h"
-#include "Shader.h"
 #include "Matrix.h"
+#include "ShaderCache.h"
 
 void RenderTextureCmd::execute()
 {
@@ -45,21 +45,31 @@ void RenderTextureCmd::execute()
 	}
 	glBindVertexArray(0);
 
-	Shader* shader = new Shader("../Resource/shaders/Sprite.vs", "../Resource/shaders/Sprite.fs");
 	{
-		shader->useProgram();
+		_shader->useProgram();
 
 		Matrix4 view = Matrix4::IdentityMatrix();
 		Matrix4 projection = Matrix4::IdentityMatrix();
 
-		shader->setUniformMatrix4fv("uWorldTransform", projection.data());
-		shader->setUniformMatrix4fv("uViewProj", view.data());
+		_shader->setUniformMatrix4fv("uWorldTransform", projection.data());
+		_shader->setUniformMatrix4fv("uViewProj", view.data());
 	}
 
-	glBindTexture(GL_TEXTURE_2D, texture->getTextureID());
+	//draw
+	glBindTexture(GL_TEXTURE_2D, m_Texture->getTextureID());
 	glBindVertexArray(vao);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+}
 
-	delete shader;
-	texture = nullptr;
+
+RenderTextureCmd::RenderTextureCmd()
+{
+	auto& shaderCache = ShaderCache::getInstance();
+	_shader = shaderCache.findOrCreate("Sprite");
+}
+
+RenderTextureCmd::~RenderTextureCmd()
+{
+	m_Texture = nullptr;
+	_shader = nullptr;
 }

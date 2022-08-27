@@ -276,6 +276,9 @@
     <ClCompile Include="RenderTextCmd.cpp">
       <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClCompile>
+    <ClCompile Include="ShaderCache.cpp">
+      <Filter>源文件\Framework\Graphics\Shaders</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseApplication.h">
@@ -481,6 +484,9 @@
     </ClInclude>
     <ClInclude Include="RenderTextCmd.h">
       <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderCache.h">
+      <Filter>源文件\Framework\Graphics\Shaders</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

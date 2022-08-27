@@ -1,7 +1,7 @@
 #pragma once
 #include "RenderCommand.h"
-#include "Vector.h"
 #include "Texture2D.h"
+#include "Shader.h"
 
 class RenderTextureCmd :public RenderCommand
 {
@@ -9,11 +9,11 @@ public:
 	virtual void execute() override;
 
 public:
-	Vector2i position;
-	Vector2i size;
-	Vector2i rotate;
-	Vector2f scale;
+	RenderTextureCmd();
+	~RenderTextureCmd();
 
 public:
-	Texture2D* texture = nullptr;
+
+	std::shared_ptr<Shader> _shader;
+	Texture2D* m_Texture = nullptr;
 };

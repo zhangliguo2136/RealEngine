@@ -1,5 +1,6 @@
 #include "RenderTextCmd.h"
 #include "Shader.h"
+#include "ShaderCache.h"
 
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
@@ -28,24 +29,25 @@ void RenderTextCmd::execute()
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 
-	glm::mat4 projection = glm::ortho(0.0f, 1920.f, 0.0f, 1080.f);
-	Vector3f color = Vector3f(1.0, 1.0, 1.0);
+	{
+		glm::mat4 projection = glm::ortho(0.0f, 1920.f, 0.0f, 1080.f);
+		Vector3f color = Vector3f(1.0, 1.0, 1.0);
 
-	Shader* shader = new Shader("../Resource/shaders/Text.vs", "../Resource/shaders/Text.fs");
-	shader->useProgram();
-	shader->setUniformMatrix4fv("projection", glm::value_ptr(projection));
-	shader->setUniform3fv("color", color.values);
+		_shader->useProgram();
+		_shader->setUniformMatrix4fv("projection", glm::value_ptr(projection));
+		_shader->setUniform3fv("color", color.values);
+	}
 
-	glBindVertexArray(_vao);
 	glActiveTexture(GL_TEXTURE0);
+	glBindVertexArray(_vao);
 
 
 	float x = position.x;
 	float y = position.y;
-
+	
 	for (auto c = content.begin(); c < content.end(); c++)
 	{
-		unsigned int texture = textures[*c];
+		std::shared_ptr<Texture2D> texture = textures[*c];
 		Vector2i size = sizes[*c];
 		Vector2i bearing = bearings[*c];
 		unsigned int advance = advances[*c];
@@ -67,7 +69,7 @@ void RenderTextCmd::execute()
 		};
 
 		// 在四边形上绘制字形纹理
-		glBindTexture(GL_TEXTURE_2D, texture);
+		glBindTexture(GL_TEXTURE_2D, texture->getTextureID());
 		// 更新VBO内存的内容
 		glBindBuffer(GL_ARRAY_BUFFER, _vbo);
 		glBufferSubData(GL_ARRAY_BUFFER, 0, sizeof(vertices), vertices);
@@ -80,6 +82,15 @@ void RenderTextCmd::execute()
 
 	glBindVertexArray(0);
 	glBindTexture(GL_TEXTURE_2D, 0);
+}
 
-	delete shader;
+RenderTextCmd::RenderTextCmd()
+{
+	auto& shaderCache = ShaderCache::getInstance();
+	_shader = shaderCache.findOrCreate("Text");
+}
+
+RenderTextCmd::~RenderTextCmd() 
+{
+	_shader = nullptr;
 }

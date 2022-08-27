@@ -44,7 +44,7 @@ void Image2D::onDraw()
 	cmd->size = this->getSize();
 	cmd->rotate = this->getRotation();
 	cmd->scale = this->getScale();
-	cmd->texture = m_Texture;
+	cmd->m_Texture = m_Texture;
 
 	auto& renderSys = RenderSystem::getInstance();
 	renderSys.AddCommand(cmd);

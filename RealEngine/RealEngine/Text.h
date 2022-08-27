@@ -3,6 +3,7 @@
 #include <map>
 #include <vector>
 #include <stdarg.h>
+#include <memory>
 
 #include "Node.h"
 #include "Vector.h"
@@ -44,7 +45,7 @@ public:
 
 private:
 	//std::map<unsigned char, Character> _characters;
-	std::map<unsigned char, unsigned int> _textures;
+	std::map<unsigned char, std::shared_ptr<Texture2D>> _textures;
 	std::map<unsigned char, Vector2i> _sizes;
 	std::map<unsigned char, Vector2i> _bearings;
 	std::map<unsigned char, unsigned int> _advances;
