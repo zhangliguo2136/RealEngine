@@ -14,6 +14,7 @@ void main()
    uint current_index;
    uint fragment_count = 0;
    
+   // 当前片段头指针（索引, 即当前片段最后加入listBuffer的位置）
    current_index = imageLoad(head_pointer_image, ivec2(gl_FragCoord.xy)).x;
    
    // 记录当前片段所有的颜色值
