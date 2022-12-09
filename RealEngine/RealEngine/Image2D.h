@@ -9,8 +9,11 @@ public:
 	virtual void onDraw() override;
 
 public:
+	Image2D() {};
 	Image2D(std::string filename);
 	~Image2D();
+
+	void loadImageFormFile(std::string filename);
 
 private:
 	int width = 0;

@@ -198,6 +198,8 @@
     <ClInclude Include="Camera.h" />
     <ClInclude Include="ComputeShader.h" />
     <ClInclude Include="FileUtil.h" />
+    <ClInclude Include="GCObject.h" />
+    <ClInclude Include="GCObjectPool.h" />
     <ClInclude Include="glmCamera.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="InputManager.h" />
@@ -210,6 +212,7 @@
     <ClInclude Include="Model.h" />
     <ClInclude Include="ModelTest.h" />
     <ClInclude Include="Node.h" />
+    <ClInclude Include="NodeObject.h" />
     <ClInclude Include="NonCopyable.h" />
     <ClInclude Include="NonMovable.h" />
     <ClInclude Include="Object.h" />

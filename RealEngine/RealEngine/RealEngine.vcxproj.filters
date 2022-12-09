@@ -488,5 +488,14 @@
     <ClInclude Include="ShaderCache.h">
       <Filter>源文件\Framework\Graphics\Shaders</Filter>
     </ClInclude>
+    <ClInclude Include="GCObjectPool.h">
+      <Filter>源文件\Framework\GC\MarkAndClear</Filter>
+    </ClInclude>
+    <ClInclude Include="GCObject.h">
+      <Filter>源文件\Framework\GC\MarkAndClear</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeObject.h">
+      <Filter>源文件\Framework\GC\MarkAndClear</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

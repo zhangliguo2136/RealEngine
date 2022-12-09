@@ -5,6 +5,7 @@
 #include "ScriptEngine.h"
 #include "UISystem.h"
 #include "RenderSystem.h"
+#include "MemoryManager.h"
 
 
 bool RealEngine::BaseApplication::m_bQuit = false;

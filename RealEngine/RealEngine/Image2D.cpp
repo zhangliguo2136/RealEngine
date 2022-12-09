@@ -37,6 +37,20 @@ Image2D::~Image2D()
 	}
 }
 
+void Image2D::loadImageFormFile(std::string filename)
+{
+	m_filename = filename;
+	m_pData = stbi_load(filename.c_str(), &width, &height, &nrChannel, 0);
+
+	if (!m_pData)
+	{
+		printf("Image2D::failed to load at file: %s\n", filename.c_str());
+		return;
+	}
+
+	m_Texture = new Texture2D(m_pData, width, height, nrChannel);
+}
+
 void Image2D::onDraw()
 {
 	std::shared_ptr<RenderTextureCmd> cmd = std::make_shared<RenderTextureCmd>();
