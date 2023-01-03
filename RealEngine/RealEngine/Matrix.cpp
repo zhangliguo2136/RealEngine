@@ -139,12 +139,13 @@ Matrix4 Matrix4::Perspective(float fov, float aspect, float n, float f)
 	return mat;
 }
 
-void Matrix4::Debug()
+void Matrix4::Dump()
 {
-	printf("[");
+	printf("------------------");
 	for (auto i = 0; i < 16; ++i)
 	{
+		if (i % 4 == 0) printf("\n");
 		printf("%f ", _values[i]);
 	}
-	printf("]\n");
+	printf("\n");
 }

@@ -6,25 +6,25 @@
 #include "Vector.h"
 #include "Shader.h"
 
-struct Vertex
+struct AssimpVertex
 {
 	Vector3f Position;
 	Vector3f Normal;
 	Vector2f TexCoords;
 };
 
-struct Texture
+struct AssimpTexture
 {
 	unsigned int ID;
 	std::string TextureType;
 	std::string Path;
 };
 
-class Mesh 
+class AssimpMesh
 {
 public:
-	Mesh(std::vector<Vertex>, std::vector<unsigned int>, std::vector<Texture>);
-	~Mesh();
+	AssimpMesh(std::vector<AssimpVertex>, std::vector<unsigned int>, std::vector<AssimpTexture>);
+	~AssimpMesh();
 
 	void draw(Shader& shader);
 private:
@@ -34,7 +34,7 @@ private:
 	unsigned int _vao, _vbo, _ebo;
 
 private:
-	std::vector<Vertex> _vertices;
+	std::vector<AssimpVertex> _vertices;
 	std::vector<unsigned int> _indices;
-	std::vector<Texture> _textures;
+	std::vector<AssimpTexture> _textures;
 };

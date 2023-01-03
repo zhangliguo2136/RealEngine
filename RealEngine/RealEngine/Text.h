@@ -7,7 +7,7 @@
 
 #include "Node.h"
 #include "Vector.h"
-#include "Texture2D.h"
+#include "TextureGL.h"
 
 static std::string format(const char *pszFmt, ...)
 {
@@ -29,7 +29,7 @@ static std::string format(const char *pszFmt, ...)
 
 struct Character
 {
-	Texture2D TextureID;
+	TextureGL GLTexture;
 	Vector2i Size;
 	Vector2i Bearing;
 	unsigned int Advance;
@@ -45,7 +45,7 @@ public:
 
 private:
 	//std::map<unsigned char, Character> _characters;
-	std::map<unsigned char, std::shared_ptr<Texture2D>> _textures;
+	std::map<unsigned char, std::shared_ptr<TextureGL>> _textures;
 	std::map<unsigned char, Vector2i> _sizes;
 	std::map<unsigned char, Vector2i> _bearings;
 	std::map<unsigned char, unsigned int> _advances;

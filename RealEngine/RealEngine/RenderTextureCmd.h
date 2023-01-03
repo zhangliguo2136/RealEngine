@@ -1,6 +1,6 @@
 #pragma once
 #include "RenderCommand.h"
-#include "Texture2D.h"
+#include "TextureGL.h"
 #include "Shader.h"
 
 class RenderTextureCmd :public RenderCommand
@@ -15,5 +15,6 @@ public:
 public:
 
 	std::shared_ptr<Shader> _shader;
-	Texture2D* m_Texture = nullptr;
+
+	unsigned int glTextureID = -1;
 };

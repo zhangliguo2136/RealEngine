@@ -2,10 +2,7 @@
 #include "RealEngine.h"
 #include "InputManager.h"
 
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include "REKey.h"
 
 RealEngine::Camera::Camera() 
 {
@@ -25,19 +22,19 @@ void RealEngine::Camera::update(float deltaTime)
 {
 	float cameraSpeed = 0.05f;
 	InputManager& pManager = InputManager::getInstance();
-	if (pManager.isPressed(GLFW_KEY_W))
+	if (pManager.isPressed(REKey::REKEY_KEY_W))
 	{
 		_position = _position + _front * cameraSpeed;
 	}
-	else if (pManager.isPressed(GLFW_KEY_S))
+	else if (pManager.isPressed(REKey::REKEY_KEY_S))
 	{
 		_position = _position - _front * cameraSpeed;
 	}
-	else if (pManager.isPressed(GLFW_KEY_A))
+	else if (pManager.isPressed(REKey::REKEY_KEY_A))
 	{
 		_position = _position - Vector3f::normalize(Vector3f::cross(_front, _up)) * cameraSpeed;
 	}
-	else if (pManager.isPressed(GLFW_KEY_D))
+	else if (pManager.isPressed(REKey::REKEY_KEY_D))
 	{
 		_position = _position + Vector3f::normalize(Vector3f::cross(_front, _up)) * cameraSpeed;
 	}

@@ -47,7 +47,7 @@ void RenderTextCmd::execute()
 	
 	for (auto c = content.begin(); c < content.end(); c++)
 	{
-		std::shared_ptr<Texture2D> texture = textures[*c];
+		std::shared_ptr<TextureGL> texture = glTextures[*c];
 		Vector2i size = sizes[*c];
 		Vector2i bearing = bearings[*c];
 		unsigned int advance = advances[*c];

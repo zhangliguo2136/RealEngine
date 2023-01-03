@@ -1,7 +1,7 @@
 #pragma once
 #include "RenderCommand.h"
 #include "Vector.h"
-#include "Texture2D.h"
+#include "TextureGL.h"
 #include "Shader.h"
 
 #include <map>
@@ -20,7 +20,7 @@ public:
 public:
 	std::string content;
 
-	std::map<unsigned char, std::shared_ptr<Texture2D>> textures;
+	std::map<unsigned char, std::shared_ptr<TextureGL>> glTextures;
 	std::map<unsigned char, Vector2i> sizes;
 	std::map<unsigned char, Vector2i> bearings;
 	std::map<unsigned char, unsigned int> advances;

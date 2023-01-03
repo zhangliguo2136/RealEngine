@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Node.h"
-#include "Texture2D.h"
+#include "TextureGL.h"
 
 class Image2D :public Node
 {
@@ -13,17 +13,12 @@ public:
 	Image2D(std::string filename);
 	~Image2D();
 
-	void loadImageFormFile(std::string filename);
-
-private:
-	int width = 0;
-	int height = 0;
-	int nrChannel = 0;
+public:
+	void LoadImageFormFile(std::string filename);
 
 public:
 	std::string m_filename;
 
-	unsigned char* m_pData = nullptr;
-
-	Texture2D* m_Texture = nullptr;
+public:
+	TextureGL* glTexture = nullptr;
 };

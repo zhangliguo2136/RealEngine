@@ -1,9 +1,9 @@
-#include "Mesh.h"
+#include "AssimpMesh.h"
 
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
 
-Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std::vector<Texture> textures)
+AssimpMesh::AssimpMesh(std::vector<AssimpVertex> vertices, std::vector<unsigned int> indices, std::vector<AssimpTexture> textures)
 {
 	this->_vertices = vertices;
 	this->_indices = indices;
@@ -12,37 +12,37 @@ Mesh::Mesh(std::vector<Vertex> vertices, std::vector<unsigned int> indices, std:
 	this->setupMesh();
 }
 
-Mesh::~Mesh()
+AssimpMesh::~AssimpMesh()
 {
 
 }
 
-void Mesh::setupMesh()
+void AssimpMesh::setupMesh()
 {
 	glGenVertexArrays(1, &_vao);
 	glBindVertexArray(_vao);
 
 	glGenBuffers(1, &_vbo);
 	glBindBuffer(GL_ARRAY_BUFFER, _vbo);
-	glBufferData(GL_ARRAY_BUFFER, _vertices.size() * sizeof(Vertex), _vertices.data(), GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, _vertices.size() * sizeof(AssimpVertex), _vertices.data(), GL_STATIC_DRAW);
 
 	glGenBuffers(1, &_ebo);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, _ebo);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, _indices.size() * sizeof(unsigned int), _indices.data(), GL_STATIC_DRAW);
 
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(AssimpVertex), (void*)0);
 
 	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Normal));
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, sizeof(AssimpVertex), (void*)offsetof(AssimpVertex, Normal));
 
 	glEnableVertexAttribArray(2);
-	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(AssimpVertex), (void*)offsetof(AssimpVertex, TexCoords));
 
 	glBindVertexArray(0);
 }
 
-void Mesh::draw(Shader &shader)
+void AssimpMesh::draw(Shader &shader)
 {
 	unsigned int diffuseNr = 1;
 	unsigned int specularNr = 1;

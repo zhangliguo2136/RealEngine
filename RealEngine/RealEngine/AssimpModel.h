@@ -7,27 +7,27 @@
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
 
-#include "Mesh.h"
+#include "AssimpMesh.h"
 #include "Matrix.h"
 
-class Model
+class AssimpModel
 {
 public:
-	Model(std::string filename);
-	~Model();
+	AssimpModel(std::string filename);
+	~AssimpModel();
 
 	void draw(Shader& shader);
 
 private:
 	void loadModelfile(std::string filename);
 	void processNode(aiNode* node, const aiScene *scene);
-	Mesh processMesh(aiMesh* mesh, const aiScene *scene);
-	std::vector<Texture> loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string name);
+	AssimpMesh processMesh(aiMesh* mesh, const aiScene *scene);
+	std::vector<AssimpTexture> loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string name);
 
 private:
 	std::string _filename;
 	std::string _filepath;
-	std::vector<Mesh> _meshs;
+	std::vector<AssimpMesh> _meshs;
 
 	Matrix4 _translate;
 };

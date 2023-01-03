@@ -16,7 +16,7 @@ public:
 	// ÖØÔØ¾ØÕó³Ë·¨
 	Matrix4 operator*(Matrix4 &) const;
 
-	void Debug();
+	void Dump();
 public:
 	static Matrix4 IdentityMatrix();
 

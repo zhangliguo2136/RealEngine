@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Camera.h"
-#include "Model.h"
+#include "AssimpModel.h"
 #include "Shader.h"
 #include "ComputeShader.h"
 
@@ -20,7 +20,7 @@ namespace RealEngine
 	private:
 		Camera* _camera = nullptr;
 		glmCamera* _glmCamera = nullptr;
-		Model* _model = nullptr;
+		AssimpModel* _assimpModel = nullptr;
 		Shader* _modelShader = nullptr;
 	};
 }

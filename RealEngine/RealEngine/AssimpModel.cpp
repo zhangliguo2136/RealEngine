@@ -1,11 +1,13 @@
-#include "Model.h"
-#include "Image.h"
+#include "AssimpModel.h"
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-Model::Model(std::string filename) 
+#include "TextureGLCache.h"
+#include "TextureBufferCache.h"
+
+AssimpModel::AssimpModel(std::string filename)
 {
 	_filename = filename;
 	_filepath = filename.substr(0, filename.find_last_of('/'));
@@ -15,12 +17,12 @@ Model::Model(std::string filename)
 	this->loadModelfile(filename);
 }
 
-Model::~Model() 
+AssimpModel::~AssimpModel()
 {
 
 }
 
-void Model::draw(Shader& shader)
+void AssimpModel::draw(Shader& shader)
 {
 	shader.setUniformMatrix4fv("model", _translate.data());
 
@@ -30,7 +32,7 @@ void Model::draw(Shader& shader)
 	}
 }
 
-void Model::loadModelfile(std::string filename)
+void AssimpModel::loadModelfile(std::string filename)
 {
 	Assimp::Importer importer;
 	const aiScene* scene = importer.ReadFile(filename, aiProcess_Triangulate | aiProcess_FlipUVs);
@@ -43,7 +45,7 @@ void Model::loadModelfile(std::string filename)
 	processNode(scene->mRootNode, scene);
 }
 
-void Model::processNode(aiNode* node, const aiScene *scene)
+void AssimpModel::processNode(aiNode* node, const aiScene *scene)
 {
 	for (unsigned int i = 0; i < node->mNumMeshes; ++i)
 	{
@@ -56,15 +58,15 @@ void Model::processNode(aiNode* node, const aiScene *scene)
 		processNode(node->mChildren[i], scene);
 	}
 }
-Mesh Model::processMesh(aiMesh* mesh, const aiScene *scene)
+AssimpMesh AssimpModel::processMesh(aiMesh* mesh, const aiScene *scene)
 {
-	std::vector<Vertex> vertexs;
+	std::vector<AssimpVertex> vertexs;
 	std::vector<unsigned int> indices;
-	std::vector<Texture> textures;
+	std::vector<AssimpTexture> textures;
 
 	for (unsigned int i = 0; i < mesh->mNumVertices; ++i)
 	{
-		Vertex vertex;
+		AssimpVertex vertex;
 		vertex.Position.x = mesh->mVertices[i].x;
 		vertex.Position.y = mesh->mVertices[i].y;
 		vertex.Position.z = mesh->mVertices[i].z;
@@ -101,24 +103,24 @@ Mesh Model::processMesh(aiMesh* mesh, const aiScene *scene)
 
 	aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
 	// diffuse
-	std::vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "Texutre_Diffuse");
+	std::vector<AssimpTexture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "Texutre_Diffuse");
 	textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
 	// spec
-	std::vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "Texutre_Specular");
+	std::vector<AssimpTexture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "Texutre_Specular");
 	textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
 	// normal
-	std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "Texutre_Normal");
+	std::vector<AssimpTexture> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "Texutre_Normal");
 	textures.insert(textures.end(), normalMaps.begin(), normalMaps.end());
 	// height
-	std::vector<Texture> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "Texutre_Height");
+	std::vector<AssimpTexture> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "Texutre_Height");
 	textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
 
-	return Mesh(vertexs, indices, textures);
+	return AssimpMesh(vertexs, indices, textures);
 }
 
-std::vector<Texture> Model::loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string name)
+std::vector<AssimpTexture> AssimpModel::loadMaterialTextures(aiMaterial* mat, aiTextureType type, std::string name)
 {
-	std::vector<Texture> textures;
+	std::vector<AssimpTexture> textures;
 	for (unsigned int i = 0; i < mat->GetTextureCount(type); i++)
 	{
 		aiString str;
@@ -126,8 +128,9 @@ std::vector<Texture> Model::loadMaterialTextures(aiMaterial* mat, aiTextureType 
 
 		std::string filepath = _filepath + std::string("/") + str.C_Str();
 
-		Texture texture;
-		texture.ID = Image::BindTexture(filepath);
+
+		AssimpTexture texture;
+		texture.ID = TextureGLCache::getInstance().findOrCreate(filepath)->getTextureID();
 		texture.TextureType = name;
 		texture.Path = str.C_Str();
 		textures.push_back(texture);

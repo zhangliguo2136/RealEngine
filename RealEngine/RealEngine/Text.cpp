@@ -32,9 +32,9 @@ Text::Text() :_content("")
 			continue;
 		}
 
-		std::shared_ptr<Texture2D> texture2D = std::make_shared<Texture2D>(face->glyph->bitmap.buffer, face->glyph->bitmap.width, face->glyph->bitmap.rows, 1);
+		std::shared_ptr<TextureGL> texture2D = std::make_shared<TextureGL>(face->glyph->bitmap.buffer, face->glyph->bitmap.width, face->glyph->bitmap.rows, 1);
 
-		_textures.insert(std::pair<unsigned char, std::shared_ptr<Texture2D>>(c, texture2D));
+		_textures.insert(std::pair<unsigned char, std::shared_ptr<TextureGL>>(c, texture2D));
 		_sizes.insert(std::pair<unsigned char, Vector2i>(c, Vector2i(face->glyph->bitmap.width, face->glyph->bitmap.rows)));
 		_bearings.insert(std::pair<unsigned char, Vector2i>(c, Vector2i(face->glyph->bitmap_left, face->glyph->bitmap_top)));
 		_advances.insert(std::pair<unsigned char, unsigned int>(c, face->glyph->advance.x));
@@ -58,7 +58,7 @@ void Text::onDraw()
 	cmd->scale = this->getScale();
 
 	cmd->content = _content;
-	cmd->textures = _textures;
+	cmd->glTextures = _textures;
 	cmd->sizes = _sizes;
 	cmd->bearings = _bearings;
 	cmd->advances = _advances;

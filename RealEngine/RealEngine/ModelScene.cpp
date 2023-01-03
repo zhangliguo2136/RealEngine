@@ -4,7 +4,7 @@ RealEngine::ModelScene::ModelScene()
 {
 	_camera = new Camera();
 
-	_model = new Model("../Resource/models/nanosuit/nanosuit.obj");
+	_assimpModel = new AssimpModel("../Resource/models/nanosuit/nanosuit.obj");
 	_modelShader = new Shader("../Resource/shaders/Model.vs", "../Resource/shaders/Model.fs");
 }
 
@@ -27,5 +27,5 @@ void RealEngine::ModelScene::update(float deltaTime)
 	_modelShader->setUniformMatrix4fv("projection", projection.data());
 	_modelShader->setUniformMatrix4fv("view", view.data());
 
-	_model->draw(*_modelShader);
+	_assimpModel->draw(*_modelShader);
 }

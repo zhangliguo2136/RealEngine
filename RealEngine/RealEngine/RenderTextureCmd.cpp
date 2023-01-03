@@ -46,17 +46,20 @@ void RenderTextureCmd::execute()
 	glBindVertexArray(0);
 
 	{
-		_shader->useProgram();
+		auto& shaderCache = ShaderCache::getInstance();
+		auto shader = shaderCache.findOrCreate("Sprite");
+
+		shader->useProgram();
 
 		Matrix4 view = Matrix4::IdentityMatrix();
 		Matrix4 projection = Matrix4::IdentityMatrix();
 
-		_shader->setUniformMatrix4fv("uWorldTransform", projection.data());
-		_shader->setUniformMatrix4fv("uViewProj", view.data());
+		shader->setUniformMatrix4fv("uWorldTransform", projection.data());
+		shader->setUniformMatrix4fv("uViewProj", view.data());
 	}
 
 	//draw
-	glBindTexture(GL_TEXTURE_2D, m_Texture->getTextureID());
+	glBindTexture(GL_TEXTURE_2D, glTextureID);
 	glBindVertexArray(vao);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 }
@@ -64,12 +67,9 @@ void RenderTextureCmd::execute()
 
 RenderTextureCmd::RenderTextureCmd()
 {
-	auto& shaderCache = ShaderCache::getInstance();
-	_shader = shaderCache.findOrCreate("Sprite");
 }
 
 RenderTextureCmd::~RenderTextureCmd()
 {
-	m_Texture = nullptr;
-	_shader = nullptr;
+	glTextureID = -1;
 }

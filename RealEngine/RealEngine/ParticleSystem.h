@@ -5,6 +5,8 @@
 #include "Vector.h"
 #include "Shader.h"
 
+#include "RenderParticleCmd.h"
+
 class Particle
 {
 public:
@@ -40,4 +42,7 @@ private:
 	unsigned int _textureID;
 
 	Shader* _shader = nullptr;
+
+
+	std::shared_ptr<RenderParticleCmd> _renderCmd = nullptr;
 };
