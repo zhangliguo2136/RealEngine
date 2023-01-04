@@ -3,7 +3,7 @@
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "ShaderCache.h"
+#include "GLShaderCache.h"
 
 RenderParticleCmd::RenderParticleCmd()
 {
@@ -60,10 +60,8 @@ RenderParticleCmd::~RenderParticleCmd()
 
 void RenderParticleCmd::execute()
 {
-	auto& shaderCache = ShaderCache::getInstance();
-	auto shader = shaderCache.findOrCreate("ParticlePoint_Test");
-	shader->useProgram();
-
+	auto shader = GLShaderCache::getInstance().findOrCreate("ParticlePoint_Test");
+	shader->UseProgram();
 
 	glBindTexture(GL_TEXTURE_2D, ParticleTextureID);
 

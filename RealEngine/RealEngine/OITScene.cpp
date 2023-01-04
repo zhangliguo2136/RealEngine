@@ -2,10 +2,8 @@
 
 #include <string>
 
-#include <GLAD/glad.h>
-#include <GLFW/glfw3.h>
-
 #include "Vector.h"
+#include "GLShaderCache.h"
 
 OITScene::OITScene()
 {
@@ -75,8 +73,9 @@ OITScene::OITScene()
 
 	glBindVertexArray(0);
 
-	_buildShader = new Shader("../Resource/shaders/oit_build_list.vs", "../Resource/shaders/oit_build_list.fs");
-	_resolveShader = new Shader("../Resource/shaders/oit_resolve.vs", "../Resource/shaders/oit_resolve.fs");
+	auto& shaderCache = GLShaderCache::getInstance();
+	_buildShader = shaderCache.findOrCreate("oit_build_list");
+	_resolveShader = shaderCache.findOrCreate("oit_resolve");
 }
 
 OITScene::~OITScene() 
@@ -110,7 +109,7 @@ void OITScene::update(float deltaTime)
 	glBindImageTexture(1, linked_list_texture, 0, GL_FALSE, 0, GL_WRITE_ONLY, GL_RGBA32UI);
 
 	/*-----------------------------------------------*/
-	_buildShader->useProgram();
+	_buildShader->UseProgram();
 
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -122,7 +121,7 @@ void OITScene::update(float deltaTime)
 	/*-----------------------------------------------*/
 
 
-	_resolveShader->useProgram();
+	_resolveShader->UseProgram();
 	glBindVertexArray(vao);
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 

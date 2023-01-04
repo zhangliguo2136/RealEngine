@@ -1,16 +1,16 @@
 #include "RenderTextCmd.h"
-#include "Shader.h"
-#include "ShaderCache.h"
-
-#include <GLAD/glad.h>
-#include <GLFW/glfw3.h>
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
+#include "GLShaderCache.h"
+
 void RenderTextCmd::execute()
 {
+	auto& shaderCache = GLShaderCache::getInstance();
+	auto shader = shaderCache.findOrCreate("Text");
+
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
@@ -33,17 +33,17 @@ void RenderTextCmd::execute()
 		glm::mat4 projection = glm::ortho(0.0f, 1920.f, 0.0f, 1080.f);
 		Vector3f color = Vector3f(1.0, 1.0, 1.0);
 
-		_shader->useProgram();
-		_shader->setUniformMatrix4fv("projection", glm::value_ptr(projection));
-		_shader->setUniform3fv("color", color.values);
+		shader->UseProgram();
+		shader->setUniformMatrix4fv("projection", glm::value_ptr(projection));
+		shader->setUniform3fv("color", color.values);
 	}
 
 	glActiveTexture(GL_TEXTURE0);
 	glBindVertexArray(_vao);
 
 
-	float x = position.x;
-	float y = position.y;
+	float x = (float)position.x;
+	float y = (float)position.y;
 	
 	for (auto c = content.begin(); c < content.end(); c++)
 	{
@@ -82,15 +82,4 @@ void RenderTextCmd::execute()
 
 	glBindVertexArray(0);
 	glBindTexture(GL_TEXTURE_2D, 0);
-}
-
-RenderTextCmd::RenderTextCmd()
-{
-	auto& shaderCache = ShaderCache::getInstance();
-	_shader = shaderCache.findOrCreate("Text");
-}
-
-RenderTextCmd::~RenderTextCmd() 
-{
-	_shader = nullptr;
 }

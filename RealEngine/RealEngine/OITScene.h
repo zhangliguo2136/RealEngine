@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Shader.h"
+#include "GLProgram.h"
 
 /*
 透明度顺序无关算法
@@ -14,8 +14,8 @@ public:
 	void update(float deltaTime);
 
 private:
-	Shader* _buildShader = nullptr;
-	Shader* _resolveShader = nullptr;
+	std::shared_ptr<GLProgram> _buildShader = nullptr;
+	std::shared_ptr<GLProgram> _resolveShader = nullptr;
 
 	unsigned int head_pointer_texture;
 	unsigned int head_pointer_clear_buffer;

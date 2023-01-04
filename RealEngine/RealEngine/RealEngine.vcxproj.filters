@@ -79,9 +79,6 @@
     <Filter Include="源文件\Framework\Graphics\Driver">
       <UniqueIdentifier>{a8948a15-b51a-4931-885a-7199acfb1ff7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="源文件\Framework\UI\Image">
-      <UniqueIdentifier>{59881ab2-a07c-4906-8960-e77a8cf4f4ec}</UniqueIdentifier>
-    </Filter>
     <Filter Include="源文件\Framework\Scene\Model">
       <UniqueIdentifier>{de729367-7352-45a1-8541-67734b7ecec5}</UniqueIdentifier>
     </Filter>
@@ -121,6 +118,15 @@
     <Filter Include="源文件\Platform\Win">
       <UniqueIdentifier>{ac3a7ff9-2c21-4e6c-85dc-60d41690213c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\UI\Component">
+      <UniqueIdentifier>{70d6851d-958b-4189-9214-0b9e5a263280}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\UI\Component\Image">
+      <UniqueIdentifier>{59881ab2-a07c-4906-8960-e77a8cf4f4ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Graphics\Shaders\GL">
+      <UniqueIdentifier>{74e4f383-dcab-4ef0-8207-53774667adfa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WindowsApplication.cpp">
@@ -156,12 +162,6 @@
     <ClCompile Include="FileUtil.cpp">
       <Filter>源文件\Framework\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="ShaderLoader.cpp">
-      <Filter>源文件\Framework\Graphics\Shaders</Filter>
-    </ClCompile>
-    <ClCompile Include="Shader.cpp">
-      <Filter>源文件\Framework\Graphics\Shaders</Filter>
-    </ClCompile>
     <ClCompile Include="OpenGEX.cpp">
       <Filter>源文件\Enternal\OpenGEX</Filter>
     </ClCompile>
@@ -185,9 +185,6 @@
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
       <Filter>源文件\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="ComputeShader.cpp">
-      <Filter>源文件\Framework\Graphics\Shaders</Filter>
     </ClCompile>
     <ClCompile Include="OITScene.cpp">
       <Filter>源文件\Framework\Test</Filter>
@@ -213,9 +210,6 @@
     <ClCompile Include="ScriptEngine.cpp">
       <Filter>源文件\Framework\Script</Filter>
     </ClCompile>
-    <ClCompile Include="Node.cpp">
-      <Filter>源文件\Framework\UI</Filter>
-    </ClCompile>
     <ClCompile Include="TimeUtils.cpp">
       <Filter>源文件\Framework\Utils</Filter>
     </ClCompile>
@@ -231,32 +225,20 @@
     <ClCompile Include="OpenglDriver.cpp">
       <Filter>源文件\Framework\Graphics\Driver</Filter>
     </ClCompile>
-    <ClCompile Include="RenderInfo.cpp">
-      <Filter>源文件\Framework\Graphics\Driver</Filter>
-    </ClCompile>
     <ClCompile Include="Bezier.cpp">
       <Filter>源文件\Framework\Base\Component</Filter>
     </ClCompile>
     <ClCompile Include="RenderQueue.cpp">
       <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClCompile>
-    <ClCompile Include="RenderCommand.cpp">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClCompile>
     <ClCompile Include="RenderTextureCmd.cpp">
       <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClCompile>
-    <ClCompile Include="UIScene.cpp">
-      <Filter>源文件\Framework\UI</Filter>
     </ClCompile>
     <ClCompile Include="RenderTextCmd.cpp">
       <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClCompile>
-    <ClCompile Include="ShaderCache.cpp">
-      <Filter>源文件\Framework\Graphics\Shaders</Filter>
-    </ClCompile>
     <ClCompile Include="Image2D.cpp">
-      <Filter>源文件\Framework\UI\Image</Filter>
+      <Filter>源文件\Framework\UI\Component\Image</Filter>
     </ClCompile>
     <ClCompile Include="ObjMatrial.cpp">
       <Filter>源文件\Framework\Scene\Model\ObjModel</Filter>
@@ -273,17 +255,11 @@
     <ClCompile Include="glmCamera.cpp">
       <Filter>源文件\Framework\Scene\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="Text.cpp">
-      <Filter>源文件\Framework\UI</Filter>
-    </ClCompile>
     <ClCompile Include="TextureBuffer.cpp">
       <Filter>源文件\Framework\Scene\Texture</Filter>
     </ClCompile>
     <ClCompile Include="TextureBufferCache.cpp">
       <Filter>源文件\Framework\Scene\Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="ParticleSystem.cpp">
-      <Filter>源文件\Framework\Scene\Particle</Filter>
     </ClCompile>
     <ClCompile Include="AssimpModel.cpp">
       <Filter>源文件\Framework\Scene\Model\AssimpModel</Filter>
@@ -296,9 +272,6 @@
     </ClCompile>
     <ClCompile Include="TextureGLCache.cpp">
       <Filter>源文件\Framework\Scene\Texture\GL</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderParticleCmd.cpp">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClCompile>
     <ClCompile Include="Math.cpp">
       <Filter>源文件\Framework\Base\Math</Filter>
@@ -317,6 +290,42 @@
     </ClCompile>
     <ClCompile Include="BaseApplication.cpp">
       <Filter>源文件\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>源文件\Framework\Scene\Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="Node.cpp">
+      <Filter>源文件\Framework\UI\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Text.cpp">
+      <Filter>源文件\Framework\UI\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.cpp">
+      <Filter>源文件\Framework\UI\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderParticleCmd.cpp">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderCommand.cpp">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="GLComputeParticle.cpp">
+      <Filter>源文件\Framework\Scene\Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderGLComputeParticleCmd.cpp">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="GLProgram.cpp">
+      <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLShaderLoader.cpp">
+      <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLComputeProgram.cpp">
+      <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="GLShaderCache.cpp">
+      <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -359,12 +368,6 @@
     <ClInclude Include="FileUtil.h">
       <Filter>源文件\Framework\Utils</Filter>
     </ClInclude>
-    <ClInclude Include="ShaderLoader.h">
-      <Filter>源文件\Framework\Graphics\Shaders</Filter>
-    </ClInclude>
-    <ClInclude Include="Shader.h">
-      <Filter>源文件\Framework\Graphics\Shaders</Filter>
-    </ClInclude>
     <ClInclude Include="NonCopyable.h">
       <Filter>源文件\Framework\Base\Interface</Filter>
     </ClInclude>
@@ -404,9 +407,6 @@
     <ClInclude Include="REKey.h">
       <Filter>源文件\Input</Filter>
     </ClInclude>
-    <ClInclude Include="ComputeShader.h">
-      <Filter>源文件\Framework\Graphics\Shaders</Filter>
-    </ClInclude>
     <ClInclude Include="OITScene.h">
       <Filter>源文件\Framework\Test</Filter>
     </ClInclude>
@@ -428,9 +428,6 @@
     <ClInclude Include="ScriptEngine.h">
       <Filter>源文件\Framework\Script</Filter>
     </ClInclude>
-    <ClInclude Include="Node.h">
-      <Filter>源文件\Framework\UI</Filter>
-    </ClInclude>
     <ClInclude Include="TimeUtils.h">
       <Filter>源文件\Framework\Utils</Filter>
     </ClInclude>
@@ -446,29 +443,17 @@
     <ClInclude Include="OpenglDriver.h">
       <Filter>源文件\Framework\Graphics\Driver</Filter>
     </ClInclude>
-    <ClInclude Include="RenderInfo.h">
-      <Filter>源文件\Framework\Graphics\Driver</Filter>
-    </ClInclude>
     <ClInclude Include="Bezier.h">
       <Filter>源文件\Framework\Base\Component</Filter>
     </ClInclude>
     <ClInclude Include="RenderQueue.h">
       <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClInclude>
-    <ClInclude Include="RenderCommand.h">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClInclude>
     <ClInclude Include="RenderTextureCmd.h">
       <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClInclude>
-    <ClInclude Include="UIScene.h">
-      <Filter>源文件\Framework\UI</Filter>
-    </ClInclude>
     <ClInclude Include="RenderTextCmd.h">
       <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClInclude>
-    <ClInclude Include="ShaderCache.h">
-      <Filter>源文件\Framework\Graphics\Shaders</Filter>
     </ClInclude>
     <ClInclude Include="GCObjectPool.h">
       <Filter>源文件\Framework\GC\MarkAndClear</Filter>
@@ -480,7 +465,7 @@
       <Filter>源文件\Framework\GC\MarkAndClear</Filter>
     </ClInclude>
     <ClInclude Include="Image2D.h">
-      <Filter>源文件\Framework\UI\Image</Filter>
+      <Filter>源文件\Framework\UI\Component\Image</Filter>
     </ClInclude>
     <ClInclude Include="ObjMatrial.h">
       <Filter>源文件\Framework\Scene\Model\ObjModel</Filter>
@@ -497,17 +482,11 @@
     <ClInclude Include="Camera.h">
       <Filter>源文件\Framework\Scene\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="Text.h">
-      <Filter>源文件\Framework\UI</Filter>
-    </ClInclude>
     <ClInclude Include="TextureBuffer.h">
       <Filter>源文件\Framework\Scene\Texture</Filter>
     </ClInclude>
     <ClInclude Include="TextureBufferCache.h">
       <Filter>源文件\Framework\Scene\Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="ParticleSystem.h">
-      <Filter>源文件\Framework\Scene\Particle</Filter>
     </ClInclude>
     <ClInclude Include="AssimpModel.h">
       <Filter>源文件\Framework\Scene\Model\AssimpModel</Filter>
@@ -541,6 +520,42 @@
     </ClInclude>
     <ClInclude Include="BaseApplication.h">
       <Filter>源文件\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>源文件\Framework\Scene\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="Node.h">
+      <Filter>源文件\Framework\UI\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Text.h">
+      <Filter>源文件\Framework\UI\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
+      <Filter>源文件\Framework\UI\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderCommand.h">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="GLComputeParticle.h">
+      <Filter>源文件\Framework\Scene\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderGLComputeParticleCmd.h">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="GLProgram.h">
+      <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLShaderLoader.h">
+      <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLComputeProgram.h">
+      <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLShaderMap.h">
+      <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="GLShaderCache.h">
+      <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

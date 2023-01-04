@@ -23,5 +23,5 @@ void RealEngine::SceneManager::Tick()
 	_lastTime = currTime;
 
 	// ¸üĞÂ³¡¾°
-	//_scene->update(deltaTime);
+	_scene->update(deltaTime);
 }

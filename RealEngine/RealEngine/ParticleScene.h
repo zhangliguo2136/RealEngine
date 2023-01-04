@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ParticleSystem.h"
+#include "Particle.h"
 
 class ParticleScene
 {
@@ -12,5 +12,5 @@ public:
 
 private:
 	
-	ParticleSystem* _particleSystem = nullptr;
+	Particle* _particle = nullptr;
 };

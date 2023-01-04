@@ -6,7 +6,7 @@ UISystem::UISystem()
 	_lastTime = getMillSecondTime();
 	_frameText = new Text();
 
-	_scene = new UIScene();
+	_scene = new Canvas();
 }
 
 UISystem::~UISystem()

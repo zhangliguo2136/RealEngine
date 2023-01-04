@@ -1,6 +1,6 @@
 #include "RenderTextureCmd.h"
 #include "Matrix.h"
-#include "ShaderCache.h"
+#include "GLShaderCache.h"
 
 void RenderTextureCmd::execute()
 {
@@ -46,10 +46,8 @@ void RenderTextureCmd::execute()
 	glBindVertexArray(0);
 
 	{
-		auto& shaderCache = ShaderCache::getInstance();
-		auto shader = shaderCache.findOrCreate("Sprite");
-
-		shader->useProgram();
+		auto shader = GLShaderCache::getInstance().findOrCreate("Sprite");
+		shader->UseProgram();
 
 		Matrix4 view = Matrix4::IdentityMatrix();
 		Matrix4 projection = Matrix4::IdentityMatrix();

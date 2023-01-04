@@ -42,7 +42,7 @@ void AssimpMesh::setupMesh()
 	glBindVertexArray(0);
 }
 
-void AssimpMesh::draw(Shader &shader)
+void AssimpMesh::draw(GLProgram &shader)
 {
 	unsigned int diffuseNr = 1;
 	unsigned int specularNr = 1;
@@ -62,7 +62,7 @@ void AssimpMesh::draw(Shader &shader)
 		else if (name == "Texture_Height")
 			number = std::to_string(heightNr++);
 
-		glUniform1i(glGetUniformLocation(shader.getShaderID(), (name + number).c_str()), i);
+		glUniform1i(glGetUniformLocation(shader.getProgramID(), (name + number).c_str()), i);
 
 		glBindTexture(GL_TEXTURE_2D, _textures[i].ID);
 	}

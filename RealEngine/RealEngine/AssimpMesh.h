@@ -4,7 +4,7 @@
 #include <vector>
 
 #include "Vector.h"
-#include "Shader.h"
+#include "GLProgram.h"
 
 struct AssimpVertex
 {
@@ -26,7 +26,7 @@ public:
 	AssimpMesh(std::vector<AssimpVertex>, std::vector<unsigned int>, std::vector<AssimpTexture>);
 	~AssimpMesh();
 
-	void draw(Shader& shader);
+	void draw(GLProgram& shader);
 private:
 	// °ó¶¨Íø¸ñ
 	void setupMesh();

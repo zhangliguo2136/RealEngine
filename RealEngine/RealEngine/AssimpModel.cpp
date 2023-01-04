@@ -22,7 +22,7 @@ AssimpModel::~AssimpModel()
 
 }
 
-void AssimpModel::draw(Shader& shader)
+void AssimpModel::draw(GLProgram& shader)
 {
 	shader.setUniformMatrix4fv("model", _translate.data());
 

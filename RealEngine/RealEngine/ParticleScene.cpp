@@ -2,15 +2,15 @@
 
 ParticleScene::ParticleScene()
 {
-	_particleSystem = new ParticleSystem();
+	_particle = new Particle();
 }
 
 ParticleScene::~ParticleScene()
 {
-	delete _particleSystem;
+	delete _particle;
 }
 
 void ParticleScene::update(float deltaTime)
 {
-	_particleSystem->update(deltaTime);
+	_particle->update(deltaTime);
 }

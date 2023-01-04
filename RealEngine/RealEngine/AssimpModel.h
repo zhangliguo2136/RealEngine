@@ -16,7 +16,7 @@ public:
 	AssimpModel(std::string filename);
 	~AssimpModel();
 
-	void draw(Shader& shader);
+	void draw(GLProgram& shader);
 
 private:
 	void loadModelfile(std::string filename);

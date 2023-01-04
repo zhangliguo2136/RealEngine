@@ -4,8 +4,6 @@
 #include <GLAD/glad.h>
 #include <GLFW/glfw3.h>
 
-#include "RenderInfo.h"
-
 namespace RealEngine {
 	class OpenglDriver :public IRuntimeModule 
 	{
@@ -22,7 +20,5 @@ namespace RealEngine {
 	public:
 		OpenglDriver();
 		~OpenglDriver();
-
-		void render(RenderInfo& renderInfo);
 	};
 }

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Text.h"
-#include "UIScene.h"
+#include "Canvas.h"
 
 class UISystem
 {
@@ -26,5 +26,5 @@ private:
 private:
 	Text* _frameText = nullptr;
 
-	UIScene* _scene = nullptr;
+	Canvas* _scene = nullptr;
 };
