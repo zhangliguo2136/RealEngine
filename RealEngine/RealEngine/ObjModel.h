@@ -20,6 +20,8 @@ public:
 
 	ObjMatrial FindMatrial(const std::string& name);
 
+	void Draw();
+
 public:
 	std::vector<Vector3f> _positions;
 	std::vector<Vector2f> _texCoords;

@@ -56,7 +56,7 @@ void GLProgram::UseProgram() const
 
 void GLProgram::Dispatch(int x, int y, int z)
 {
-	printf("Warnning::GLProgram::Dispatch() only ComputeShader can Dispatch\n");
+	glDispatchCompute(x, y, z);
 }
 
 void GLProgram::setUniformMatrix4fv(const char* name, float* data)

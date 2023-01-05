@@ -2,7 +2,7 @@
 
 ParticleScene::ParticleScene()
 {
-	_particle = new Particle();
+	_particle = new GLComputeParticle();
 }
 
 ParticleScene::~ParticleScene()

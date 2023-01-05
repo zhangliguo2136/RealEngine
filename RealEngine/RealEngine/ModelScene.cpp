@@ -4,13 +4,13 @@
 RealEngine::ModelScene::ModelScene()
 {
 	_camera = new Camera();
-
 	_assimpModel = new AssimpModel("../Resource/models/nanosuit/nanosuit.obj");
 }
 
 RealEngine::ModelScene::~ModelScene()
 {
-
+	delete _camera;
+	delete _assimpModel;
 }
 
 void RealEngine::ModelScene::update(float deltaTime)

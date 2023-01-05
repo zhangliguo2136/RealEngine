@@ -44,6 +44,8 @@ void AssimpMesh::setupMesh()
 
 void AssimpMesh::draw(GLProgram &shader)
 {
+
+	// ÏêÇé¿É¼ûLearnOpenGL
 	unsigned int diffuseNr = 1;
 	unsigned int specularNr = 1;
 	unsigned int normalNr = 1;

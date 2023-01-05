@@ -221,3 +221,8 @@ ObjMatrial ObjModel::FindMatrial(const std::string& name)
 
 	return ObjMatrial();
 }
+
+void ObjModel::Draw()
+{
+
+}

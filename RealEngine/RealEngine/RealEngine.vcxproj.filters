@@ -321,9 +321,6 @@
     <ClCompile Include="GLShaderLoader.cpp">
       <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
     </ClCompile>
-    <ClCompile Include="GLComputeProgram.cpp">
-      <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
-    </ClCompile>
     <ClCompile Include="GLShaderCache.cpp">
       <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
     </ClCompile>
@@ -546,9 +543,6 @@
       <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
     </ClInclude>
     <ClInclude Include="GLShaderLoader.h">
-      <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
-    </ClInclude>
-    <ClInclude Include="GLComputeProgram.h">
       <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
     </ClInclude>
     <ClInclude Include="GLShaderMap.h">

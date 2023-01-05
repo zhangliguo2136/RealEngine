@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Particle.h"
+#include "GLComputeParticle.h"
 
 class ParticleScene
 {
@@ -12,5 +13,5 @@ public:
 
 private:
 	
-	Particle* _particle = nullptr;
+	GLComputeParticle* _particle = nullptr;
 };

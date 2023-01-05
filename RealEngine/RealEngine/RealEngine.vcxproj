@@ -135,7 +135,6 @@
     <ClCompile Include="GLComputeParticle.cpp" />
     <ClCompile Include="FileUtil.cpp" />
     <ClCompile Include="glad.c" />
-    <ClCompile Include="GLComputeProgram.cpp" />
     <ClCompile Include="glmCamera.cpp" />
     <ClCompile Include="GLProgram.cpp" />
     <ClCompile Include="GLShaderCache.cpp" />
@@ -204,7 +203,6 @@
     <ClInclude Include="FileUtil.h" />
     <ClInclude Include="GCObject.h" />
     <ClInclude Include="GCObjectPool.h" />
-    <ClInclude Include="GLComputeProgram.h" />
     <ClInclude Include="glmCamera.h" />
     <ClInclude Include="GLProgram.h" />
     <ClInclude Include="GLShaderCache.h" />
