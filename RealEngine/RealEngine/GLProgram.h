@@ -33,6 +33,8 @@ public:
 
 	void setUniform1i(const char* name, unsigned int i);
 
+	void setUniform2fv(const char* name, float* data);
+
 	void setUniform3fv(const char* name, float* data);
 
 	void setUniform4fv(const char* name, float* data);

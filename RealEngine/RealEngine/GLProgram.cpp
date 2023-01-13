@@ -66,6 +66,13 @@ void GLProgram::setUniformMatrix4fv(const char* name, float* data)
 	glUniformMatrix4fv(loc, 1, GL_FALSE, data);
 }
 
+void GLProgram::setUniform2fv(const char* name, float* data)
+{
+	GLuint loc = glGetUniformLocation(glProgramID, name);
+
+	glUniform2fv(loc, 1, data);
+}
+
 void GLProgram::setUniform3fv(const char* name, float* data)
 {
 	GLuint loc = glGetUniformLocation(glProgramID, name);

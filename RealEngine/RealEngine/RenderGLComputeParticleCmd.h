@@ -26,7 +26,9 @@ private:
 	const int PARTICLE_COUNT = (PARTICLE_GROUP_SIZE * PARTICLE_GROUP_COUNT);
 	const int MAX_ATTRACTORS = 64;
 
-	// Posisition and velocity buffers
+	GLuint  render_vao;
+
+	// Posisition and velocity buffers (vbo)
 	union
 	{
 		struct
@@ -37,7 +39,7 @@ private:
 		GLuint buffers[2];
 	};
 
-	// TBOs
+	// TBOs (Texture Buffer)
 	union
 	{
 		struct
@@ -48,13 +50,8 @@ private:
 		GLuint tbos[2];
 	};
 
-	// Attractor UBO
+	// Attractor UBO (uniform buffer)
 	GLuint  attractor_buffer;
-
-	// Program, vao and vbo to render a full screen quad
-	GLuint  render_prog;
-	GLuint  render_vao;
-	GLuint  render_vbo;
 
 	// Mass of the attractors
 	float attractor_masses[64];

@@ -13,14 +13,18 @@
 RenderGLComputeParticleCmd::RenderGLComputeParticleCmd()
 {
 
+	// 定义vao;
 	glGenVertexArrays(1, &render_vao);
 	glBindVertexArray(render_vao);
 
+	// 声明位置和速度缓冲
 	glGenBuffers(2, buffers);
 
+	// 初始化位置缓冲
 	glBindBuffer(GL_ARRAY_BUFFER, position_buffer);
 	glBufferData(GL_ARRAY_BUFFER, PARTICLE_COUNT * sizeof(Vector4f), NULL, GL_DYNAMIC_COPY);
 
+	// 映射位置缓冲并且使用随机向量填充
 	Vector4f* positions = (Vector4f *)glMapBufferRange(GL_ARRAY_BUFFER, 0, PARTICLE_COUNT * sizeof(Vector4f), GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT);
 	for (auto i = 0; i < PARTICLE_COUNT; i++)
 	{
@@ -33,10 +37,11 @@ RenderGLComputeParticleCmd::RenderGLComputeParticleCmd()
 	glEnableVertexAttribArray(0);
 
 
-
+	// 初始化速度缓冲
 	glBindBuffer(GL_ARRAY_BUFFER, velocity_buffer);
 	glBufferData(GL_ARRAY_BUFFER, PARTICLE_COUNT * sizeof(Vector4f), NULL, GL_DYNAMIC_COPY);
 
+	// 映射速度缓冲并且使用随机向量填充
 	Vector4f* velocities = (Vector4f *)glMapBufferRange(GL_ARRAY_BUFFER, 0, PARTICLE_COUNT * sizeof(Vector4f), GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT);
 
 	for (auto i = 0; i < PARTICLE_COUNT; i++)
@@ -48,24 +53,30 @@ RenderGLComputeParticleCmd::RenderGLComputeParticleCmd()
 
 	glUnmapBuffer(GL_ARRAY_BUFFER);
 
+	// 初始化保存位置和速度的纹理缓冲
 	glGenTextures(2, tbos);
-
 	for (auto i = 0; i < 2; i++)
 	{
 		glBindTexture(GL_TEXTURE_BUFFER, tbos[i]);
+
+		// buffer 和 target 关联
+		// (GLenum target, GLenum internalformat, GLuint buffer)
 		glTexBuffer(GL_TEXTURE_BUFFER, GL_RGBA32F, buffers[i]);
 	}
 
+	// 初始化引力器的缓冲
 	glGenBuffers(1, &attractor_buffer);
 	glBindBuffer(GL_UNIFORM_BUFFER, attractor_buffer);
 	glBufferData(GL_UNIFORM_BUFFER, 32 * sizeof(Vector4f), NULL, GL_STATIC_DRAW);
+	glBindBufferBase(GL_UNIFORM_BUFFER, 0, attractor_buffer);
 
+	// 随机初始化引力器的质量
 	for (auto i = 0; i < MAX_ATTRACTORS; i++)
 	{
 		attractor_masses[i] = 0.5f + Math::random_float() * 0.5f;
 	}
 
-	glBindBufferBase(GL_UNIFORM_BUFFER, 0, attractor_buffer);
+	glBindVertexArray(0);
 }
 
 RenderGLComputeParticleCmd::~RenderGLComputeParticleCmd()
@@ -76,19 +87,6 @@ RenderGLComputeParticleCmd::~RenderGLComputeParticleCmd()
 
 void RenderGLComputeParticleCmd::execute()
 {
-	auto renderShader = GLShaderCache::getInstance().findOrCreate("ComputeParticleRender");
-
-	//glUseProgram(render_prog);
-	renderShader->UseProgram();
-
-	float time = (100000 & 0xFFFFF) / float(0xFFFFF);
-
-	glm::mat4 mvp = glm::rotate(glm::translate(glm::perspective(45.0f, 1920.f / 1080.f, 0.1f, 1000.0f), { 0.0f, 0.0f, -20.0f }), time * 1000.0f, glm::vec3(0.0f, 1.0f, 0.0f));
-	glUniformMatrix4fv(0, 1, GL_FALSE, glm::value_ptr(mvp));
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	glDisable(GL_DEPTH_TEST);
-
 	glBindVertexArray(render_vao);
 	glEnable(GL_BLEND);
 	glBlendFunc(GL_ONE, GL_ONE);
@@ -99,6 +97,7 @@ void RenderGLComputeParticleCmd::execute()
 
 void RenderGLComputeParticleCmd::update(float deltaTime)
 {
+	// 更新引力器的位置和质量的缓冲
 	Vector4f * attractors = (Vector4f *)glMapBufferRange(GL_UNIFORM_BUFFER, 0, 32 * sizeof(Vector4f), GL_MAP_WRITE_BIT | GL_MAP_INVALIDATE_BUFFER_BIT);
 
 	float time = (-100000 & 0xFFFFF) / float(0xFFFFF);
@@ -109,23 +108,32 @@ void RenderGLComputeParticleCmd::update(float deltaTime)
 			sinf(time * (float)(i + 3) * 5.3f * 20.0f) * cosf(time * (float)(i + 5) * 9.1f) * 100.0f,
 			attractor_masses[i]);
 	}
-
 	glUnmapBuffer(GL_UNIFORM_BUFFER);
 
-	// Activate the compute program and bind the position and velocity buffers
-	//glUseProgram(compute_prog);
+
+	// 激活计算着色器
 	auto computeShader = GLShaderCache::getInstance().findOrCreate("ComputeParticle");
 	computeShader->UseProgram();
 
+	// 绑定位置和速度缓冲
 	glBindImageTexture(0, velocity_tbo, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
 	glBindImageTexture(1, position_tbo, 0, GL_FALSE, 0, GL_READ_WRITE, GL_RGBA32F);
 	
-	// Set delta time
+	// 设置时间间隔
 	auto dt_location = glGetUniformLocation(computeShader->getProgramID(), "dt");
 	glUniform1f(dt_location, deltaTime);
 
-	// Dispatch
+	// 执行计算着色器
 	computeShader->Dispatch(PARTICLE_GROUP_COUNT, 1, 1);
 
+	// 确保计算着色器的写入操作已经完成
 	glMemoryBarrier(GL_SHADER_IMAGE_ACCESS_BARRIER_BIT);
+
+
+	// 渲染粒子到屏幕
+	auto renderShader = GLShaderCache::getInstance().findOrCreate("ComputeParticleRender");
+	renderShader->UseProgram();
+
+	glm::mat4 mvp = glm::rotate(glm::translate(glm::perspective(45.0f, 1920.f / 1080.f, 0.1f, 1000.0f), { 0.0f, 0.0f, -160.0f }), time * 1000.0f, glm::vec3(0.0f, 1.0f, 0.0f));
+	renderShader->setUniformMatrix4fv("mvp", glm::value_ptr(mvp));
 }

@@ -127,6 +127,9 @@
     <Filter Include="源文件\Framework\Graphics\Shaders\GL">
       <UniqueIdentifier>{74e4f383-dcab-4ef0-8207-53774667adfa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\Graphics\Command\Base">
+      <UniqueIdentifier>{49edc44c-7e29-4a66-ae82-a0da9c238677}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WindowsApplication.cpp">
@@ -228,9 +231,6 @@
     <ClCompile Include="Bezier.cpp">
       <Filter>源文件\Framework\Base\Component</Filter>
     </ClCompile>
-    <ClCompile Include="RenderQueue.cpp">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClCompile>
     <ClCompile Include="RenderTextureCmd.cpp">
       <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClCompile>
@@ -306,9 +306,6 @@
     <ClCompile Include="RenderParticleCmd.cpp">
       <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClCompile>
-    <ClCompile Include="RenderCommand.cpp">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClCompile>
     <ClCompile Include="GLComputeParticle.cpp">
       <Filter>源文件\Framework\Scene\Particle</Filter>
     </ClCompile>
@@ -323,6 +320,18 @@
     </ClCompile>
     <ClCompile Include="GLShaderCache.cpp">
       <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="RayTraceScene.cpp">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderPathTracingCmd.cpp">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderCommand.cpp">
+      <Filter>源文件\Framework\Graphics\Command\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderQueue.cpp">
+      <Filter>源文件\Framework\Graphics\Command\Base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -443,9 +452,6 @@
     <ClInclude Include="Bezier.h">
       <Filter>源文件\Framework\Base\Component</Filter>
     </ClInclude>
-    <ClInclude Include="RenderQueue.h">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClInclude>
     <ClInclude Include="RenderTextureCmd.h">
       <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClInclude>
@@ -530,9 +536,6 @@
     <ClInclude Include="Canvas.h">
       <Filter>源文件\Framework\UI\Component</Filter>
     </ClInclude>
-    <ClInclude Include="RenderCommand.h">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClInclude>
     <ClInclude Include="GLComputeParticle.h">
       <Filter>源文件\Framework\Scene\Particle</Filter>
     </ClInclude>
@@ -550,6 +553,18 @@
     </ClInclude>
     <ClInclude Include="GLShaderCache.h">
       <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="RayTraceScene.h">
+      <Filter>源文件\Framework\Test</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderPathTracingCmd.h">
+      <Filter>源文件\Framework\Graphics\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderCommand.h">
+      <Filter>源文件\Framework\Graphics\Command\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderQueue.h">
+      <Filter>源文件\Framework\Graphics\Command\Base</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,6 +11,7 @@
 #include "OITScene.h"
 #include "TextScene.h"
 #include "ParticleScene.h"
+#include "RayTraceScene.h"
 
 namespace RealEngine 
 {
@@ -41,6 +42,6 @@ namespace RealEngine
 		long long _lastTime = 0;
 
 	private:
-		ParticleScene* _scene = nullptr;
+		RayTraceScene* _scene = nullptr;
 	};
 }

@@ -24,5 +24,7 @@ namespace GLShaderMap
 		std::pair<std::string, GLShaderFiles>("ComputeParticleRender",	GLShaderFiles("ComputeParticleRender.vs", "ComputeParticleRender.fs",		"",		"")),
 		std::pair<std::string, GLShaderFiles>("Model",	GLShaderFiles("Model.vs", "Model.fs",		"",		"")),
 		std::pair<std::string, GLShaderFiles>("ParticlePoint_Test",	GLShaderFiles("ParticlePoint_Test.vs", "ParticlePoint_Test.fs",		"",		"")),
+
+		std::pair<std::string, GLShaderFiles>("PathTracing",	GLShaderFiles("PathTracing.vs", "PathTracing.fs",		"",		"")),
 	};
 }

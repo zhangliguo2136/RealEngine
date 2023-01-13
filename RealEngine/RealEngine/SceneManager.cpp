@@ -7,7 +7,7 @@
 RealEngine::SceneManager::SceneManager() 
 {
 	_lastTime = getMillSecondTime();
-	_scene = new ParticleScene();
+	_scene = new RayTraceScene();
 }
 RealEngine::SceneManager::~SceneManager() 
 {
