@@ -8,11 +8,11 @@
 
 using namespace RealEngine;
 
-namespace RealEngine
-{
-	OpenglApplication g_App;
-	IApplication* g_pApp = &g_App;
-}
+//namespace RealEngine
+//{
+//	OpenglApplication g_App;
+//	IApplication* g_pApp = &g_App;
+//}
 
 int RealEngine::OpenglApplication::Initialize() 
 {

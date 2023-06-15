@@ -130,6 +130,21 @@
     <Filter Include="源文件\Framework\Graphics\Command\Base">
       <UniqueIdentifier>{49edc44c-7e29-4a66-ae82-a0da9c238677}</UniqueIdentifier>
     </Filter>
+    <Filter Include="源文件\Framework\Graphics\Command\GL">
+      <UniqueIdentifier>{1cf80474-ef3e-4564-9c99-97b3b223461e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Graphics\Command\DX">
+      <UniqueIdentifier>{7acbc5f4-c784-492c-b15d-8631ad52cfba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Graphics\Driver\DX12">
+      <UniqueIdentifier>{e584ffeb-7af0-432d-b0ae-865469ef2694}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Graphics\Driver\GL">
+      <UniqueIdentifier>{4afa5bf2-c29c-42e4-914a-7ce28d7fd584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Framework\Graphics\Shaders\DX">
+      <UniqueIdentifier>{655a0acd-fb85-408e-b345-58b4dfc7c8f1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WindowsApplication.cpp">
@@ -225,17 +240,8 @@
     <ClCompile Include="RenderSystem.cpp">
       <Filter>源文件\Framework\Graphics</Filter>
     </ClCompile>
-    <ClCompile Include="OpenglDriver.cpp">
-      <Filter>源文件\Framework\Graphics\Driver</Filter>
-    </ClCompile>
     <ClCompile Include="Bezier.cpp">
       <Filter>源文件\Framework\Base\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderTextureCmd.cpp">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderTextCmd.cpp">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClCompile>
     <ClCompile Include="Image2D.cpp">
       <Filter>源文件\Framework\UI\Component\Image</Filter>
@@ -303,14 +309,8 @@
     <ClCompile Include="Canvas.cpp">
       <Filter>源文件\Framework\UI\Component</Filter>
     </ClCompile>
-    <ClCompile Include="RenderParticleCmd.cpp">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClCompile>
     <ClCompile Include="GLComputeParticle.cpp">
       <Filter>源文件\Framework\Scene\Particle</Filter>
-    </ClCompile>
-    <ClCompile Include="RenderGLComputeParticleCmd.cpp">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClCompile>
     <ClCompile Include="GLProgram.cpp">
       <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
@@ -324,14 +324,32 @@
     <ClCompile Include="RayTraceScene.cpp">
       <Filter>源文件\Framework\Test</Filter>
     </ClCompile>
-    <ClCompile Include="RenderPathTracingCmd.cpp">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClCompile>
     <ClCompile Include="RenderCommand.cpp">
       <Filter>源文件\Framework\Graphics\Command\Base</Filter>
     </ClCompile>
     <ClCompile Include="RenderQueue.cpp">
       <Filter>源文件\Framework\Graphics\Command\Base</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderParticleCmd.cpp">
+      <Filter>源文件\Framework\Graphics\Command\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderPathTracingCmd.cpp">
+      <Filter>源文件\Framework\Graphics\Command\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTextCmd.cpp">
+      <Filter>源文件\Framework\Graphics\Command\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderTextureCmd.cpp">
+      <Filter>源文件\Framework\Graphics\Command\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderGLComputeParticleCmd.cpp">
+      <Filter>源文件\Framework\Graphics\Command\GL</Filter>
+    </ClCompile>
+    <ClCompile Include="DXRenderTriangleCmd.cpp">
+      <Filter>源文件\Framework\Graphics\Command\DX</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenglDriver.cpp">
+      <Filter>源文件\Framework\Graphics\Driver\GL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -446,17 +464,8 @@
     <ClInclude Include="RenderSystem.h">
       <Filter>源文件\Framework\Graphics</Filter>
     </ClInclude>
-    <ClInclude Include="OpenglDriver.h">
-      <Filter>源文件\Framework\Graphics\Driver</Filter>
-    </ClInclude>
     <ClInclude Include="Bezier.h">
       <Filter>源文件\Framework\Base\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderTextureCmd.h">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClInclude>
-    <ClInclude Include="RenderTextCmd.h">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
     </ClInclude>
     <ClInclude Include="GCObjectPool.h">
       <Filter>源文件\Framework\GC\MarkAndClear</Filter>
@@ -503,9 +512,6 @@
     <ClInclude Include="TextureGLCache.h">
       <Filter>源文件\Framework\Scene\Texture\GL</Filter>
     </ClInclude>
-    <ClInclude Include="RenderParticleCmd.h">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClInclude>
     <ClInclude Include="Vector.h">
       <Filter>源文件\Framework\Base\Math</Filter>
     </ClInclude>
@@ -539,9 +545,6 @@
     <ClInclude Include="GLComputeParticle.h">
       <Filter>源文件\Framework\Scene\Particle</Filter>
     </ClInclude>
-    <ClInclude Include="RenderGLComputeParticleCmd.h">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClInclude>
     <ClInclude Include="GLProgram.h">
       <Filter>源文件\Framework\Graphics\Shaders\GL</Filter>
     </ClInclude>
@@ -557,14 +560,35 @@
     <ClInclude Include="RayTraceScene.h">
       <Filter>源文件\Framework\Test</Filter>
     </ClInclude>
-    <ClInclude Include="RenderPathTracingCmd.h">
-      <Filter>源文件\Framework\Graphics\Command</Filter>
-    </ClInclude>
     <ClInclude Include="RenderCommand.h">
       <Filter>源文件\Framework\Graphics\Command\Base</Filter>
     </ClInclude>
     <ClInclude Include="RenderQueue.h">
       <Filter>源文件\Framework\Graphics\Command\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="d3dx12.h">
+      <Filter>源文件\Platform\Win</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTextureCmd.h">
+      <Filter>源文件\Framework\Graphics\Command\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderGLComputeParticleCmd.h">
+      <Filter>源文件\Framework\Graphics\Command\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderParticleCmd.h">
+      <Filter>源文件\Framework\Graphics\Command\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderPathTracingCmd.h">
+      <Filter>源文件\Framework\Graphics\Command\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderTextCmd.h">
+      <Filter>源文件\Framework\Graphics\Command\GL</Filter>
+    </ClInclude>
+    <ClInclude Include="DXRenderTriangleCmd.h">
+      <Filter>源文件\Framework\Graphics\Command\DX</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenglDriver.h">
+      <Filter>源文件\Framework\Graphics\Driver\GL</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

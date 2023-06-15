@@ -77,7 +77,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <ConformanceMode>true</ConformanceMode>
+      <ConformanceMode>false</ConformanceMode>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,6 +132,7 @@
     <ClCompile Include="BaseApplication.cpp" />
     <ClCompile Include="Bezier.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="DXRenderTriangleCmd.cpp" />
     <ClCompile Include="GLComputeParticle.cpp" />
     <ClCompile Include="FileUtil.cpp" />
     <ClCompile Include="glad.c" />
@@ -201,6 +202,8 @@
     <ClInclude Include="BaseApplication.h" />
     <ClInclude Include="Bezier.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="d3dx12.h" />
+    <ClInclude Include="DXRenderTriangleCmd.h" />
     <ClInclude Include="GLComputeParticle.h" />
     <ClInclude Include="FileUtil.h" />
     <ClInclude Include="GCObject.h" />
