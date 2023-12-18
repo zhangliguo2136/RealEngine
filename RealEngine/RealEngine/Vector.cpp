@@ -88,3 +88,7 @@ Vector4f Vector4f::operator*(Matrix4 &mat) const
 	vec4.w = newData[3];
 	return vec4;
 }
+
+
+const TVector3f TVector3f::Zero = { 0.f, 0.f, 0.f };
+const TVector3f TVector3f::One = { 1.f, 1.f, 1.f };

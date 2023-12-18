@@ -85,6 +85,11 @@ public:
 			float x, y, z;
 		};
 	};
+
+public:
+	// Constants
+	static const Vector3f Zero;
+	static const Vector3f One;
 };
 
 class Vector3i
@@ -128,3 +133,13 @@ public:
 		};
 	};
 };
+
+
+typedef Vector2f TVector2f;
+typedef Vector2i TVector2i;
+typedef Vector2d TVector2d;
+
+typedef Vector3f TVector3f;
+typedef Vector3i TVector3i;
+
+typedef Vector4f TVector4f;

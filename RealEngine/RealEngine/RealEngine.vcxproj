@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Allocator.cpp" />
     <ClCompile Include="AutoreleasePool.cpp" />
     <ClCompile Include="BaseApplication.cpp" />
     <ClCompile Include="Bezier.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Component.cpp" />
     <ClCompile Include="DXRenderTriangleCmd.cpp" />
     <ClCompile Include="GLComputeParticle.cpp" />
     <ClCompile Include="FileUtil.cpp" />
@@ -141,13 +143,18 @@
     <ClCompile Include="GLShaderCache.cpp" />
     <ClCompile Include="GLShaderLoader.cpp" />
     <ClCompile Include="Image2D.cpp" />
+    <ClCompile Include="InputLayout.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="Material.cpp" />
+    <ClCompile Include="MaterialInstance.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="AssimpMesh.cpp" />
     <ClCompile Include="AssimpModel.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Node.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ObjLoader.cpp" />
     <ClCompile Include="ObjMatrial.cpp" />
     <ClCompile Include="ObjMesh.cpp" />
     <ClCompile Include="ObjModel.cpp" />
@@ -183,6 +190,7 @@
     <ClCompile Include="RenderTextureCmd.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="ScriptEngine.cpp" />
+    <ClCompile Include="Shader.cpp" />
     <ClCompile Include="Text.cpp" />
     <ClCompile Include="TextScene.cpp" />
     <ClCompile Include="TextureGL.cpp" />
@@ -192,16 +200,20 @@
     <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="TimeUtils.cpp" />
     <ClCompile Include="Canvas.cpp" />
+    <ClCompile Include="Transform.cpp" />
     <ClCompile Include="UISystem.cpp" />
     <ClCompile Include="Vector.cpp" />
+    <ClCompile Include="VertexBuffer.cpp" />
     <ClCompile Include="WindowsApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Actor.h" />
     <ClInclude Include="Allocator.h" />
     <ClInclude Include="AutoreleasePool.h" />
     <ClInclude Include="BaseApplication.h" />
     <ClInclude Include="Bezier.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="Component.h" />
     <ClInclude Include="d3dx12.h" />
     <ClInclude Include="DXRenderTriangleCmd.h" />
     <ClInclude Include="GLComputeParticle.h" />
@@ -212,16 +224,21 @@
     <ClInclude Include="GLProgram.h" />
     <ClInclude Include="GLShaderCache.h" />
     <ClInclude Include="GLShaderLoader.h" />
+    <ClInclude Include="InputLayout.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="Material.h" />
+    <ClInclude Include="MaterialInstance.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="AssimpMesh.h" />
     <ClInclude Include="AssimpModel.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeObject.h" />
     <ClInclude Include="NonCopyable.h" />
     <ClInclude Include="NonMovable.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="ObjLoader.h" />
     <ClInclude Include="ObjMatrial.h" />
     <ClInclude Include="ObjMesh.h" />
     <ClInclude Include="ObjModel.h" />
@@ -262,6 +279,7 @@
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="ScriptEngine.h" />
     <ClInclude Include="GLShaderMap.h" />
+    <ClInclude Include="Shader.h" />
     <ClInclude Include="Text.h" />
     <ClInclude Include="TextScene.h" />
     <ClInclude Include="TextureGL.h" />
@@ -272,8 +290,11 @@
     <ClInclude Include="TimeUtils.h" />
     <ClInclude Include="Image2D.h" />
     <ClInclude Include="Canvas.h" />
+    <ClInclude Include="Transform.h" />
     <ClInclude Include="UISystem.h" />
     <ClInclude Include="Vector.h" />
+    <ClInclude Include="Vertex.h" />
+    <ClInclude Include="VertexBuffer.h" />
     <ClInclude Include="WindowsApplication.h" />
     <ClInclude Include="ModelScene.h" />
   </ItemGroup>

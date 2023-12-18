@@ -29,6 +29,9 @@ public:
 
 public:
 	float* data();
+
 private:
 	float _values[16];
 };
+
+typedef Matrix4 TMatrix;

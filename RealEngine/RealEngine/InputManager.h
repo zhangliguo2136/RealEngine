@@ -38,8 +38,8 @@ namespace RealEngine
 	private:
 		std::vector<int> _keys;
 
-		double _currCursorX;
-		double _currCursorY;
+		double _currCursorX = 0.f;
+		double _currCursorY = 0.f;
 
 		double _currScrollX = 0.0;
 		double _currScrollY = 0.0;
